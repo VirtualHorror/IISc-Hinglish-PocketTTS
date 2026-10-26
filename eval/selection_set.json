@@ -1,0 +1,362 @@
+[
+ {
+  "utt_id": "indictts_hindi_train_hindifemale_02476",
+  "speaker": "indictts_hindi_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifemale_02476.wav",
+  "duration_s": 5.02,
+  "text": {
+   "deva": "लेकिन उनका जवाब था, कि कैसे भूल जाएँ, इन्साफ़ होगा, तो भूल जाएंगे.",
+   "roman": "Lekin unka javaab tha, ki kaise bhool jaayen, insaaf hoga, to bhool jaayenge.",
+   "cs": "लेकिन उनका जवाब था, कि कैसे भूल जाएँ, इन्साफ़ होगा, तो भूल जाएंगे."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifullfemale_01999",
+  "speaker": "indictts_hindifull_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifullfemale_01999.wav",
+  "duration_s": 4.1,
+  "text": {
+   "deva": "उन्होंने बीरबल की बेटी को देखा, तथा उसका स्वागत किया.",
+   "roman": "Unhonne beerbal ki beti ko dekha, tatha uska svaagat kiya.",
+   "cs": "उन्होंने बीरबल की बेटी को देखा, तथा उसका स्वागत किया."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_male_sample_285",
+  "speaker": "syspin_hindi_male",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_male_sample_285.wav",
+  "duration_s": 4.5,
+  "text": {
+   "deva": "मनाली में बीते साल दिसंबर में भारी हिमपात दर्ज हुआ है.",
+   "roman": "Manaali mein beete saal disambar mein bhaari himpaat darj hua hai.",
+   "cs": "मनाली में बीते साल दिसंबर में भारी हिमपात दर्ज हुआ है."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifemale_02642",
+  "speaker": "indictts_hindi_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifemale_02642.wav",
+  "duration_s": 3.44,
+  "text": {
+   "deva": "इसकी सबसे अच्छी मिसाल हैं, फ़िलिप नाम के शख़्स.",
+   "roman": "Iski sabse acchi misaal hain, filip naam ke shakhs.",
+   "cs": "इसकी सबसे अच्छी मिसाल हैं, फ़िलिप नाम के शख़्स."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindimale_00697",
+  "speaker": "indictts_hindi_male",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindimale_00697.wav",
+  "duration_s": 4.98,
+  "text": {
+   "deva": "पर अब माँ की अस्वस्थता की वजह से, उसे जोधपुर पोस्टिंग करवानी पडी.",
+   "roman": "Par ab maan ki asvasthata ki wajah se, use jodhpur posting karvaani padi.",
+   "cs": "पर अब माँ की अस्वस्थता की वजह से, उसे जोधपुर पोस्टिंग करवानी पडी."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifullmale_03510",
+  "speaker": "indictts_hindifull_male",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifullmale_03510.wav",
+  "duration_s": 3.2,
+  "text": {
+   "deva": "इंदिरा गाँधी की नज़रें, फ़ाइलों पर नीचे गड़ी हुई थीं.",
+   "roman": "Indira gaandhi ki nazren, faailon par neeche gadi hui theen.",
+   "cs": "इंदिरा गाँधी की नज़रें, फ़ाइलों पर नीचे गड़ी हुई थीं."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindimale_01009",
+  "speaker": "indictts_hindi_male",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindimale_01009.wav",
+  "duration_s": 5.62,
+  "text": {
+   "deva": "मैंने, शिथिल होकर खबर दी थी, कि मुझे तीसरा महीना चढ़ा है.",
+   "roman": "Mainne, shithil hokar khabar di thi, ki mujhe teesra maheena chadha hai.",
+   "cs": "मैंने, शिथिल होकर खबर दी थी, कि मुझे तीसरा महीना चढ़ा है."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifemale_02218",
+  "speaker": "indictts_hindi_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifemale_02218.wav",
+  "duration_s": 3.54,
+  "text": {
+   "deva": "वे तोते हर रोज़ सुबह हज़ारों मील की यात्रा पर जाते.",
+   "roman": "Ve tote har roz subah hazaaron meel ki yaatra par jaate.",
+   "cs": "वे तोते हर रोज़ सुबह हज़ारों मील की यात्रा पर जाते."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifemale_01418",
+  "speaker": "indictts_hindi_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifemale_01418.wav",
+  "duration_s": 5.48,
+  "text": {
+   "deva": "उस अलौकिक प्राणी ने कहा, और एक दूसरे विडियो के साथ, वह अदृश्य हो गई.",
+   "roman": "Us alaukik praani ne kaha, aur ek doosre vidiyo ke saath, woh adrishya ho gayi.",
+   "cs": "उस अलौकिक प्राणी ने कहा, और एक दूसरे विडियो के साथ, वह अदृश्य हो गई."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_female_sample_11222",
+  "speaker": "syspin_hindi_female",
+  "language": "hi",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_female_sample_11222.wav",
+  "duration_s": 6.38,
+  "text": {
+   "deva": "ब्रौनकियल नलियाँ, या ब्रौन्काई, श्वास की नली को फेफड़ों के साथ जोड़ती हैं.",
+   "roman": "Braunkiyal naliyan, ya braunkaayi, shvaas ki nali ko phephdon ke saath jodti hain.",
+   "cs": "ब्रौनकियल नलियाँ, या ब्रौन्काई, श्वास की नली को फेफड़ों के साथ जोड़ती हैं."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullmale_01728",
+  "speaker": "indictts_hindifull_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullmale_01728.wav",
+  "duration_s": 3.38,
+  "text": {
+   "deva": "ही सेज़ ही बॉट हिम ऑफ़ ज़ाक ला बो.",
+   "roman": "He says he bought him of Jacques Le Beau.",
+   "cs": "He says he bought him of Jacques Le Beau."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullmale_01480",
+  "speaker": "indictts_hindifull_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullmale_01480.wav",
+  "duration_s": 4.04,
+  "text": {
+   "deva": "द वाइज़ इंडीड से, वन शुड नॉट बिल्ड कैसल्ज़ इन द एर.",
+   "roman": "The wise indeed say, One should not build castles in the air.",
+   "cs": "The wise indeed say, One should not build castles in the air."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullmale_01525",
+  "speaker": "indictts_hindifull_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullmale_01525.wav",
+  "duration_s": 4.14,
+  "text": {
+   "deva": "फ़ॉर द ट्वेंटिअथ टाइम दैट ईव्निंग द टू मेन शुक हैंड्ज़.",
+   "roman": "For the twentieth time that evening the two men shook hands.",
+   "cs": "For the twentieth time that evening the two men shook hands."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullfemale_03586",
+  "speaker": "indictts_hindifull_female",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullfemale_03586.wav",
+  "duration_s": 3.66,
+  "text": {
+   "deva": "द मंकी सर्व्ड द किंग इन वटेवर वे ही कुड.",
+   "roman": "The monkey served the king in whatever way he could.",
+   "cs": "The monkey served the king in whatever way he could."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_rajasthanifemale_00057",
+  "speaker": "indictts_rajasthani_female",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_rajasthanifemale_00057.wav",
+  "duration_s": 3.38,
+  "text": {
+   "deva": "आई हैव नो आइडीआ, रिप्लाइड फ़िलप.",
+   "roman": "I have no idea, replied Philip.",
+   "cs": "I have no idea, replied Philip."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_marathimale_00354",
+  "speaker": "indictts_marathi_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_marathimale_00354.wav",
+  "duration_s": 4.16,
+  "text": {
+   "deva": "आई कैंट आर्ग्यू विद यू, एंड यू नो दैट.",
+   "roman": "I can't argue with you, and you know that.",
+   "cs": "I can't argue with you, and you know that."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullfemale_06163",
+  "speaker": "indictts_hindifull_female",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullfemale_06163.wav",
+  "duration_s": 4.06,
+  "text": {
+   "deva": "अलॉंग विद देम, ही स्टार्टिड सर्विंग ऐट द रॉइअल हाउस्होल्ड.",
+   "roman": "Along with them, he started serving at the royal household.",
+   "cs": "Along with them, he started serving at the royal household."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_hindifullmale_06510",
+  "speaker": "indictts_hindifull_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_hindifullmale_06510.wav",
+  "duration_s": 3.16,
+  "text": {
+   "deva": "द फ़र्स्ट पीस विल हेल्प अस मीट आवर डेली नीड्ज़.",
+   "roman": "The first piece will help us meet our daily needs.",
+   "cs": "The first piece will help us meet our daily needs."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_rajasthanimale_00021",
+  "speaker": "indictts_rajasthani_male",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_rajasthanimale_00021.wav",
+  "duration_s": 3.08,
+  "text": {
+   "deva": "इट फ़ेर्ली क्लब्ड मी इंटू रेकगनाइज़िंग इट.",
+   "roman": "It fairly clubbed me into recognizing it.",
+   "cs": "It fairly clubbed me into recognizing it."
+  }
+ },
+ {
+  "utt_id": "indictts_english_train_rajasthanifemale_03732",
+  "speaker": "indictts_rajasthani_female",
+  "language": "en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_english_train_rajasthanifemale_03732.wav",
+  "duration_s": 7.48,
+  "text": {
+   "deva": "वी आर नाउ लिविंग इन द एज ऑफ़ काली, एंड एज इन व्हिच एव्रिवन इज़ अ बोर्न सिनर.",
+   "roman": "We are now living in the age of kali, and age in which everyone is a born sinner.",
+   "cs": "We are now living in the age of kali, and age in which everyone is a born sinner."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_503577_Ym6wFcvsJRHzm4yq_0037",
+  "speaker": "openslr104_503577_Ym6wFcvsJRHzm4yq",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_503577_Ym6wFcvsJRHzm4yq_0037.wav",
+  "duration_s": 4.52,
+  "text": {
+   "deva": "जब आप पहले आइड लॉंच करते हैं तो यह नेत्बेअंस स्टार्ट पेज खोलता है.",
+   "roman": "Jab aap pehle ide launch karte hain to yeh netbeans start page kholta hai.",
+   "cs": "जब आप पहले ide launch करते हैं तो यह netbeans start पेज खोलता है."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifullfemale_03667",
+  "speaker": "indictts_hindifull_female",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifullfemale_03667.wav",
+  "duration_s": 3.0,
+  "text": {
+   "deva": "एस्टर ने मौत के कुछ घंटे पहले ही वोट दे दिया.",
+   "roman": "Esther ne maut ke kuch ghante pehle hi vot de diya.",
+   "cs": "Esther ने मौत के कुछ घंटे पहले ही वोट दे दिया."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_283968_KIW3IG6NFcUd1PXR_0032",
+  "speaker": "openslr104_283968_KIW3IG6NFcUd1PXR",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_283968_KIW3IG6NFcUd1PXR_0032.wav",
+  "duration_s": 6.56,
+  "text": {
+   "deva": "इसी तरह इंवॉइस प्राइसज़ आर के लिए कोहा डिफॉल्ट रूप से रुपी चुनता है.",
+   "roman": "Isi tarah invoice prices are ke liye koha default roop se rupee chunta hai.",
+   "cs": "इसी तरह invoice prices are के लिए koha डिफॉल्ट रूप से rupee चुनता है."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_male_sample_12503",
+  "speaker": "syspin_hindi_male",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_male_sample_12503.wav",
+  "duration_s": 6.92,
+  "text": {
+   "deva": "रेडियो पर ये कमेंट्री एक ब्रिटिश स्टेटिशियन (सांख्यिकीविद) फ्र्यांक डकवर्थ भी सुन रहे थे.",
+   "roman": "Radio par ye kamentri ek british stetishiyan (saankhyikeevid) phryaank duckworth bhi sun rahe the.",
+   "cs": "Radio पर ये कमेंट्री एक ब्रिटिश स्टेटिशियन (सांख्यिकीविद) फ्र्यांक duckworth भी सुन रहे थे."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_793133_HMFm7Xu9SeBxybV1_0025",
+  "speaker": "openslr104_793133_HMFm7Xu9SeBxybV1",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_793133_HMFm7Xu9SeBxybV1_0025.wav",
+  "duration_s": 6.18,
+  "text": {
+   "deva": "अब अपनी शीट में डेज़ नेम्ड नाउ हेडिंग प्रविष्ट करें.",
+   "roman": "Ab apni sheet mein days named now heading pravisht karen.",
+   "cs": "अब अपनी sheet में days named now heading प्रविष्ट करें."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_277289_Z9cD5IbaDytwMt6R_0000",
+  "speaker": "openslr104_277289_Z9cD5IbaDytwMt6R",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_277289_Z9cD5IbaDytwMt6R_0000.wav",
+  "duration_s": 4.5,
+  "text": {
+   "deva": "जावा में नुमेरकल डेटाटाइप पर स्पोकन ट्यूटोरियल में आपका स्वागत है.",
+   "roman": "Java mein numerical detaataaip par spoken tutorial mein aapka svaagat hai.",
+   "cs": "Java में numerical डेटाटाइप पर spoken tutorial में आपका स्वागत है."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_female_sample_11218",
+  "speaker": "syspin_hindi_female",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_female_sample_11218.wav",
+  "duration_s": 8.16,
+  "text": {
+   "deva": "हमें अपना सुरक्षातंत्र मज़बूत करने के लिए डिफ़ेंस बज़ट बढ़ाने की ज़रूरत है लेकिन इसके लिए राजस्व को बढ़ाना होगा.",
+   "roman": "Hamen apna surakshaatantra mazboot karne ke liye defense bazat badhaane ki zaroorat hai lekin iske liye raajasva ko badhaana hoga.",
+   "cs": "हमें अपना सुरक्षातंत्र मज़बूत करने के लिए defense बज़ट बढ़ाने की ज़रूरत है लेकिन इसके लिए राजस्व को बढ़ाना होगा."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_126437_RYJ2gSQyCu0PM2cq_0066",
+  "speaker": "openslr104_126437_RYJ2gSQyCu0PM2cq",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_126437_RYJ2gSQyCu0PM2cq_0066.wav",
+  "duration_s": 3.56,
+  "text": {
+   "deva": "इंटजर एक क्लैस है और पर्सेंत इसका मेथड है.",
+   "roman": "Integer ek class hai aur parseint iska method hai.",
+   "cs": "Integer एक class है और parseint इसका method है."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_518517_i7hdc0miWtsXu5vj_0030",
+  "speaker": "openslr104_518517_i7hdc0miWtsXu5vj",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_518517_i7hdc0miWtsXu5vj_0030.wav",
+  "duration_s": 3.98,
+  "text": {
+   "deva": "अब सीखते हैं कि इमज का आकार और रूप कैसे बदलें.",
+   "roman": "Ab seekhte hain ki image ka aakaar aur roop kaise badlen.",
+   "cs": "अब सीखते हैं कि image का आकार और रूप कैसे बदलें."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_262158_ApzjEg6YUzqQtEnL_0003",
+  "speaker": "openslr104_262158_ApzjEg6YUzqQtEnL",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_262158_ApzjEg6YUzqQtEnL_0003.wav",
+  "duration_s": 3.32,
+  "text": {
+   "deva": "इस ट्यूटोरियल में हम देखेंगे कि रेग्यलर फ़ाइल्स को कैसे संभालें.",
+   "roman": "Is tutorial mein hum dekhenge ki regular files ko kaise sambhaalen.",
+   "cs": "इस tutorial में हम देखेंगे कि regular files को कैसे संभालें."
+  }
+ }
+]

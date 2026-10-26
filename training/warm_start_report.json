@@ -1,0 +1,120 @@
+{
+  "config": "configs/finetune_hinglish.yaml",
+  "teacher": "kyutai/english_2026-04_24l",
+  "dead_row_norm": 0.05,
+  "teacher_trained_rows": 3576,
+  "random_sigma": 0.01496,
+  "helper": {
+    "name": "Indus-Labs/indus-pocket-tts",
+    "accepted": false,
+    "min_heldout_cos": 0.3,
+    "scale": 0.15300339460372925,
+    "n_anchors": 800,
+    "heldout_cos": 0.0529,
+    "shuffled_cos": 0.0059,
+    "raw_cos": 0.0065
+  },
+  "pieces": 4000,
+  "by_source": {
+    "random": 200,
+    "exact": 868,
+    "transliterated": 1863,
+    "decomposed": 1069
+  },
+  "by_script_and_source": {
+    "control/exact": 63,
+    "control/random": 197,
+    "devanagari/random": 3,
+    "devanagari/transliterated": 1863,
+    "latin/other/decomposed": 1069,
+    "latin/other/exact": 805
+  },
+  "row_norm": {
+    "mean": 0.6121,
+    "median": 0.6387,
+    "p95": 0.758
+  },
+  "teacher_row_norm": {
+    "mean": 0.4575,
+    "median": 0.4552
+  },
+  "examples": {
+    "random": [
+      "<unk>",
+      "<s>",
+      "</s>",
+      "<pad>",
+      "<0x00>",
+      "<0x01>",
+      "<0x02>",
+      "<0x03>",
+      "<0x04>",
+      "<0x05>",
+      "<0x06>",
+      "<0x07>"
+    ],
+    "exact": [
+      ".",
+      ",",
+      "?",
+      "!",
+      ";",
+      ":",
+      "<0x23>",
+      "<0x28>",
+      "<0x29>",
+      "<0x2B>",
+      "<0x2F>",
+      "<0x3C>"
+    ],
+    "transliterated": [
+      "▁के ke -> ▁ ke",
+      "▁है hai -> ▁ha i",
+      "▁में mein -> ▁me in",
+      "▁पर par -> ▁par",
+      "▁और aur -> ▁a ur",
+      "▁हैं hain -> ▁ha in",
+      "▁को ko -> ▁ ko",
+      "▁करें karen -> ▁ ka ren",
+      "ल la -> la",
+      "र ra -> ra",
+      "▁से se -> ▁se",
+      "▁की ki -> ▁ ki"
+    ],
+    "decomposed": [
+      "▁ke ▁ ke",
+      "▁hai ▁ha i",
+      "▁mein ▁me in",
+      "▁ki ▁ ki",
+      "▁aur ▁a ur",
+      "▁ko ▁ ko",
+      "▁hain ▁ha in",
+      "▁ka ▁ ka",
+      "▁karen ▁ ka ren",
+      "▁liye ▁li y e",
+      "▁ek ▁ ek",
+      "▁tutor ▁tu tor"
+    ]
+  },
+  "step0_validation": {
+    "manifest": "~/vaani_pocket_tts_work/data/manifests/valid_mix_aligned.jsonl",
+    "batches": 40,
+    "batch_size": 16,
+    "scores": {
+      "official_reset_N(0,1)": {
+        "flow_diag": 18.5222,
+        "flow_distill": 0.2744,
+        "flow_loss": 0.4363,
+        "eos_loss": 0.1736,
+        "loss": 0.4536
+      },
+      "warm_start_teacher_only": {
+        "flow_diag": 17.3486,
+        "flow_distill": 0.249,
+        "flow_loss": 0.4086,
+        "eos_loss": 0.123,
+        "loss": 0.4209
+      }
+    }
+  }
+}

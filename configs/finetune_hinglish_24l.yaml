@@ -1,4 +1,8 @@
-# Session 2 starting point: training/configs/finetune_language.yaml (pocket-tts 2dae420) adapted to this
+# SUPERSEDED by configs/finetune_hinglish.yaml (Session 2: warm-started text table, staged differential
+# learning rates; this plain recipe was still unintelligible after 5,000 steps on these 10 h, see
+# docs/session2_notes.md). Kept because
+# data_pipeline/verify_training_ready.py (an official-TrainArgs-only dry run) uses it.
+# Session 1 starting point: training/configs/finetune_language.yaml (pocket-tts 2dae420) adapted to this
 # dataset and one 24 GB RTX 4090. Run from the pocket-tts checkout on the GPU workstation:
 #   cd ~/vaani_pocket_tts_work/pocket-tts && source ../env.sh
 #   python -m training.train ~/vaani_pocket_tts_work/repo/configs/finetune_hinglish_24l.yaml

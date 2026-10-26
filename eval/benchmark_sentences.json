@@ -1,0 +1,29 @@
+{
+  "description": "24-sentence Indian Hinglish TTS benchmark: 8 Roman Hinglish, 8 Devanagari Hinglish (English loanwords in Devanagari), 8 code-switched (Devanagari Hindi + Latin English). Written for this benchmark (not in the training data), typed the way people write each script; includes digits, currency, abbreviations, questions, the danda and two inputs without terminal punctuation to exercise the text front-end.",
+  "sentences": [
+    {"id": "roman_01", "script": "roman", "text": "Kal subah 7 baje meri meeting hai, please reminder set kar do."},
+    {"id": "roman_02", "script": "roman", "text": "Aaj office mein bahut kaam tha, isliye main ghar late pahuncha."},
+    {"id": "roman_03", "script": "roman", "text": "Kya aap mujhe nearest metro station ka rasta bata sakte hain?"},
+    {"id": "roman_04", "script": "roman", "text": "Mera order abhi tak deliver nahi hua, please status check kar dijiye."},
+    {"id": "roman_05", "script": "roman", "text": "Weekend pe hum sab dost Goa trip plan kar rahe hain"},
+    {"id": "roman_06", "script": "roman", "text": "Doctor ne kaha hai ki roz subah aadha ghanta walk karna zaroori hai."},
+    {"id": "roman_07", "script": "roman", "text": "Is mahine ka electricity bill 2,450 rupaye aaya hai."},
+    {"id": "roman_08", "script": "roman", "text": "Movie bahut boring thi, interval ke baad hi hum nikal gaye."},
+    {"id": "deva_01", "script": "devanagari", "text": "मेरा फ़ोन बार बार हैंग हो रहा है, शायद बैटरी की प्रॉब्लम है।"},
+    {"id": "deva_02", "script": "devanagari", "text": "आज ट्रैफ़िक बहुत ज़्यादा है, मैं दस मिनट लेट हो जाऊँगा।"},
+    {"id": "deva_03", "script": "devanagari", "text": "क्या आपने कल का क्रिकेट मैच देखा था?"},
+    {"id": "deva_04", "script": "devanagari", "text": "बच्चों की ऑनलाइन क्लास सुबह नौ बजे शुरू होती है।"},
+    {"id": "deva_05", "script": "devanagari", "text": "होटल की बुकिंग कन्फ़र्म हो गई है, चेक इन दोपहर दो बजे है।"},
+    {"id": "deva_06", "script": "devanagari", "text": "इस रेस्टोरेंट का खाना बहुत टेस्टी है और सर्विस भी अच्छी है"},
+    {"id": "deva_07", "script": "devanagari", "text": "मुझे अपना पासवर्ड रीसेट करना है, ओटीपी नहीं आ रहा।"},
+    {"id": "deva_08", "script": "devanagari", "text": "डॉक्टर ने तीन दिन की दवाई दी है, दिन में दो बार लेनी है।"},
+    {"id": "mixed_01", "script": "code_switched", "text": "कल सुबह 7 बजे मेरी meeting है, please reminder सेट कर दो।"},
+    {"id": "mixed_02", "script": "code_switched", "text": "मैंने आपको email भेज दिया है, please अपना inbox check कीजिए।"},
+    {"id": "mixed_03", "script": "code_switched", "text": "हमारी flight दो घंटे delay हो गई है।"},
+    {"id": "mixed_04", "script": "code_switched", "text": "इस weekend पर नई web series release हो रही है।"},
+    {"id": "mixed_05", "script": "code_switched", "text": "आपका payment successful हो गया है, receipt SMS पर आ जाएगी।"},
+    {"id": "mixed_06", "script": "code_switched", "text": "Project की deadline अगले Monday तक extend कर दी गई है।"},
+    {"id": "mixed_07", "script": "code_switched", "text": "मुझे एक cappuccino और दो sandwich चाहिए।"},
+    {"id": "mixed_08", "script": "code_switched", "text": "Battery low है, मुझे charger की ज़रूरत है।"}
+  ]
+}

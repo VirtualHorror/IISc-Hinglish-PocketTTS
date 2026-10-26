@@ -1,0 +1,96 @@
+# Ablation for configs/finetune_hinglish.yaml: the official pocket-tts recipe for a new tokenizer
+# (training/configs/finetune_language.yaml: N(0, 1) text table, every group at lr 2e-4 after a
+# 1,000-step linear warmup, constant) on exactly the same multi-script data, batch, steps and
+# evaluation. Only the warm start and the staged differential schedule differ.
+#   python -m training.train_hinglish configs/ablation_official_recipe.yaml
+model_config: ~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_24l.yaml
+model_overrides:
+  flow_lm.lookup_table.tokenizer_path: ~/vaani_pocket_tts_work/repo/tokenizer/hinglish_bilingual_4k.model
+start_from_pretrained: true
+reset_text_embedding: true   # drops the English table; hinglish.warm_start then rebuilds every row
+
+data:
+  # One row per distinct (utterance, script) rendering: Devanagari, Roman Hinglish and code-switched
+  # text over the same audio, word timings and Mimi latents (16,045 rows from 6,980 utterances;
+  # renderings identical to another script's are kept once). Latents are precomputed next to it.
+  train_jsonl: ~/vaani_pocket_tts_work/data/manifests/train_mix_aligned.jsonl
+  # Validation must stay a plain audio manifest (train.py refuses a *_latents manifest here);
+  # hinglish.valid_manifests below replaces it with one manifest per script.
+  valid_jsonl: ~/vaani_pocket_tts_work/data/manifests/valid_mix_aligned.jsonl
+  max_duration_sec: 15.0     # longest utterance is 14.0 s
+  max_voice_prompt_sec: 5.0
+
+flow:
+  type: lsd
+  kwargs: {}
+
+flow_batch_multiplier: 4
+eos_loss_weight: 0.1
+text_dropout: 0.2
+voice_dropout: 0.2
+
+optim:
+  lr: 1.0e-4                 # unused: hinglish.param_groups sets every group's lr
+  weight_decay: 0.1
+  warmup_steps: 0
+
+run_dir: ~/vaani_pocket_tts_work/runs/hinglish_24l_official
+batch_size: 16
+grad_accum_steps: 4          # effective batch 64 (training/README.md: the quality threshold)
+max_steps: 5000              # ~20 passes over the 16k rows; checkpoints every 500 are scored by ASR
+stats_ema_steps: 1000
+ema_decay: 0.999
+log_freq: 50
+valid_freq: 500
+num_valid_batches: 23        # 23 x 16 = 368 of each script's 380 validation rows
+ckpt_freq: 500
+num_ckpt_keep: 20            # keep every checkpoint: the best one is picked by round-trip ASR
+sample_freq: 1000
+sample_temp: 0.3
+sample_cfg_coef: 2.0
+# Held-out validation utterances (eval/monitor_set.json), each in Devanagari, Roman and code-switched form.
+sample_sentences:
+  - "कई डेटिंग सर्विस ऐप पर आपके लोकेशन की जानकारी भी ली जाती है."
+  - "Kayi dating sarvis aip par aapke location ki jaankaari bhi li jaati hai."
+  - "कई dating सर्विस ऐप पर आपके location की जानकारी भी ली जाती है."
+  - "मुझे बेसमेंट से उसकी आवाज़ आती रहती है, जैसे कोई बच्चा, मैथ्स की टेबल्स सीखता है, और बीच में बार बार भूल जाता है."
+  - "Mujhe basement se uski aavaaz aati rehti hai, jaise koi baccha, maiths ki tables seekhta hai, aur beech mein baar baar bhool jaata hai."
+  - "मुझे basement से उसकी आवाज़ आती रहती है, जैसे कोई बच्चा, मैथ्स की tables सीखता है, और बीच में बार बार भूल जाता है."
+  - "ये भारत का इस कॉमनवेल्थ गेम्स के वेटलिफ्टिंग इवेंट में छठां मेडल है."
+  - "Ye bhaarat ka is commonwealth games ke weightlifting event mein chhathan medal hai."
+  - "ये भारत का इस commonwealth games के weightlifting event में छठां मेडल है."
+  - "अब हम इसी फाइल को पीडीएफ नहीं बल्कि टेक्स्ट फार्मेट में डाउनलोड करेंगे."
+  - "Ab hum isi file ko peedeeeph nahin balki text phaarmet mein download karenge."
+  - "अब हम इसी file को पीडीएफ नहीं बल्कि text फार्मेट में download करेंगे."
+  - "आप इस पेज में एक एरर का सामना कर सकते हैं."
+  - "Aap is page mein ek error ka saamna kar sakte hain."
+  - "आप इस पेज में एक error का सामना कर सकते हैं."
+  - "यह करने के लिए सेव रिकॉर्ड बटन पर क्लिक करते हैं."
+  - "Yeh karne ke liye save record button par click karte hain."
+  - "यह करने के लिए save record button पर click करते हैं."
+
+hinglish:
+  warm_start:
+    enabled: false             # official reset: nn.Embedding's N(0, 1) rows
+    # teacher table = model_config's weights_path; this is the tokenizer it was trained with
+    teacher_tokenizer: hf://kyutai/pocket-tts-without-voice-cloning/languages/english_2026-04_24l/tokenizer.json@00eac05ed3d16bdc3f6b5d598874019c34a89214
+    # Hindi/Hinglish table (CC-BY-4.0) for Devanagari pieces, used only if its Procrustes map onto
+    # the teacher's space holds on held-out shared pieces (training/warm_start_report.json)
+    helper_name: Indus-Labs/indus-pocket-tts
+    helper_weights: hf://Indus-Labs/indus-pocket-tts/model.safetensors@39899d3c1dcda47a7ef167cd222419feb86abeb9
+    helper_tokenizer: hf://Indus-Labs/indus-pocket-tts/tokenizer.model@39899d3c1dcda47a7ef167cd222419feb86abeb9
+    min_heldout_cos: 0.3
+    seed: 0
+  param_groups:                  # finetune_language.yaml: lr 2e-4, warmup 1000, constant
+    text_embedding: {peak_lr: 2.0e-4, start_step: 0, warmup_steps: 1000}
+    backbone: {peak_lr: 2.0e-4, start_step: 0, warmup_steps: 1000}
+    heads: {peak_lr: 2.0e-4, start_step: 0, warmup_steps: 1000}
+  lr_floor_ratio: 1.0            # no decay
+  valid_manifests:
+    deva: ~/vaani_pocket_tts_work/data/manifests/valid_deva_aligned.jsonl
+    roman: ~/vaani_pocket_tts_work/data/manifests/valid_roman_aligned.jsonl
+    cs: ~/vaani_pocket_tts_work/data/manifests/valid_cs_aligned.jsonl
+  # Clean 24 kHz studio prompts (IndicTTS Hindi voice artists, 48 kHz sources, SNR 80 dB)
+  sample_voices:
+    indian_female: ~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_female__hi.safetensors
+    indian_male: ~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_male__hi.safetensors

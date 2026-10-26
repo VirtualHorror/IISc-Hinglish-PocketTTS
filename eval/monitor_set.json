@@ -1,0 +1,74 @@
+[
+ {
+  "utt_id": "indictts_hindi_train_hindifullmale_03024",
+  "speaker": "indictts_hindifull_male",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifullmale_03024.wav",
+  "duration_s": 4.04,
+  "text": {
+   "deva": "कई डेटिंग सर्विस ऐप पर आपके लोकेशन की जानकारी भी ली जाती है.",
+   "roman": "Kayi dating sarvis aip par aapke location ki jaankaari bhi li jaati hai.",
+   "cs": "कई dating सर्विस ऐप पर आपके location की जानकारी भी ली जाती है."
+  }
+ },
+ {
+  "utt_id": "indictts_hindi_train_hindifullfemale_00516",
+  "speaker": "indictts_hindifull_female",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/indictts_hindi_train_hindifullfemale_00516.wav",
+  "duration_s": 7.4,
+  "text": {
+   "deva": "मुझे बेसमेंट से उसकी आवाज़ आती रहती है, जैसे कोई बच्चा, मैथ्स की टेबल्स सीखता है, और बीच में बार बार भूल जाता है.",
+   "roman": "Mujhe basement se uski aavaaz aati rehti hai, jaise koi baccha, maiths ki tables seekhta hai, aur beech mein baar baar bhool jaata hai.",
+   "cs": "मुझे basement से उसकी आवाज़ आती रहती है, जैसे कोई बच्चा, मैथ्स की tables सीखता है, और बीच में बार बार भूल जाता है."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_male_sample_12431",
+  "speaker": "syspin_hindi_male",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_male_sample_12431.wav",
+  "duration_s": 5.42,
+  "text": {
+   "deva": "ये भारत का इस कॉमनवेल्थ गेम्स के वेटलिफ्टिंग इवेंट में छठां मेडल है.",
+   "roman": "Ye bhaarat ka is commonwealth games ke weightlifting event mein chhathan medal hai.",
+   "cs": "ये भारत का इस commonwealth games के weightlifting event में छठां मेडल है."
+  }
+ },
+ {
+  "utt_id": "syspin_hindi_female_sample_99",
+  "speaker": "syspin_hindi_female",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/syspin_hindi_female_sample_99.wav",
+  "duration_s": 5.46,
+  "text": {
+   "deva": "अब हम इसी फाइल को पीडीएफ नहीं बल्कि टेक्स्ट फार्मेट में डाउनलोड करेंगे.",
+   "roman": "Ab hum isi file ko peedeeeph nahin balki text phaarmet mein download karenge.",
+   "cs": "अब हम इसी file को पीडीएफ नहीं बल्कि text फार्मेट में download करेंगे."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_354092_QSQOcoZj95Pfx3zS_0050",
+  "speaker": "openslr104_354092_QSQOcoZj95Pfx3zS",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_354092_QSQOcoZj95Pfx3zS_0050.wav",
+  "duration_s": 3.5,
+  "text": {
+   "deva": "आप इस पेज में एक एरर का सामना कर सकते हैं.",
+   "roman": "Aap is page mein ek error ka saamna kar sakte hain.",
+   "cs": "आप इस पेज में एक error का सामना कर सकते हैं."
+  }
+ },
+ {
+  "utt_id": "openslr104_hinglish_166794_9cqCD6lIWQ37MUXs_0052",
+  "speaker": "openslr104_166794_9cqCD6lIWQ37MUXs",
+  "language": "hi-en",
+  "audio": "~/vaani_pocket_tts_work/data/processed/audio/openslr104_hinglish_166794_9cqCD6lIWQ37MUXs_0052.wav",
+  "duration_s": 3.52,
+  "text": {
+   "deva": "यह करने के लिए सेव रिकॉर्ड बटन पर क्लिक करते हैं.",
+   "roman": "Yeh karne ke liye save record button par click karte hain.",
+   "cs": "यह करने के लिए save record button पर click करते हैं."
+  }
+ }
+]

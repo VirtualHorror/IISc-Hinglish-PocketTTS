@@ -1,0 +1,202 @@
+{
+  "selection_set": "eval/selection_set.json",
+  "n_texts": 70,
+  "voices": {
+    "indian_female_ananya": {
+      "speaker_id": "indictts_hindifull_female",
+      "chosen": "session1_sentence",
+      "chosen_source_utt_id": "indictts_hindi_train_hindifullfemale_00261",
+      "chosen_text": "किन्तु यह सच है, कि शक की सुई को, इस पत्रकार के चारोँ ओर घुमाया जाना, बंद नहीँ हुआ.",
+      "candidates": [
+        {
+          "kind": "session1_sentence",
+          "source_utt_id": "indictts_hindi_train_hindifullfemale_00261",
+          "text": "किन्तु यह सच है, कि शक की सुई को, इस पत्रकार के चारोँ ओर घुमाया जाना, बंद नहीँ हुआ.",
+          "cer": 0.0764,
+          "wer": 0.1833,
+          "prompt_leaks": 0,
+          "duration_s": 5.9,
+          "gen_seconds": 43.7
+        },
+        {
+          "kind": "whole_sentence",
+          "source_utt_id": "indictts_hindi_train_hindifullfemale_00357",
+          "text": "हम तो तिब्बत के शरणार्थियों की बात कर रहे थे, जिन्हें हम सब, लामा ही कहते थे.",
+          "cer": 0.0774,
+          "wer": 0.1907,
+          "prompt_leaks": 0,
+          "duration_s": 5.4,
+          "gen_seconds": 44.3
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "indictts_hindi_train_hindifullfemale_00174",
+          "text": "उन्होंने इतने दशकों में फैले अपने समृद्ध रचनात्मक जीवन में,",
+          "cer": 0.078,
+          "wer": 0.1882,
+          "prompt_leaks": 0,
+          "duration_s": 4.18,
+          "gen_seconds": 44.2
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "indictts_hindi_train_hindifullfemale_00822",
+          "text": "आज भी, उसकी ससुराल के कुत्ते, मेरे जिस्म को नोंच रहे हैं, जैसे मैं",
+          "cer": 0.0786,
+          "wer": 0.1907,
+          "prompt_leaks": 0,
+          "duration_s": 4.82,
+          "gen_seconds": 43.6
+        }
+      ]
+    },
+    "indian_male_aarav": {
+      "speaker_id": "indictts_hindifull_male",
+      "chosen": "prefix_at_word_boundary",
+      "chosen_source_utt_id": "indictts_hindi_train_hindifullmale_01667",
+      "chosen_text": "धणी धोरे ढाबरों, और सासरे वालों के चलते, सुगना यूं",
+      "candidates": [
+        {
+          "kind": "session1_sentence",
+          "source_utt_id": "indictts_hindi_train_hindifullmale_00705",
+          "text": "सामने वाली सीट पर, एक विदेशी युवति बैठी है, उसे देख, मुस्कुरा देती है.",
+          "cer": 0.0713,
+          "wer": 0.1882,
+          "prompt_leaks": 0,
+          "duration_s": 5.88,
+          "gen_seconds": 45.9
+        },
+        {
+          "kind": "whole_sentence",
+          "source_utt_id": "indictts_hindi_train_hindifullmale_00944",
+          "text": "ये तो, बुरी बात हुई, मैंने, अफ़सोस ज़ाहिर किया, अब किसके पास रेहती है.",
+          "cer": 0.0796,
+          "wer": 0.1968,
+          "prompt_leaks": 0,
+          "duration_s": 5.38,
+          "gen_seconds": 44.5
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "indictts_hindi_train_hindifullmale_01275",
+          "text": "इंद्रत्व, क्या इतना महान है, जिसपर तुम इठला रहे हो,",
+          "cer": 0.0739,
+          "wer": 0.1907,
+          "prompt_leaks": 0,
+          "duration_s": 4.08,
+          "gen_seconds": 46.2
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "indictts_hindi_train_hindifullmale_01667",
+          "text": "धणी धोरे ढाबरों, और सासरे वालों के चलते, सुगना यूं",
+          "cer": 0.0729,
+          "wer": 0.1796,
+          "prompt_leaks": 0,
+          "duration_s": 4.68,
+          "gen_seconds": 44.8
+        }
+      ],
+      "disqualified": [
+        "session1_sentence"
+      ],
+      "disqualified_reason": "At the released checkpoint (step 3500) this prompt made 1 of its 70 selection-set generations open with the prompt's own last words (मुस्कुरा देती है; asr_progress_selection.jsonl, voice indian_male); a leak-free candidate is within 0.2 pp CER and has a lower WER."
+    },
+    "indian_female_meera": {
+      "speaker_id": "syspin_hindi_female",
+      "chosen": "prefix_at_word_boundary",
+      "chosen_source_utt_id": "syspin_hindi_female_sample_10802",
+      "chosen_text": "भारतीय आहारों में गेहूं, बासमती चावल और चना के साथ",
+      "candidates": [
+        {
+          "kind": "session1_sentence",
+          "source_utt_id": "syspin_hindi_female_sample_239",
+          "text": "ऑटोमैटिक flushing और वॉशिंग से पानी और कागज की बचत होती है.",
+          "cer": 0.1054,
+          "wer": 0.2558,
+          "prompt_leaks": 0,
+          "duration_s": 4.46,
+          "gen_seconds": 47.8
+        },
+        {
+          "kind": "whole_sentence",
+          "source_utt_id": "syspin_hindi_female_sample_10796",
+          "text": "अगले प्रयोग में फल को एक तख़्ते पर तालाब के बीच रखा गया.",
+          "cer": 0.1063,
+          "wer": 0.2571,
+          "prompt_leaks": 0,
+          "duration_s": 4.5,
+          "gen_seconds": 48.3
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "syspin_hindi_female_sample_10802",
+          "text": "भारतीय आहारों में गेहूं, बासमती चावल और चना के साथ",
+          "cer": 0.092,
+          "wer": 0.2189,
+          "prompt_leaks": 0,
+          "duration_s": 4.96,
+          "gen_seconds": 49.2
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "syspin_hindi_female_sample_623",
+          "text": "बुद्धि का वैज्ञानिक मापन सर्वप्रथम किसने प्रारम्भ किया? टरमन बिने",
+          "cer": 0.0993,
+          "wer": 0.2411,
+          "prompt_leaks": 0,
+          "duration_s": 4.18,
+          "gen_seconds": 49.5
+        }
+      ]
+    },
+    "indian_male_vikram": {
+      "speaker_id": "syspin_hindi_male",
+      "chosen": "prefix_at_word_boundary",
+      "chosen_source_utt_id": "syspin_hindi_male_sample_12047",
+      "chosen_text": "ये पर्व आपके घर में धन धान्य, सुख समृद्धि, प्रेंरणा",
+      "candidates": [
+        {
+          "kind": "session1_sentence",
+          "source_utt_id": "syspin_hindi_male_sample_12435",
+          "text": "भगवान शिव की पूजा में भस्म का त्रिपुण्ड लगाया जाता है.",
+          "cer": 0.0939,
+          "wer": 0.2177,
+          "prompt_leaks": 0,
+          "duration_s": 4.12,
+          "gen_seconds": 47.1
+        },
+        {
+          "kind": "whole_sentence",
+          "source_utt_id": "syspin_hindi_male_sample_695",
+          "text": "करूणानिधि का इलाज जारी, सर्मथक कावेरी अस्पताल के बाहर इकट्ठा हुए.",
+          "cer": 0.0895,
+          "wer": 0.2054,
+          "prompt_leaks": 0,
+          "duration_s": 5.66,
+          "gen_seconds": 47.9
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "syspin_hindi_male_sample_466",
+          "text": "पाणिनि ने टाप् डाप् और चाप् यह तीन आकारान्त",
+          "cer": 0.0971,
+          "wer": 0.2214,
+          "prompt_leaks": 0,
+          "duration_s": 4.7,
+          "gen_seconds": 49.4
+        },
+        {
+          "kind": "prefix_at_word_boundary",
+          "source_utt_id": "syspin_hindi_male_sample_12047",
+          "text": "ये पर्व आपके घर में धन धान्य, सुख समृद्धि, प्रेंरणा",
+          "cer": 0.0856,
+          "wer": 0.2042,
+          "prompt_leaks": 0,
+          "duration_s": 4.9,
+          "gen_seconds": 48.2
+        }
+      ]
+    }
+  }
+}

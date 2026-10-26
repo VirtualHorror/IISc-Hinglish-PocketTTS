@@ -1,0 +1,925 @@
+{
+  "runs": {
+    "hinglish_24l_ws": {
+      "run_dir": "~/vaani_pocket_tts_work/runs/hinglish_24l_ws",
+      "config": "configs/finetune_hinglish.yaml",
+      "wall_clock_minutes": 26.8,
+      "steps": 5000,
+      "it_s_median": 3.5,
+      "valid": [
+        {
+          "step": 500,
+          "loss": 0.36223,
+          "flow_loss": 0.35945,
+          "eos_loss": 0.0278,
+          "eos_hit@-4": 0.99728,
+          "eos_premature@-4": 0.84783,
+          "eos_frame_acc@-4": 0.96574,
+          "eos_err_frames@-4": 2.31159,
+          "eos_hit@0": 0.85507,
+          "eos_premature@0": 0.28351,
+          "deva/loss": 0.36804,
+          "roman/loss": 0.35854,
+          "cs/loss": 0.36011,
+          "lr/text_embedding": 0.00049,
+          "lr/backbone": 3e-05,
+          "lr/heads": 3e-05,
+          "train_loss_last250": 0.4502
+        },
+        {
+          "step": 1000,
+          "loss": 0.30218,
+          "flow_loss": 0.29965,
+          "eos_loss": 0.02535,
+          "eos_hit@-4": 0.98551,
+          "eos_premature@-4": 0.49275,
+          "eos_frame_acc@-4": 0.98204,
+          "eos_err_frames@-4": 1.37228,
+          "eos_hit@0": 0.83152,
+          "eos_premature@0": 0.18931,
+          "deva/loss": 0.30326,
+          "roman/loss": 0.30057,
+          "cs/loss": 0.30271,
+          "lr/text_embedding": 0.00046,
+          "lr/backbone": 0.0001,
+          "lr/heads": 0.0001,
+          "train_loss_last250": 0.2964
+        },
+        {
+          "step": 1500,
+          "loss": 0.28218,
+          "flow_loss": 0.27803,
+          "eos_loss": 0.04142,
+          "eos_hit@-4": 0.90217,
+          "eos_premature@-4": 0.29529,
+          "eos_frame_acc@-4": 0.98841,
+          "eos_err_frames@-4": 0.83333,
+          "eos_hit@0": 0.75,
+          "eos_premature@0": 0.13587,
+          "deva/loss": 0.28356,
+          "roman/loss": 0.28039,
+          "cs/loss": 0.28258,
+          "lr/text_embedding": 0.00042,
+          "lr/backbone": 9e-05,
+          "lr/heads": 9e-05,
+          "train_loss_last250": 0.1988
+        },
+        {
+          "step": 2000,
+          "loss": 0.27283,
+          "flow_loss": 0.26833,
+          "eos_loss": 0.04505,
+          "eos_hit@-4": 0.89855,
+          "eos_premature@-4": 0.26902,
+          "eos_frame_acc@-4": 0.98936,
+          "eos_err_frames@-4": 0.78261,
+          "eos_hit@0": 0.78623,
+          "eos_premature@0": 0.14946,
+          "deva/loss": 0.27176,
+          "roman/loss": 0.27349,
+          "cs/loss": 0.27325,
+          "lr/text_embedding": 0.00035,
+          "lr/backbone": 8e-05,
+          "lr/heads": 8e-05,
+          "train_loss_last250": 0.131
+        },
+        {
+          "step": 2500,
+          "loss": 0.28477,
+          "flow_loss": 0.27928,
+          "eos_loss": 0.05488,
+          "eos_hit@-4": 0.87319,
+          "eos_premature@-4": 0.27627,
+          "eos_frame_acc@-4": 0.98859,
+          "eos_err_frames@-4": 1.06341,
+          "eos_hit@0": 0.78351,
+          "eos_premature@0": 0.17391,
+          "deva/loss": 0.28597,
+          "roman/loss": 0.28504,
+          "cs/loss": 0.28331,
+          "lr/text_embedding": 0.00028,
+          "lr/backbone": 7e-05,
+          "lr/heads": 7e-05,
+          "train_loss_last250": 0.0696
+        },
+        {
+          "step": 3000,
+          "loss": 0.30264,
+          "flow_loss": 0.29697,
+          "eos_loss": 0.05666,
+          "eos_hit@-4": 0.85417,
+          "eos_premature@-4": 0.26993,
+          "eos_frame_acc@-4": 0.98821,
+          "eos_err_frames@-4": 1.11232,
+          "eos_hit@0": 0.77174,
+          "eos_premature@0": 0.15851,
+          "deva/loss": 0.30216,
+          "roman/loss": 0.30333,
+          "cs/loss": 0.30241,
+          "lr/text_embedding": 0.00021,
+          "lr/backbone": 5e-05,
+          "lr/heads": 5e-05,
+          "train_loss_last250": -0.0165
+        },
+        {
+          "step": 3500,
+          "loss": 0.33985,
+          "flow_loss": 0.33375,
+          "eos_loss": 0.06095,
+          "eos_hit@-4": 0.85417,
+          "eos_premature@-4": 0.2654,
+          "eos_frame_acc@-4": 0.98847,
+          "eos_err_frames@-4": 1.50453,
+          "eos_hit@0": 0.76449,
+          "eos_premature@0": 0.17844,
+          "deva/loss": 0.33999,
+          "roman/loss": 0.34329,
+          "cs/loss": 0.33627,
+          "lr/text_embedding": 0.00015,
+          "lr/backbone": 4e-05,
+          "lr/heads": 4e-05,
+          "train_loss_last250": -0.1525
+        },
+        {
+          "step": 4000,
+          "loss": 0.39613,
+          "flow_loss": 0.39011,
+          "eos_loss": 0.06024,
+          "eos_hit@-4": 0.85326,
+          "eos_premature@-4": 0.24819,
+          "eos_frame_acc@-4": 0.98853,
+          "eos_err_frames@-4": 1.50453,
+          "eos_hit@0": 0.77083,
+          "eos_premature@0": 0.15851,
+          "deva/loss": 0.39899,
+          "roman/loss": 0.3947,
+          "cs/loss": 0.3947,
+          "lr/text_embedding": 9e-05,
+          "lr/backbone": 2e-05,
+          "lr/heads": 2e-05,
+          "train_loss_last250": -0.0457
+        },
+        {
+          "step": 4500,
+          "loss": 0.43669,
+          "flow_loss": 0.4299,
+          "eos_loss": 0.06791,
+          "eos_hit@-4": 0.83514,
+          "eos_premature@-4": 0.25181,
+          "eos_frame_acc@-4": 0.98821,
+          "eos_err_frames@-4": 1.62047,
+          "eos_hit@0": 0.75,
+          "eos_premature@0": 0.16486,
+          "deva/loss": 0.43596,
+          "roman/loss": 0.43701,
+          "cs/loss": 0.4371,
+          "lr/text_embedding": 6e-05,
+          "lr/backbone": 1e-05,
+          "lr/heads": 1e-05,
+          "train_loss_last250": -0.121
+        },
+        {
+          "step": 5000,
+          "loss": 0.48496,
+          "flow_loss": 0.47852,
+          "eos_loss": 0.06443,
+          "eos_hit@-4": 0.82699,
+          "eos_premature@-4": 0.20199,
+          "eos_frame_acc@-4": 0.98934,
+          "eos_err_frames@-4": 1.37681,
+          "eos_hit@0": 0.75,
+          "eos_premature@0": 0.13859,
+          "deva/loss": 0.4846,
+          "roman/loss": 0.48701,
+          "cs/loss": 0.48328,
+          "lr/text_embedding": 5e-05,
+          "lr/backbone": 1e-05,
+          "lr/heads": 1e-05,
+          "train_loss_last250": -0.1371
+        }
+      ],
+      "best_valid_loss": {
+        "step": 2000,
+        "loss": 0.27283
+      },
+      "asr_monitor": [
+        {
+          "step": 500,
+          "cer": 0.6241,
+          "wer": 0.9059,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.727,
+          "cer_by_script": {
+            "cs": 0.619,
+            "deva": 0.6981,
+            "roman": 0.5556
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.6299,
+            "indian_male": 0.6182
+          }
+        },
+        {
+          "step": 1000,
+          "cer": 0.3611,
+          "wer": 0.5941,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.843,
+          "cer_by_script": {
+            "cs": 0.3175,
+            "deva": 0.4361,
+            "roman": 0.3302
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.3775,
+            "indian_male": 0.3446
+          }
+        },
+        {
+          "step": 1500,
+          "cer": 0.1543,
+          "wer": 0.3196,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.946,
+          "cer_by_script": {
+            "cs": 0.1238,
+            "deva": 0.2045,
+            "roman": 0.1349
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.1474,
+            "indian_male": 0.1612
+          }
+        },
+        {
+          "step": 2000,
+          "cer": 0.0827,
+          "wer": 0.1961,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.99,
+          "cer_by_script": {
+            "cs": 0.0952,
+            "deva": 0.0847,
+            "roman": 0.0683
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0689,
+            "indian_male": 0.0965
+          }
+        },
+        {
+          "step": 2500,
+          "cer": 0.0748,
+          "wer": 0.1725,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.995,
+          "cer_by_script": {
+            "cs": 0.0841,
+            "deva": 0.0671,
+            "roman": 0.073
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0657,
+            "indian_male": 0.0838
+          }
+        },
+        {
+          "step": 3000,
+          "cer": 0.0583,
+          "wer": 0.1451,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.005,
+          "cer_by_script": {
+            "cs": 0.054,
+            "deva": 0.0559,
+            "roman": 0.0651
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0657,
+            "indian_male": 0.0509
+          }
+        },
+        {
+          "step": 3500,
+          "cer": 0.0626,
+          "wer": 0.1392,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.002,
+          "cer_by_script": {
+            "cs": 0.0492,
+            "deva": 0.0911,
+            "roman": 0.0476
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0604,
+            "indian_male": 0.0647
+          }
+        },
+        {
+          "step": 4000,
+          "cer": 0.0567,
+          "wer": 0.1431,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.014,
+          "cer_by_script": {
+            "cs": 0.0476,
+            "deva": 0.0623,
+            "roman": 0.0603
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0583,
+            "indian_male": 0.0551
+          }
+        },
+        {
+          "step": 4500,
+          "cer": 0.0721,
+          "wer": 0.1667,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.017,
+          "cer_by_script": {
+            "cs": 0.0667,
+            "deva": 0.0831,
+            "roman": 0.0667
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0795,
+            "indian_male": 0.0647
+          }
+        },
+        {
+          "step": 5000,
+          "cer": 0.0785,
+          "wer": 0.1784,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.019,
+          "cer_by_script": {
+            "cs": 0.0651,
+            "deva": 0.0958,
+            "roman": 0.0746
+          },
+          "cer_by_language": {},
+          "cer_by_voice": {
+            "indian_female": 0.0764,
+            "indian_male": 0.0806
+          }
+        }
+      ],
+      "asr_selection": [
+        {
+          "step": 2500,
+          "cer": 0.085,
+          "wer": 0.1999,
+          "no_eos": 0,
+          "n": 140,
+          "duration_ratio": 0.938,
+          "cer_by_script": {
+            "cs": 0.0965,
+            "deva": 0.0588,
+            "roman": 0.1065
+          },
+          "cer_by_language": {
+            "en": 0.0227,
+            "hi": 0.0965,
+            "hi-en": 0.1067
+          },
+          "cer_by_voice": {
+            "indian_female": 0.0837,
+            "indian_male": 0.0863
+          }
+        },
+        {
+          "step": 3000,
+          "cer": 0.0799,
+          "wer": 0.1907,
+          "no_eos": 0,
+          "n": 140,
+          "duration_ratio": 0.948,
+          "cer_by_script": {
+            "cs": 0.0809,
+            "deva": 0.0531,
+            "roman": 0.1061
+          },
+          "cer_by_language": {
+            "en": 0.0227,
+            "hi": 0.0859,
+            "hi-en": 0.1025
+          },
+          "cer_by_voice": {
+            "indian_female": 0.0828,
+            "indian_male": 0.077
+          }
+        },
+        {
+          "step": 3500,
+          "cer": 0.0799,
+          "wer": 0.1876,
+          "no_eos": 0,
+          "n": 140,
+          "duration_ratio": 0.96,
+          "cer_by_script": {
+            "cs": 0.0965,
+            "deva": 0.055,
+            "roman": 0.0982
+          },
+          "cer_by_language": {
+            "en": 0.0192,
+            "hi": 0.0853,
+            "hi-en": 0.1045
+          },
+          "cer_by_voice": {
+            "indian_female": 0.079,
+            "indian_male": 0.0809
+          }
+        },
+        {
+          "step": 4000,
+          "cer": 0.0861,
+          "wer": 0.1956,
+          "no_eos": 0,
+          "n": 140,
+          "duration_ratio": 0.974,
+          "cer_by_script": {
+            "cs": 0.1014,
+            "deva": 0.0584,
+            "roman": 0.1077
+          },
+          "cer_by_language": {
+            "en": 0.0206,
+            "hi": 0.0887,
+            "hi-en": 0.1145
+          },
+          "cer_by_voice": {
+            "indian_female": 0.0872,
+            "indian_male": 0.085
+          }
+        },
+        {
+          "step": 4500,
+          "cer": 0.0856,
+          "wer": 0.1925,
+          "no_eos": 0,
+          "n": 140,
+          "duration_ratio": 0.974,
+          "cer_by_script": {
+            "cs": 0.1131,
+            "deva": 0.0584,
+            "roman": 0.102
+          },
+          "cer_by_language": {
+            "en": 0.0227,
+            "hi": 0.0853,
+            "hi-en": 0.1145
+          },
+          "cer_by_voice": {
+            "indian_female": 0.084,
+            "indian_male": 0.0872
+          }
+        }
+      ]
+    },
+    "hinglish_24l_official": {
+      "run_dir": "~/vaani_pocket_tts_work/runs/hinglish_24l_official",
+      "config": "configs/ablation_official_recipe.yaml",
+      "wall_clock_minutes": 30.5,
+      "steps": 5000,
+      "it_s_median": 3.08,
+      "valid": [
+        {
+          "step": 500,
+          "loss": 0.38456,
+          "flow_loss": 0.3818,
+          "eos_loss": 0.02754,
+          "eos_hit@-4": 0.97101,
+          "eos_premature@-4": 0.46467,
+          "eos_frame_acc@-4": 0.97977,
+          "eos_err_frames@-4": 3.28261,
+          "eos_hit@0": 0.71558,
+          "eos_premature@0": 0.11141,
+          "deva/loss": 0.38483,
+          "roman/loss": 0.38486,
+          "cs/loss": 0.38397,
+          "lr/text_embedding": 0.0001,
+          "lr/backbone": 0.0001,
+          "lr/heads": 0.0001,
+          "train_loss_last250": 0.3613
+        },
+        {
+          "step": 1000,
+          "loss": 0.35862,
+          "flow_loss": 0.35503,
+          "eos_loss": 0.03594,
+          "eos_hit@-4": 0.94203,
+          "eos_premature@-4": 0.39221,
+          "eos_frame_acc@-4": 0.98376,
+          "eos_err_frames@-4": 2.74457,
+          "eos_hit@0": 0.79257,
+          "eos_premature@0": 0.15217,
+          "deva/loss": 0.35775,
+          "roman/loss": 0.35907,
+          "cs/loss": 0.35904,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": 0.2768
+        },
+        {
+          "step": 1500,
+          "loss": 0.30962,
+          "flow_loss": 0.30561,
+          "eos_loss": 0.04013,
+          "eos_hit@-4": 0.91576,
+          "eos_premature@-4": 0.31612,
+          "eos_frame_acc@-4": 0.98719,
+          "eos_err_frames@-4": 1.61957,
+          "eos_hit@0": 0.80254,
+          "eos_premature@0": 0.14764,
+          "deva/loss": 0.30718,
+          "roman/loss": 0.31154,
+          "cs/loss": 0.31015,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": 0.1664
+        },
+        {
+          "step": 2000,
+          "loss": 0.26925,
+          "flow_loss": 0.2642,
+          "eos_loss": 0.05051,
+          "eos_hit@-4": 0.88134,
+          "eos_premature@-4": 0.29529,
+          "eos_frame_acc@-4": 0.98746,
+          "eos_err_frames@-4": 2.07428,
+          "eos_hit@0": 0.77174,
+          "eos_premature@0": 0.17572,
+          "deva/loss": 0.2679,
+          "roman/loss": 0.26993,
+          "cs/loss": 0.26992,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": 0.0065
+        },
+        {
+          "step": 2500,
+          "loss": 0.2537,
+          "flow_loss": 0.24854,
+          "eos_loss": 0.05161,
+          "eos_hit@-4": 0.86504,
+          "eos_premature@-4": 0.25272,
+          "eos_frame_acc@-4": 0.98865,
+          "eos_err_frames@-4": 1.72373,
+          "eos_hit@0": 0.75453,
+          "eos_premature@0": 0.14312,
+          "deva/loss": 0.25176,
+          "roman/loss": 0.25267,
+          "cs/loss": 0.25666,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.0209
+        },
+        {
+          "step": 3000,
+          "loss": 0.26802,
+          "flow_loss": 0.26329,
+          "eos_loss": 0.04731,
+          "eos_hit@-4": 0.89312,
+          "eos_premature@-4": 0.27355,
+          "eos_frame_acc@-4": 0.98889,
+          "eos_err_frames@-4": 1.7346,
+          "eos_hit@0": 0.75725,
+          "eos_premature@0": 0.14674,
+          "deva/loss": 0.26182,
+          "roman/loss": 0.26824,
+          "cs/loss": 0.27399,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.191
+        },
+        {
+          "step": 3500,
+          "loss": 0.27487,
+          "flow_loss": 0.26878,
+          "eos_loss": 0.06089,
+          "eos_hit@-4": 0.86594,
+          "eos_premature@-4": 0.30707,
+          "eos_frame_acc@-4": 0.98665,
+          "eos_err_frames@-4": 2.08243,
+          "eos_hit@0": 0.75996,
+          "eos_premature@0": 0.17935,
+          "deva/loss": 0.27618,
+          "roman/loss": 0.27472,
+          "cs/loss": 0.27373,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.4515
+        },
+        {
+          "step": 4000,
+          "loss": 0.31045,
+          "flow_loss": 0.30455,
+          "eos_loss": 0.05898,
+          "eos_hit@-4": 0.84239,
+          "eos_premature@-4": 0.22645,
+          "eos_frame_acc@-4": 0.989,
+          "eos_err_frames@-4": 1.59149,
+          "eos_hit@0": 0.72464,
+          "eos_premature@0": 0.13949,
+          "deva/loss": 0.30854,
+          "roman/loss": 0.31271,
+          "cs/loss": 0.3101,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.3343
+        },
+        {
+          "step": 4500,
+          "loss": 0.36197,
+          "flow_loss": 0.35558,
+          "eos_loss": 0.06393,
+          "eos_hit@-4": 0.8596,
+          "eos_premature@-4": 0.2663,
+          "eos_frame_acc@-4": 0.98809,
+          "eos_err_frames@-4": 2.00725,
+          "eos_hit@0": 0.74909,
+          "eos_premature@0": 0.15851,
+          "deva/loss": 0.35854,
+          "roman/loss": 0.36326,
+          "cs/loss": 0.36412,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.439
+        },
+        {
+          "step": 5000,
+          "loss": 0.38683,
+          "flow_loss": 0.3804,
+          "eos_loss": 0.06426,
+          "eos_hit@-4": 0.8288,
+          "eos_premature@-4": 0.20924,
+          "eos_frame_acc@-4": 0.98931,
+          "eos_err_frames@-4": 1.85236,
+          "eos_hit@0": 0.70743,
+          "eos_premature@0": 0.13315,
+          "deva/loss": 0.3841,
+          "roman/loss": 0.38221,
+          "cs/loss": 0.39418,
+          "lr/text_embedding": 0.0002,
+          "lr/backbone": 0.0002,
+          "lr/heads": 0.0002,
+          "train_loss_last250": -0.616
+        }
+      ],
+      "best_valid_loss": {
+        "step": 2500,
+        "loss": 0.2537
+      },
+      "asr_monitor": [
+        {
+          "step": 500,
+          "cer": 1.0456,
+          "wer": 1.0725,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.322,
+          "cer_by_script": {
+            "cs": 0.9063,
+            "deva": 0.9058,
+            "roman": 1.3238
+          },
+          "cer_by_language": {
+            "hi-en": 1.0456
+          },
+          "cer_by_voice": {
+            "indian_female": 1.1983,
+            "indian_male": 0.8929
+          }
+        },
+        {
+          "step": 1000,
+          "cer": 0.8913,
+          "wer": 0.9922,
+          "no_eos": 1,
+          "n": 36,
+          "duration_ratio": 0.526,
+          "cer_by_script": {
+            "cs": 0.9032,
+            "deva": 0.8834,
+            "roman": 0.8873
+          },
+          "cer_by_language": {
+            "hi-en": 0.8913
+          },
+          "cer_by_voice": {
+            "indian_female": 0.8929,
+            "indian_male": 0.8897
+          }
+        },
+        {
+          "step": 1500,
+          "cer": 0.8462,
+          "wer": 0.9863,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.607,
+          "cer_by_script": {
+            "cs": 0.8429,
+            "deva": 0.8466,
+            "roman": 0.8492
+          },
+          "cer_by_language": {
+            "hi-en": 0.8462
+          },
+          "cer_by_voice": {
+            "indian_female": 0.8346,
+            "indian_male": 0.8579
+          }
+        },
+        {
+          "step": 2000,
+          "cer": 0.8309,
+          "wer": 0.9608,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.928,
+          "cer_by_script": {
+            "cs": 0.8444,
+            "deva": 0.8115,
+            "roman": 0.8365
+          },
+          "cer_by_language": {
+            "hi-en": 0.8309
+          },
+          "cer_by_voice": {
+            "indian_female": 0.8378,
+            "indian_male": 0.824
+          }
+        },
+        {
+          "step": 2500,
+          "cer": 0.7747,
+          "wer": 0.898,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.954,
+          "cer_by_script": {
+            "cs": 0.7317,
+            "deva": 0.7923,
+            "roman": 0.8
+          },
+          "cer_by_language": {
+            "hi-en": 0.7747
+          },
+          "cer_by_voice": {
+            "indian_female": 0.7858,
+            "indian_male": 0.7635
+          }
+        },
+        {
+          "step": 3000,
+          "cer": 0.6723,
+          "wer": 0.8,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 0.956,
+          "cer_by_script": {
+            "cs": 0.6619,
+            "deva": 0.647,
+            "roman": 0.7079
+          },
+          "cer_by_language": {
+            "hi-en": 0.6723
+          },
+          "cer_by_voice": {
+            "indian_female": 0.6925,
+            "indian_male": 0.6522
+          }
+        },
+        {
+          "step": 3500,
+          "cer": 0.6585,
+          "wer": 0.8118,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.01,
+          "cer_by_script": {
+            "cs": 0.6238,
+            "deva": 0.6086,
+            "roman": 0.7429
+          },
+          "cer_by_language": {
+            "hi-en": 0.6585
+          },
+          "cer_by_voice": {
+            "indian_female": 0.6723,
+            "indian_male": 0.6448
+          }
+        },
+        {
+          "step": 4000,
+          "cer": 0.6448,
+          "wer": 0.8176,
+          "no_eos": 1,
+          "n": 36,
+          "duration_ratio": 1.022,
+          "cer_by_script": {
+            "cs": 0.6841,
+            "deva": 0.5799,
+            "roman": 0.6698
+          },
+          "cer_by_language": {
+            "hi-en": 0.6448
+          },
+          "cer_by_voice": {
+            "indian_female": 0.6638,
+            "indian_male": 0.6257
+          }
+        },
+        {
+          "step": 4500,
+          "cer": 0.6426,
+          "wer": 0.7824,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.031,
+          "cer_by_script": {
+            "cs": 0.619,
+            "deva": 0.6454,
+            "roman": 0.6635
+          },
+          "cer_by_language": {
+            "hi-en": 0.6426
+          },
+          "cer_by_voice": {
+            "indian_female": 0.6766,
+            "indian_male": 0.6087
+          }
+        },
+        {
+          "step": 5000,
+          "cer": 0.6898,
+          "wer": 0.8529,
+          "no_eos": 0,
+          "n": 36,
+          "duration_ratio": 1.104,
+          "cer_by_script": {
+            "cs": 0.7365,
+            "deva": 0.6006,
+            "roman": 0.7317
+          },
+          "cer_by_language": {
+            "hi-en": 0.6898
+          },
+          "cer_by_voice": {
+            "indian_female": 0.7391,
+            "indian_male": 0.6405
+          }
+        }
+      ]
+    }
+  },
+  "asr_floor_real_recordings": {
+    "monitor": {
+      "cer": 0.0543,
+      "wer": 0.1529,
+      "n": 6
+    },
+    "selection": {
+      "cer": 0.0527,
+      "wer": 0.1366,
+      "n": 30
+    }
+  },
+  "selected": {
+    "run": "hinglish_24l_ws",
+    "step": 3500,
+    "checkpoint": "checkpoint_00003500.pt",
+    "weights": "EMA",
+    "reason": "Released checkpoint chosen by a rule fixed before scoring: lowest round-trip CER on the 140-utterance selection set, WER within 0.3 pp breaking ties, then the earlier step. Steps 3000 and 3500 tie at 7.99 % CER; step 3500 has the lower WER (18.76 % vs 19.07 %)."
+  }
+}

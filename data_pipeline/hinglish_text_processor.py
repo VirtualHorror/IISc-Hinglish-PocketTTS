@@ -299,6 +299,15 @@ def _romanize_units(units: list[_Unit]) -> str:
     return "".join(out)
 
 
+def romanize_hindi(word: str) -> str:
+    """Casual romanisation of one Devanagari word (lexicon overrides, then schwa-deleting rules).
+    Needs no lexicon indexes, unlike the rest of HinglishTextProcessor."""
+    word = unicodedata.normalize("NFC", word)
+    if word in lex.DEVA_TO_ROMAN:
+        return lex.DEVA_TO_ROMAN[word]
+    return _romanize_units(_parse_devanagari(word))
+
+
 # ---------------------------------------------------------------------------------------------
 # English -> Devanagari (CMUdict ARPAbet with Indian-English conventions)
 # ---------------------------------------------------------------------------------------------
@@ -621,10 +630,7 @@ class HinglishTextProcessor:
 
     # ----- word-level converters ---------------------------------------------------------------
     def romanize_hindi_word(self, word: str) -> str:
-        word = unicodedata.normalize("NFC", word)
-        if word in lex.DEVA_TO_ROMAN:
-            return lex.DEVA_TO_ROMAN[word]
-        return _romanize_units(_parse_devanagari(word))
+        return romanize_hindi(word)
 
     def english_to_devanagari(self, word: str) -> str:
         if "-" in word.strip("-"):

@@ -18,3 +18,8 @@ __pycache__/
 outputs/
 *.wav
 *.safetensors
+
+# Session 2 artifacts (weights, voices, generated audio; published on Hugging Face)
+artifacts/
+.pytest_cache/
+.test_deps/

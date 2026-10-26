@@ -1,0 +1,674 @@
+{
+  "run": "hinglish_24l_official",
+  "model_config": "~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_24l.yaml",
+  "monitor_set": "~/vaani_pocket_tts_work/repo/eval/monitor_set.json",
+  "voices": {
+    "indian_female": "~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_female__hi.wav",
+    "indian_male": "~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_male__hi.wav"
+  },
+  "asr": {
+    "model": "openai/whisper-large-v3-turbo",
+    "language": "hi; en for English-matrix utterances"
+  },
+  "asr_floor": {
+    "cer": 0.0543,
+    "wer": 0.1529,
+    "n": 6,
+    "per_utt": [
+      {
+        "utt_id": "indictts_hindi_train_hindifullmale_03024",
+        "ref": "कई डेटिंग सर्विस ऐप पर आपके लोकेशन की जानकारी भी ली जाती है",
+        "hyp": "कई डेटिंग सर्वस आप पर आपके लोकेशन की जानकारी भी ली जाती है",
+        "cer": 0.0425531914893617,
+        "wer": 0.15384615384615385
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifullfemale_00516",
+        "ref": "मुझे बेसमेंट से उसकी आवाज आती रहती है जैसे कोई बच्चा मैथ्स की टेबल्स सीखता है और बीच में बार बार भूल जाता है",
+        "hyp": "मुझे बेस्मेंट से उसकी आवाज आती रहती है जैसे कोई बच्चा मैथ्स की टेबल सीखता है और बीच में बार बार भूल जाता है",
+        "cer": 0.03529411764705882,
+        "wer": 0.08333333333333333
+      },
+      {
+        "utt_id": "syspin_hindi_male_sample_12431",
+        "ref": "ये भारत का इस कोमनवेल्थ गेंस के वेटलिफ्टिंग इवेंट में छठां मेडल है",
+        "hyp": "ये भारत का इस कामन विल्द गेंस के वेट लिफ्टिंग इवेंट में छटा मैडल है",
+        "cer": 0.1111111111111111,
+        "wer": 0.46153846153846156
+      },
+      {
+        "utt_id": "syspin_hindi_female_sample_99",
+        "ref": "अब हम इसी फाइल को पीडीएफ नहीं बल्कि टेक्स्ट फार्मेट में डाउनलोड करेंगे",
+        "hyp": "अब हम इसी फाइल को पीडीएफ नहीं बलकि टेक्स्ट फोर्मैट में डाउनलोड करेंगे",
+        "cer": 0.05172413793103448,
+        "wer": 0.15384615384615385
+      },
+      {
+        "utt_id": "openslr104_hinglish_354092_QSQOcoZj95Pfx3zS_0050",
+        "ref": "आप इस पेज में एक एरर का सामना कर सकते हैं",
+        "hyp": "आप इस पेज में एक एरर का सामना कर सकते हैं",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "openslr104_hinglish_166794_9cqCD6lIWQ37MUXs_0052",
+        "ref": "यह करने के लिए सेव रिकोर्ड बटन पर क्लिक करते हैं",
+        "hyp": "व्याह करने के लिए सेव रिकोर्ड बटन पर क्लिक करते हैं",
+        "cer": 0.07894736842105263,
+        "wer": 0.09090909090909091
+      }
+    ]
+  },
+  "steps": [
+    {
+      "step": 500,
+      "checkpoint": "checkpoint_00000500.pt",
+      "time": "2026-10-26 21:00:54",
+      "overall": {
+        "cer": 1.0456,
+        "wer": 1.0725,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.322,
+        "rtf_gpu": 0.1918
+      },
+      "script=cs": {
+        "cer": 0.9063,
+        "wer": 0.9882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.308,
+        "rtf_gpu": 0.2102
+      },
+      "script=deva": {
+        "cer": 0.9058,
+        "wer": 0.9882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.233,
+        "rtf_gpu": 0.2338
+      },
+      "script=roman": {
+        "cer": 1.3238,
+        "wer": 1.2412,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.427,
+        "rtf_gpu": 0.1555
+      },
+      "language=hi-en": {
+        "cer": 1.0456,
+        "wer": 1.0725,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.322,
+        "rtf_gpu": 0.1918
+      },
+      "voice=indian_female": {
+        "cer": 1.1983,
+        "wer": 1.1608,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.255,
+        "rtf_gpu": 0.2657
+      },
+      "voice=indian_male": {
+        "cer": 0.8929,
+        "wer": 0.9843,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.39,
+        "rtf_gpu": 0.1436
+      }
+    },
+    {
+      "step": 1000,
+      "checkpoint": "checkpoint_00001000.pt",
+      "time": "2026-10-26 21:01:14",
+      "overall": {
+        "cer": 0.8913,
+        "wer": 0.9922,
+        "n": 36,
+        "no_eos": 1,
+        "duration_ratio": 0.526,
+        "rtf_gpu": 0.1398
+      },
+      "script=cs": {
+        "cer": 0.9032,
+        "wer": 1.0,
+        "n": 12,
+        "no_eos": 1,
+        "duration_ratio": 0.496,
+        "rtf_gpu": 0.1407
+      },
+      "script=deva": {
+        "cer": 0.8834,
+        "wer": 0.9882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.536,
+        "rtf_gpu": 0.1385
+      },
+      "script=roman": {
+        "cer": 0.8873,
+        "wer": 0.9882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.545,
+        "rtf_gpu": 0.1404
+      },
+      "language=hi-en": {
+        "cer": 0.8913,
+        "wer": 0.9922,
+        "n": 36,
+        "no_eos": 1,
+        "duration_ratio": 0.526,
+        "rtf_gpu": 0.1398
+      },
+      "voice=indian_female": {
+        "cer": 0.8929,
+        "wer": 0.9922,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.501,
+        "rtf_gpu": 0.142
+      },
+      "voice=indian_male": {
+        "cer": 0.8897,
+        "wer": 0.9922,
+        "n": 18,
+        "no_eos": 1,
+        "duration_ratio": 0.551,
+        "rtf_gpu": 0.1379
+      }
+    },
+    {
+      "step": 1500,
+      "checkpoint": "checkpoint_00001500.pt",
+      "time": "2026-10-26 21:01:37",
+      "overall": {
+        "cer": 0.8462,
+        "wer": 0.9863,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.607,
+        "rtf_gpu": 0.1368
+      },
+      "script=cs": {
+        "cer": 0.8429,
+        "wer": 0.9882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.636,
+        "rtf_gpu": 0.1363
+      },
+      "script=deva": {
+        "cer": 0.8466,
+        "wer": 0.9765,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.6,
+        "rtf_gpu": 0.1368
+      },
+      "script=roman": {
+        "cer": 0.8492,
+        "wer": 0.9941,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.585,
+        "rtf_gpu": 0.1374
+      },
+      "language=hi-en": {
+        "cer": 0.8462,
+        "wer": 0.9863,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.607,
+        "rtf_gpu": 0.1368
+      },
+      "voice=indian_female": {
+        "cer": 0.8346,
+        "wer": 0.9843,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.636,
+        "rtf_gpu": 0.1364
+      },
+      "voice=indian_male": {
+        "cer": 0.8579,
+        "wer": 0.9882,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.578,
+        "rtf_gpu": 0.1373
+      }
+    },
+    {
+      "step": 2000,
+      "checkpoint": "checkpoint_00002000.pt",
+      "time": "2026-10-26 21:02:08",
+      "overall": {
+        "cer": 0.8309,
+        "wer": 0.9608,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.928,
+        "rtf_gpu": 0.1333
+      },
+      "script=cs": {
+        "cer": 0.8444,
+        "wer": 0.9529,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.922,
+        "rtf_gpu": 0.1331
+      },
+      "script=deva": {
+        "cer": 0.8115,
+        "wer": 0.9353,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.914,
+        "rtf_gpu": 0.1338
+      },
+      "script=roman": {
+        "cer": 0.8365,
+        "wer": 0.9941,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.948,
+        "rtf_gpu": 0.133
+      },
+      "language=hi-en": {
+        "cer": 0.8309,
+        "wer": 0.9608,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.928,
+        "rtf_gpu": 0.1333
+      },
+      "voice=indian_female": {
+        "cer": 0.8378,
+        "wer": 0.9686,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.89,
+        "rtf_gpu": 0.1335
+      },
+      "voice=indian_male": {
+        "cer": 0.824,
+        "wer": 0.9529,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.966,
+        "rtf_gpu": 0.1331
+      }
+    },
+    {
+      "step": 2500,
+      "checkpoint": "checkpoint_00002500.pt",
+      "time": "2026-10-26 21:02:39",
+      "overall": {
+        "cer": 0.7747,
+        "wer": 0.898,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.954,
+        "rtf_gpu": 0.1337
+      },
+      "script=cs": {
+        "cer": 0.7317,
+        "wer": 0.8294,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.837,
+        "rtf_gpu": 0.1335
+      },
+      "script=deva": {
+        "cer": 0.7923,
+        "wer": 0.9353,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.976,
+        "rtf_gpu": 0.1338
+      },
+      "script=roman": {
+        "cer": 0.8,
+        "wer": 0.9294,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.05,
+        "rtf_gpu": 0.1337
+      },
+      "language=hi-en": {
+        "cer": 0.7747,
+        "wer": 0.898,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.954,
+        "rtf_gpu": 0.1337
+      },
+      "voice=indian_female": {
+        "cer": 0.7858,
+        "wer": 0.898,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.934,
+        "rtf_gpu": 0.1335
+      },
+      "voice=indian_male": {
+        "cer": 0.7635,
+        "wer": 0.898,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.974,
+        "rtf_gpu": 0.1338
+      }
+    },
+    {
+      "step": 3000,
+      "checkpoint": "checkpoint_00003000.pt",
+      "time": "2026-10-26 21:03:10",
+      "overall": {
+        "cer": 0.6723,
+        "wer": 0.8,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.956,
+        "rtf_gpu": 0.1343
+      },
+      "script=cs": {
+        "cer": 0.6619,
+        "wer": 0.8176,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.018,
+        "rtf_gpu": 0.1325
+      },
+      "script=deva": {
+        "cer": 0.647,
+        "wer": 0.7294,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.862,
+        "rtf_gpu": 0.1338
+      },
+      "script=roman": {
+        "cer": 0.7079,
+        "wer": 0.8529,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.987,
+        "rtf_gpu": 0.1367
+      },
+      "language=hi-en": {
+        "cer": 0.6723,
+        "wer": 0.8,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 0.956,
+        "rtf_gpu": 0.1343
+      },
+      "voice=indian_female": {
+        "cer": 0.6925,
+        "wer": 0.8,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.944,
+        "rtf_gpu": 0.133
+      },
+      "voice=indian_male": {
+        "cer": 0.6522,
+        "wer": 0.8,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.968,
+        "rtf_gpu": 0.1356
+      }
+    },
+    {
+      "step": 3500,
+      "checkpoint": "checkpoint_00003500.pt",
+      "time": "2026-10-26 21:03:42",
+      "overall": {
+        "cer": 0.6585,
+        "wer": 0.8118,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.01,
+        "rtf_gpu": 0.1327
+      },
+      "script=cs": {
+        "cer": 0.6238,
+        "wer": 0.8,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.06,
+        "rtf_gpu": 0.1324
+      },
+      "script=deva": {
+        "cer": 0.6086,
+        "wer": 0.7529,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.964,
+        "rtf_gpu": 0.1335
+      },
+      "script=roman": {
+        "cer": 0.7429,
+        "wer": 0.8824,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.005,
+        "rtf_gpu": 0.1324
+      },
+      "language=hi-en": {
+        "cer": 0.6585,
+        "wer": 0.8118,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.01,
+        "rtf_gpu": 0.1327
+      },
+      "voice=indian_female": {
+        "cer": 0.6723,
+        "wer": 0.8431,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 0.933,
+        "rtf_gpu": 0.1333
+      },
+      "voice=indian_male": {
+        "cer": 0.6448,
+        "wer": 0.7804,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.087,
+        "rtf_gpu": 0.1322
+      }
+    },
+    {
+      "step": 4000,
+      "checkpoint": "checkpoint_00004000.pt",
+      "time": "2026-10-26 21:04:15",
+      "overall": {
+        "cer": 0.6448,
+        "wer": 0.8176,
+        "n": 36,
+        "no_eos": 1,
+        "duration_ratio": 1.022,
+        "rtf_gpu": 0.133
+      },
+      "script=cs": {
+        "cer": 0.6841,
+        "wer": 0.8647,
+        "n": 12,
+        "no_eos": 1,
+        "duration_ratio": 1.123,
+        "rtf_gpu": 0.1325
+      },
+      "script=deva": {
+        "cer": 0.5799,
+        "wer": 0.7588,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.893,
+        "rtf_gpu": 0.1338
+      },
+      "script=roman": {
+        "cer": 0.6698,
+        "wer": 0.8294,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.048,
+        "rtf_gpu": 0.1327
+      },
+      "language=hi-en": {
+        "cer": 0.6448,
+        "wer": 0.8176,
+        "n": 36,
+        "no_eos": 1,
+        "duration_ratio": 1.022,
+        "rtf_gpu": 0.133
+      },
+      "voice=indian_female": {
+        "cer": 0.6638,
+        "wer": 0.8431,
+        "n": 18,
+        "no_eos": 1,
+        "duration_ratio": 0.988,
+        "rtf_gpu": 0.1334
+      },
+      "voice=indian_male": {
+        "cer": 0.6257,
+        "wer": 0.7922,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.056,
+        "rtf_gpu": 0.1325
+      }
+    },
+    {
+      "step": 4500,
+      "checkpoint": "checkpoint_00004500.pt",
+      "time": "2026-10-26 21:04:47",
+      "overall": {
+        "cer": 0.6426,
+        "wer": 0.7824,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.031,
+        "rtf_gpu": 0.1321
+      },
+      "script=cs": {
+        "cer": 0.619,
+        "wer": 0.7471,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.004,
+        "rtf_gpu": 0.1328
+      },
+      "script=deva": {
+        "cer": 0.6454,
+        "wer": 0.7941,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.983,
+        "rtf_gpu": 0.1323
+      },
+      "script=roman": {
+        "cer": 0.6635,
+        "wer": 0.8059,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.106,
+        "rtf_gpu": 0.1314
+      },
+      "language=hi-en": {
+        "cer": 0.6426,
+        "wer": 0.7824,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.031,
+        "rtf_gpu": 0.1321
+      },
+      "voice=indian_female": {
+        "cer": 0.6766,
+        "wer": 0.8314,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.01,
+        "rtf_gpu": 0.1332
+      },
+      "voice=indian_male": {
+        "cer": 0.6087,
+        "wer": 0.7333,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.051,
+        "rtf_gpu": 0.1311
+      }
+    },
+    {
+      "step": 5000,
+      "checkpoint": "checkpoint_00005000.pt",
+      "time": "2026-10-26 21:05:22",
+      "overall": {
+        "cer": 0.6898,
+        "wer": 0.8529,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.104,
+        "rtf_gpu": 0.1328
+      },
+      "script=cs": {
+        "cer": 0.7365,
+        "wer": 0.8882,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.138,
+        "rtf_gpu": 0.1329
+      },
+      "script=deva": {
+        "cer": 0.6006,
+        "wer": 0.7412,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 0.966,
+        "rtf_gpu": 0.1341
+      },
+      "script=roman": {
+        "cer": 0.7317,
+        "wer": 0.9294,
+        "n": 12,
+        "no_eos": 0,
+        "duration_ratio": 1.209,
+        "rtf_gpu": 0.1316
+      },
+      "language=hi-en": {
+        "cer": 0.6898,
+        "wer": 0.8529,
+        "n": 36,
+        "no_eos": 0,
+        "duration_ratio": 1.104,
+        "rtf_gpu": 0.1328
+      },
+      "voice=indian_female": {
+        "cer": 0.7391,
+        "wer": 0.9294,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.157,
+        "rtf_gpu": 0.1326
+      },
+      "voice=indian_male": {
+        "cer": 0.6405,
+        "wer": 0.7765,
+        "n": 18,
+        "no_eos": 0,
+        "duration_ratio": 1.051,
+        "rtf_gpu": 0.133
+      }
+    }
+  ]
+}
