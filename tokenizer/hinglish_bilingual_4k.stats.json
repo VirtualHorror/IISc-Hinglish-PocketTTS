@@ -1,0 +1,56 @@
+{
+  "vocab_size": 4000,
+  "corpus": {
+    "lines": 135218,
+    "by_source": {
+      "indictts_hindi": 14560,
+      "indictts_english": 17129,
+      "syspin_hindi_female": 2752,
+      "syspin_hindi_male": 3013,
+      "openslr104_hinglish": 97764
+    },
+    "validation_excluded": 396
+  },
+  "spec": {
+    "model_type": "unigram",
+    "character_coverage": 1.0,
+    "normalization": "identity",
+    "max_sentencepiece_length": 6,
+    "split_digits": true,
+    "byte_fallback": true,
+    "pad_id": 3,
+    "user_defined_symbols": [
+      ".",
+      ",",
+      "?",
+      "!",
+      ";",
+      ":"
+    ]
+  },
+  "validation_spoken_devanagari": {
+    "tokens_per_word": 1.93,
+    "byte_or_unk_fraction": 0.0
+  },
+  "validation_spoken_roman": {
+    "tokens_per_word": 2.069,
+    "byte_or_unk_fraction": 0.0
+  },
+  "validation_spoken_code_switched": {
+    "tokens_per_word": 1.985,
+    "byte_or_unk_fraction": 0.0
+  },
+  "piece_scripts": {
+    "devanagari": 1866,
+    "latin": 1859,
+    "byte": 256
+  },
+  "punctuation_standalone": {
+    ".": true,
+    ",": true,
+    "?": true,
+    "!": true,
+    ";": true,
+    ":": true
+  }
+}

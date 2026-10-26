@@ -1,0 +1,1060 @@
+{
+  "dataset": "iisc-hinglish-pocket-tts-dataset",
+  "generated_by": "data_pipeline/prepare_dataset.py",
+  "generated_at": "2026-10-26T17:54:25+0530",
+  "sample_rate": 24000,
+  "total": {
+    "utterances": 7360,
+    "hours": 10.2,
+    "speakers": 201
+  },
+  "splits": {
+    "train": {
+      "utterances": 6980,
+      "hours": 9.667
+    },
+    "validation": {
+      "utterances": 380,
+      "hours": 0.533
+    }
+  },
+  "by_language": {
+    "en": {
+      "utterances": 2334,
+      "hours": 2.484
+    },
+    "hi": {
+      "utterances": 2830,
+      "hours": 4.586
+    },
+    "hi-en": {
+      "utterances": 2196,
+      "hours": 3.13
+    }
+  },
+  "by_source": {
+    "indictts_english": {
+      "utterances": 2395,
+      "hours": 2.557
+    },
+    "indictts_hindi": {
+      "utterances": 2589,
+      "hours": 4.002
+    },
+    "openslr104_hinglish": {
+      "utterances": 1591,
+      "hours": 2.036
+    },
+    "syspin_hindi_female": {
+      "utterances": 389,
+      "hours": 0.827
+    },
+    "syspin_hindi_male": {
+      "utterances": 396,
+      "hours": 0.778
+    }
+  },
+  "by_speaker": {
+    "indictts_gujarati_female": {
+      "utterances": 100,
+      "hours": 0.184
+    },
+    "indictts_gujarati_male": {
+      "utterances": 99,
+      "hours": 0.19
+    },
+    "indictts_hindi_female": {
+      "utterances": 647,
+      "hours": 0.956
+    },
+    "indictts_hindi_male": {
+      "utterances": 645,
+      "hours": 1.351
+    },
+    "indictts_hindifull_female": {
+      "utterances": 1549,
+      "hours": 1.654
+    },
+    "indictts_hindifull_male": {
+      "utterances": 1548,
+      "hours": 1.717
+    },
+    "indictts_marathi_female": {
+      "utterances": 100,
+      "hours": 0.116
+    },
+    "indictts_marathi_male": {
+      "utterances": 100,
+      "hours": 0.143
+    },
+    "indictts_rajasthani_female": {
+      "utterances": 96,
+      "hours": 0.157
+    },
+    "indictts_rajasthani_male": {
+      "utterances": 100,
+      "hours": 0.091
+    },
+    "openslr104_100356_CwvWvuD1g8RaNQ2j": {
+      "utterances": 2,
+      "hours": 0.001
+    },
+    "openslr104_106319_Uhh9KzP8SyfWszeJ": {
+      "utterances": 6,
+      "hours": 0.007
+    },
+    "openslr104_106718_vE1rhq3ojNKZvQNv": {
+      "utterances": 4,
+      "hours": 0.004
+    },
+    "openslr104_106884_a6hhZwjYRtCP1fwP": {
+      "utterances": 9,
+      "hours": 0.009
+    },
+    "openslr104_109686_HILoR2Or4G6QybRM": {
+      "utterances": 17,
+      "hours": 0.017
+    },
+    "openslr104_111627_bYPRSx2sjXooUdv8": {
+      "utterances": 9,
+      "hours": 0.009
+    },
+    "openslr104_117174_psHCPTkdjFBXSwV1": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_121073_hhahrO4yUEy8GC5n": {
+      "utterances": 2,
+      "hours": 0.004
+    },
+    "openslr104_121257_UwOn143Hkgq5El5O": {
+      "utterances": 2,
+      "hours": 0.004
+    },
+    "openslr104_126393_rSn8GnGA2xpKk7qD": {
+      "utterances": 12,
+      "hours": 0.011
+    },
+    "openslr104_126437_RYJ2gSQyCu0PM2cq": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_134136_zjLZYHmiT7YGCuS8": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_136325_9qNmHPrUpNLAykHf": {
+      "utterances": 7,
+      "hours": 0.009
+    },
+    "openslr104_142176_HMnF7hnP03ktTmSa": {
+      "utterances": 18,
+      "hours": 0.037
+    },
+    "openslr104_142970_DP5j8CLDeL6HHHSX": {
+      "utterances": 4,
+      "hours": 0.006
+    },
+    "openslr104_146859_PmtkP19rpHKX5Ue1": {
+      "utterances": 13,
+      "hours": 0.017
+    },
+    "openslr104_147963_hjSljhUwRX8Yu6OO": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_148454_ICbSJDqSiI4llasY": {
+      "utterances": 13,
+      "hours": 0.022
+    },
+    "openslr104_154712_txbpWebPgY4aS0sN": {
+      "utterances": 16,
+      "hours": 0.024
+    },
+    "openslr104_160830_v8x2RzJs3DwC4jE9": {
+      "utterances": 14,
+      "hours": 0.019
+    },
+    "openslr104_163584_QsD0oooWegIqf963": {
+      "utterances": 3,
+      "hours": 0.007
+    },
+    "openslr104_165325_4r0Tic1Kpymq5vvC": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_165823_c8PZEsFmL6bKtJb7": {
+      "utterances": 1,
+      "hours": 0.002
+    },
+    "openslr104_166794_9cqCD6lIWQ37MUXs": {
+      "utterances": 7,
+      "hours": 0.01
+    },
+    "openslr104_171660_Nyg40ltVEe5vTTsS": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_175258_XHY5DZdu50zfUfkX": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_175522_7Hz37FoUWV3ZFiMU": {
+      "utterances": 12,
+      "hours": 0.013
+    },
+    "openslr104_177570_jSNK2zDaIvyZsMZp": {
+      "utterances": 14,
+      "hours": 0.014
+    },
+    "openslr104_178303_bxragcPFHMLMsmjr": {
+      "utterances": 13,
+      "hours": 0.012
+    },
+    "openslr104_185567_AeSTWKvztl3dzYKT": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_187699_rdv7dskMQfkxZG7s": {
+      "utterances": 11,
+      "hours": 0.015
+    },
+    "openslr104_193949_kNy6anmVvg5h7xmA": {
+      "utterances": 19,
+      "hours": 0.024
+    },
+    "openslr104_199756_0ZCBRzDx7vigtAuy": {
+      "utterances": 10,
+      "hours": 0.02
+    },
+    "openslr104_199964_eRaTSznDCYa8BtMC": {
+      "utterances": 13,
+      "hours": 0.017
+    },
+    "openslr104_201350_lPOyV7bzJHSRLOWi": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_205240_F4KjmwYhWvnpSE0m": {
+      "utterances": 3,
+      "hours": 0.006
+    },
+    "openslr104_205934_JCKcDjCRSqwhyciq": {
+      "utterances": 8,
+      "hours": 0.014
+    },
+    "openslr104_210672_0jdhCdy6wPFMjRXl": {
+      "utterances": 1,
+      "hours": 0.002
+    },
+    "openslr104_216105_zQexm3UmewpuF7BK": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_221831_N3wL0QatgK51F1tx": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_223996_2kZ7laxQAUL70DVv": {
+      "utterances": 15,
+      "hours": 0.017
+    },
+    "openslr104_224033_rmoMJqlME9Sjob7d": {
+      "utterances": 4,
+      "hours": 0.005
+    },
+    "openslr104_224788_3fVFkG8BsUQWCOGS": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_232748_sKqPXTyNgbuqBiCf": {
+      "utterances": 13,
+      "hours": 0.017
+    },
+    "openslr104_238121_Vwrx3NuWik2VD2MU": {
+      "utterances": 15,
+      "hours": 0.024
+    },
+    "openslr104_242003_YyYCTSgsEHug56qT": {
+      "utterances": 15,
+      "hours": 0.013
+    },
+    "openslr104_250146_Y8RJpOnbE5dVxnBx": {
+      "utterances": 11,
+      "hours": 0.013
+    },
+    "openslr104_254595_FDBypaVFplHxtmil": {
+      "utterances": 6,
+      "hours": 0.007
+    },
+    "openslr104_255117_9gldu26p0X3x3og6": {
+      "utterances": 12,
+      "hours": 0.015
+    },
+    "openslr104_256282_3Nju54LxV4GI22BP": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_256325_iuhrd821xM0xUN6m": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_262158_ApzjEg6YUzqQtEnL": {
+      "utterances": 15,
+      "hours": 0.023
+    },
+    "openslr104_265143_NP0ELnqrEkkQjRUb": {
+      "utterances": 4,
+      "hours": 0.007
+    },
+    "openslr104_270891_D97fJxqasgTlJNxe": {
+      "utterances": 14,
+      "hours": 0.021
+    },
+    "openslr104_271324_5H7YAVtlwZuAWxrP": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_275434_KuWDKfMomJAQHkDM": {
+      "utterances": 15,
+      "hours": 0.025
+    },
+    "openslr104_277289_Z9cD5IbaDytwMt6R": {
+      "utterances": 11,
+      "hours": 0.011
+    },
+    "openslr104_278951_ZrRFAewtB9ghE37y": {
+      "utterances": 13,
+      "hours": 0.019
+    },
+    "openslr104_283968_KIW3IG6NFcUd1PXR": {
+      "utterances": 9,
+      "hours": 0.011
+    },
+    "openslr104_286444_YiMohOANQrZ3zOrz": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_290683_yp5ruJ0fAqgpSYaM": {
+      "utterances": 1,
+      "hours": 0.003
+    },
+    "openslr104_292072_GrY6e1132dzQeIk1": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_292250_upAtmsGz8nf8vMoJ": {
+      "utterances": 13,
+      "hours": 0.014
+    },
+    "openslr104_297660_VeU32jjUtSHdn4UH": {
+      "utterances": 13,
+      "hours": 0.016
+    },
+    "openslr104_299590_wxwKLv3XI3jpmcyb": {
+      "utterances": 5,
+      "hours": 0.005
+    },
+    "openslr104_300562_lwox35nymUpUTnSd": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_301375_hYMDkC4hLp9Qmo1O": {
+      "utterances": 2,
+      "hours": 0.003
+    },
+    "openslr104_303890_LcDr3fi7loNqGLZK": {
+      "utterances": 4,
+      "hours": 0.006
+    },
+    "openslr104_317825_XOxEMUKaqHg8EyMq": {
+      "utterances": 14,
+      "hours": 0.018
+    },
+    "openslr104_320706_m5VP8pQmzNMAxD8C": {
+      "utterances": 17,
+      "hours": 0.023
+    },
+    "openslr104_320718_XvZ0rmmE67niOAPi": {
+      "utterances": 11,
+      "hours": 0.013
+    },
+    "openslr104_322882_XTscbPr78nzuHhuu": {
+      "utterances": 15,
+      "hours": 0.018
+    },
+    "openslr104_336458_qY9tit8lS0IW2voa": {
+      "utterances": 16,
+      "hours": 0.017
+    },
+    "openslr104_338894_wQTBwiCw0ggXf0JL": {
+      "utterances": 11,
+      "hours": 0.021
+    },
+    "openslr104_340898_fameybgWTwz4UBK7": {
+      "utterances": 9,
+      "hours": 0.011
+    },
+    "openslr104_342352_MvhFmsojaastXzq5": {
+      "utterances": 5,
+      "hours": 0.009
+    },
+    "openslr104_344267_aZSahmWizlD17OIp": {
+      "utterances": 13,
+      "hours": 0.013
+    },
+    "openslr104_345601_RIcCNm64Dhwz0BqN": {
+      "utterances": 8,
+      "hours": 0.01
+    },
+    "openslr104_349192_Lxwf2aUCx1pfIwDM": {
+      "utterances": 15,
+      "hours": 0.019
+    },
+    "openslr104_350956_AdztwNlAtCku4h6b": {
+      "utterances": 20,
+      "hours": 0.026
+    },
+    "openslr104_353395_6spWbJWQGvifLYMD": {
+      "utterances": 6,
+      "hours": 0.006
+    },
+    "openslr104_354092_QSQOcoZj95Pfx3zS": {
+      "utterances": 12,
+      "hours": 0.016
+    },
+    "openslr104_357981_X1knZPjAfQ9kevDz": {
+      "utterances": 4,
+      "hours": 0.008
+    },
+    "openslr104_359899_n4ddptSCXDdQiwWf": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_366578_ct4vvGjby7dGvbWZ": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_366844_COdA4bWe5rVSeMHt": {
+      "utterances": 11,
+      "hours": 0.014
+    },
+    "openslr104_367739_tKFrZ549BuwTkVhh": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_370508_Pkfe2ljs0lLX5NN1": {
+      "utterances": 18,
+      "hours": 0.019
+    },
+    "openslr104_384371_9OL66l59ysIB2YCS": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_384379_0a8GyoWn0KRgXxTx": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_386410_gNJ4JccADvXplv9k": {
+      "utterances": 14,
+      "hours": 0.019
+    },
+    "openslr104_389564_T5BW4bEyBYsyBSyb": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_391623_8TohVIHvfNddtPnO": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_394720_fymAL90cDPGqkbLm": {
+      "utterances": 7,
+      "hours": 0.006
+    },
+    "openslr104_394895_dmeJSjNLkwhqZy7G": {
+      "utterances": 4,
+      "hours": 0.004
+    },
+    "openslr104_396164_ukezatX6TZqBsOjA": {
+      "utterances": 15,
+      "hours": 0.017
+    },
+    "openslr104_400341_kGXoEqxQ9qkwT1n7": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_402585_ujvHWeCKwWLKGK8g": {
+      "utterances": 16,
+      "hours": 0.025
+    },
+    "openslr104_407471_eg0rgRuxzBYoEre8": {
+      "utterances": 8,
+      "hours": 0.01
+    },
+    "openslr104_415237_nI2jHFZeKrgVPnzX": {
+      "utterances": 16,
+      "hours": 0.025
+    },
+    "openslr104_423431_M4nsG593Ly2OX3wa": {
+      "utterances": 7,
+      "hours": 0.007
+    },
+    "openslr104_427132_T6mLkV5zsD6CbxGa": {
+      "utterances": 3,
+      "hours": 0.002
+    },
+    "openslr104_433148_9ZAfcv5TDF1BKs4E": {
+      "utterances": 4,
+      "hours": 0.005
+    },
+    "openslr104_434636_Y7CYpd0jXTBL6hxZ": {
+      "utterances": 3,
+      "hours": 0.007
+    },
+    "openslr104_439704_rvDQ1chj178KanCO": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_445718_H6Z2BkcyVtiuiN7A": {
+      "utterances": 16,
+      "hours": 0.017
+    },
+    "openslr104_455025_8NtQfEGI2Qqa6nLc": {
+      "utterances": 2,
+      "hours": 0.004
+    },
+    "openslr104_456018_fjf8XdM7kkjCBKXh": {
+      "utterances": 16,
+      "hours": 0.019
+    },
+    "openslr104_457295_WgzliDtK6Htff0g2": {
+      "utterances": 15,
+      "hours": 0.013
+    },
+    "openslr104_463627_DKYx54d9iLlNEihy": {
+      "utterances": 4,
+      "hours": 0.005
+    },
+    "openslr104_464941_FDv2zt12vIcud0pG": {
+      "utterances": 15,
+      "hours": 0.017
+    },
+    "openslr104_467403_JOd5sbgTr9wLls3Z": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_470499_1hSNR1IZ2kskGB9l": {
+      "utterances": 2,
+      "hours": 0.004
+    },
+    "openslr104_472349_j5gN0Vdk52XnayhS": {
+      "utterances": 4,
+      "hours": 0.005
+    },
+    "openslr104_483445_uwNP4AM07Smml2VZ": {
+      "utterances": 5,
+      "hours": 0.006
+    },
+    "openslr104_485176_VxquLalRIRShu5BD": {
+      "utterances": 11,
+      "hours": 0.011
+    },
+    "openslr104_491095_mrVMW4rD3d6QOWEu": {
+      "utterances": 15,
+      "hours": 0.02
+    },
+    "openslr104_494949_LJr6JebNKuSwq48U": {
+      "utterances": 12,
+      "hours": 0.015
+    },
+    "openslr104_499411_ILNdBJeyg2jV0WUe": {
+      "utterances": 6,
+      "hours": 0.005
+    },
+    "openslr104_503577_Ym6wFcvsJRHzm4yq": {
+      "utterances": 17,
+      "hours": 0.025
+    },
+    "openslr104_506059_3tHvPqeljFi2dm9p": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_512483_UvZLGqpVnvyAD9zu": {
+      "utterances": 13,
+      "hours": 0.023
+    },
+    "openslr104_515896_rybhHoKYhmLBvFIU": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_518517_i7hdc0miWtsXu5vj": {
+      "utterances": 18,
+      "hours": 0.019
+    },
+    "openslr104_521943_vEBgBDkd2xef1Ap4": {
+      "utterances": 12,
+      "hours": 0.018
+    },
+    "openslr104_522401_kkaxZg1KMtPqy20P": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_524881_v5qAbD2G6d7ZnfiB": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_527131_bPk3EJKLh0dhAcSx": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_533769_rgW9ruuQBxnAPBOb": {
+      "utterances": 7,
+      "hours": 0.007
+    },
+    "openslr104_541304_cyhxRWI0LoKYZvcw": {
+      "utterances": 6,
+      "hours": 0.006
+    },
+    "openslr104_541637_RkpRYL8GkIi0QqZH": {
+      "utterances": 14,
+      "hours": 0.015
+    },
+    "openslr104_541916_5DpOB0LmjVO8tse5": {
+      "utterances": 4,
+      "hours": 0.004
+    },
+    "openslr104_544832_zEZQKAeXbD7Z4zgO": {
+      "utterances": 10,
+      "hours": 0.01
+    },
+    "openslr104_550273_urFiEtgL3ZyessbT": {
+      "utterances": 1,
+      "hours": 0.002
+    },
+    "openslr104_553382_FWdeUJaQWK8Gqnjy": {
+      "utterances": 16,
+      "hours": 0.021
+    },
+    "openslr104_559303_81u0FT2H4O50QE1O": {
+      "utterances": 15,
+      "hours": 0.018
+    },
+    "openslr104_564420_6TjLzEhKypd5QjrY": {
+      "utterances": 15,
+      "hours": 0.031
+    },
+    "openslr104_571887_c1g1gv54pEwc8IDn": {
+      "utterances": 19,
+      "hours": 0.029
+    },
+    "openslr104_578436_WJoWeCyam4yoecgv": {
+      "utterances": 9,
+      "hours": 0.011
+    },
+    "openslr104_581145_vYm2PLAczomJ79qg": {
+      "utterances": 13,
+      "hours": 0.017
+    },
+    "openslr104_584991_1ijxO93RTIJh2Rzv": {
+      "utterances": 5,
+      "hours": 0.004
+    },
+    "openslr104_590918_onC42c7389XO5H4x": {
+      "utterances": 14,
+      "hours": 0.019
+    },
+    "openslr104_592721_cRdDo8XAPDziTOrE": {
+      "utterances": 9,
+      "hours": 0.012
+    },
+    "openslr104_596505_mSiZUO1cgwb8nNpA": {
+      "utterances": 8,
+      "hours": 0.006
+    },
+    "openslr104_597487_iIgRmlEwK6duwlAt": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_603426_mGePUtSBYpJklM3l": {
+      "utterances": 16,
+      "hours": 0.02
+    },
+    "openslr104_603863_gtamKcfEoKXEL49Z": {
+      "utterances": 15,
+      "hours": 0.017
+    },
+    "openslr104_604593_DS1kTGZefiUqTTuU": {
+      "utterances": 13,
+      "hours": 0.011
+    },
+    "openslr104_610265_xMxtQE5iswyTgPDp": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_634568_jCgweujQVV5haVF1": {
+      "utterances": 3,
+      "hours": 0.003
+    },
+    "openslr104_647192_JN1SwuiWrcPtkzCO": {
+      "utterances": 12,
+      "hours": 0.014
+    },
+    "openslr104_648590_eVGKFYqaM3Z8aA8p": {
+      "utterances": 10,
+      "hours": 0.014
+    },
+    "openslr104_652664_tjK8PyVNdGbZTxwn": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_654444_0049FmqkWQMNW6Tc": {
+      "utterances": 1,
+      "hours": 0.002
+    },
+    "openslr104_655800_oZvmnZboIegFlK4k": {
+      "utterances": 4,
+      "hours": 0.004
+    },
+    "openslr104_658158_lm1lnQAWJU9qvDn0": {
+      "utterances": 11,
+      "hours": 0.019
+    },
+    "openslr104_663512_ScaOkcrb6KnpjyUN": {
+      "utterances": 14,
+      "hours": 0.014
+    },
+    "openslr104_665639_adZ6ee9XYNoR4VE8": {
+      "utterances": 17,
+      "hours": 0.024
+    },
+    "openslr104_667354_ecQ08EPZMWNIyUl7": {
+      "utterances": 12,
+      "hours": 0.018
+    },
+    "openslr104_669313_kHCF9cpAg7G7HLb3": {
+      "utterances": 3,
+      "hours": 0.004
+    },
+    "openslr104_678454_gQ5L7U3mvIzP24ub": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_681564_AScrUtOeYNw6iRJh": {
+      "utterances": 2,
+      "hours": 0.002
+    },
+    "openslr104_681725_38B2vDMNiIHGj1oX": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_682098_mn8KjS5rb1MdPmyt": {
+      "utterances": 9,
+      "hours": 0.013
+    },
+    "openslr104_686591_xqoJIvqGXoOePCTn": {
+      "utterances": 19,
+      "hours": 0.022
+    },
+    "openslr104_690775_xmFEAmhKJ4rwfcHb": {
+      "utterances": 13,
+      "hours": 0.016
+    },
+    "openslr104_693176_M1xsRqst1xV2VNH9": {
+      "utterances": 12,
+      "hours": 0.009
+    },
+    "openslr104_694759_diuP9RZuhpxPyk5j": {
+      "utterances": 1,
+      "hours": 0.002
+    },
+    "openslr104_702146_kECKM79B279xw7WU": {
+      "utterances": 4,
+      "hours": 0.005
+    },
+    "openslr104_705118_uGYa2FVjV7w2teV9": {
+      "utterances": 6,
+      "hours": 0.012
+    },
+    "openslr104_707034_JIbdP0zW3oq0wsvK": {
+      "utterances": 18,
+      "hours": 0.019
+    },
+    "openslr104_707255_aHraaFdw840Rvfqu": {
+      "utterances": 12,
+      "hours": 0.016
+    },
+    "openslr104_709615_UpMOXYHcAbN8MRuz": {
+      "utterances": 17,
+      "hours": 0.025
+    },
+    "openslr104_713238_7yylwqF73dYL6OOK": {
+      "utterances": 1,
+      "hours": 0.001
+    },
+    "openslr104_719994_GOU0eAs9qqqeCRd5": {
+      "utterances": 14,
+      "hours": 0.018
+    },
+    "openslr104_726277_yuX80C2e2gVwsY3z": {
+      "utterances": 10,
+      "hours": 0.016
+    },
+    "openslr104_729654_7FHd0e7O6m8Lh1h1": {
+      "utterances": 19,
+      "hours": 0.024
+    },
+    "openslr104_734095_XHnEDvDOVtev2YkW": {
+      "utterances": 16,
+      "hours": 0.016
+    },
+    "openslr104_736704_iqF1WK2bd5R32dwF": {
+      "utterances": 5,
+      "hours": 0.01
+    },
+    "openslr104_749275_0RmUBH81UE6b1jFc": {
+      "utterances": 15,
+      "hours": 0.021
+    },
+    "openslr104_758447_sz9GwjqJlktKoZEO": {
+      "utterances": 6,
+      "hours": 0.008
+    },
+    "openslr104_765519_YzD4QZ19uOiw1nQ3": {
+      "utterances": 16,
+      "hours": 0.017
+    },
+    "openslr104_769240_lWtWmWYnr4pAIpbr": {
+      "utterances": 2,
+      "hours": 0.003
+    },
+    "openslr104_769934_NRTQSjcEDfLhZ4Xy": {
+      "utterances": 7,
+      "hours": 0.007
+    },
+    "openslr104_772743_KcSRhlKicPd6dvJS": {
+      "utterances": 8,
+      "hours": 0.013
+    },
+    "openslr104_775565_0V7yPA2pAqrJrW7Y": {
+      "utterances": 7,
+      "hours": 0.012
+    },
+    "openslr104_775679_vBBg11f5yXP9zD3Q": {
+      "utterances": 3,
+      "hours": 0.002
+    },
+    "openslr104_793133_HMFm7Xu9SeBxybV1": {
+      "utterances": 18,
+      "hours": 0.029
+    },
+    "openslr104_795525_9NULE1ETbQoEmopf": {
+      "utterances": 10,
+      "hours": 0.012
+    },
+    "syspin_hindi_female": {
+      "utterances": 389,
+      "hours": 0.827
+    },
+    "syspin_hindi_male": {
+      "utterances": 396,
+      "hours": 0.778
+    }
+  },
+  "by_gender": {
+    "female": {
+      "utterances": 2881,
+      "hours": 3.895
+    },
+    "male": {
+      "utterances": 2888,
+      "hours": 4.27
+    },
+    "unknown": {
+      "utterances": 1591,
+      "hours": 2.036
+    }
+  },
+  "code_switched_text_rows": {
+    "utterances": 2196,
+    "hours": 3.13,
+    "note": "text_code_switched contains both Devanagari and Latin words"
+  },
+  "duration_s": {
+    "min": 1.5,
+    "p05": 2.12,
+    "median": 4.18,
+    "mean": 4.989,
+    "p95": 10.34,
+    "max": 14.0
+  },
+  "snr_db": {
+    "min": 42.225,
+    "p05": 53.464,
+    "median": 80.0,
+    "mean": 74.574,
+    "p95": 80.0,
+    "max": 80.0
+  },
+  "active_rms_dbfs": {
+    "min": -24.421,
+    "p05": -20.0,
+    "median": -20.0,
+    "mean": -20.011,
+    "p95": -20.0,
+    "max": -20.0
+  },
+  "peak_dbfs": {
+    "min": -12.81,
+    "p05": -8.558,
+    "median": -4.996,
+    "mean": -5.042,
+    "p95": -1.889,
+    "max": -1.0
+  },
+  "peak_limited_fraction": 0.016,
+  "chars_per_sec": {
+    "min": 4.26,
+    "p05": 8.68,
+    "median": 12.41,
+    "mean": 12.431,
+    "p95": 16.03,
+    "max": 23.79
+  },
+  "words_per_utterance": {
+    "min": 2.0,
+    "p05": 5.0,
+    "median": 11.0,
+    "mean": 12.464,
+    "p95": 24.0,
+    "max": 44.0
+  },
+  "source_sample_rates": {
+    "48000": 4984,
+    "16000": 1591,
+    "44100": 785
+  },
+  "max_clipped_samples": 0,
+  "filtering": {
+    "measured": {
+      "indictts_hindi": 10493,
+      "indictts_english": 14283,
+      "syspin_hindi_female": 1252,
+      "syspin_hindi_male": 1400,
+      "openslr104_hinglish": 52825
+    },
+    "passed_filters": {
+      "indictts_hindi": 9658,
+      "indictts_english": 13577,
+      "syspin_hindi_female": 1193,
+      "syspin_hindi_male": 1326,
+      "openslr104_hinglish": 32164
+    },
+    "rejections": {
+      "indictts_english": {
+        "clipping": 493,
+        "long_pause": 1,
+        "low_snr": 2,
+        "speaking_rate_outlier": 1,
+        "too_few_words": 1,
+        "too_long": 174,
+        "too_short": 32,
+        "unpronounceable_token": 2
+      },
+      "indictts_hindi": {
+        "clipping": 5,
+        "too_long": 816,
+        "too_short": 14
+      },
+      "openslr104_hinglish": {
+        "clipping": 2903,
+        "digits_in_code_switched_text": 4928,
+        "long_pause": 2626,
+        "low_snr": 172,
+        "not_code_switched": 8413,
+        "speaking_rate_outlier": 386,
+        "too_long": 627,
+        "too_short": 597,
+        "unpronounceable_token": 9
+      },
+      "syspin_hindi_female": {
+        "speaking_rate_outlier": 1,
+        "too_long": 58
+      },
+      "syspin_hindi_male": {
+        "clipping": 71,
+        "too_long": 3
+      }
+    }
+  },
+  "config": {
+    "audio": {
+      "min_duration_s": 1.5,
+      "max_duration_s": 14.0,
+      "lead_silence_s": 0.1,
+      "trail_silence_s": 0.18,
+      "silence_floor_db": 40.0,
+      "fade_s": 0.01,
+      "loudness": {
+        "mode": "rms",
+        "target_dbfs": -20.0,
+        "peak_ceiling_dbfs": -1.0
+      },
+      "clip_threshold": 0.999,
+      "max_clipped_samples": 0,
+      "min_snr_db": 25.0,
+      "max_internal_pause_s": 1.5
+    },
+    "text": {
+      "min_words": 2,
+      "min_chars_per_sec": 4.0,
+      "max_chars_per_sec": 24.0
+    },
+    "validation_fraction": 0.05
+  },
+  "timing_s": {
+    "enumerate": 33.6,
+    "pass1_measure": 86.7,
+    "pass3_write": 21.2
+  },
+  "curation_funnel": {
+    "measured": 80253,
+    "passed_text_and_audio_filters": 57918,
+    "selected_by_quota": 7600,
+    "passed_word_alignment": 7360
+  },
+  "alignment": {
+    "counts": {
+      "implausible_word_boundaries": 240,
+      "kept": 7360,
+      "train_utterances": 6980,
+      "train_mix_rows": 16045,
+      "valid_utterances": 380,
+      "valid_mix_rows": 871
+    },
+    "models": {
+      "hi": "Harveenchadha/vakyansh-wav2vec2-hindi-him-4200",
+      "en": "facebook/wav2vec2-large-960h-lv60-self"
+    },
+    "first_word_start_s": {
+      "p05": 0.0,
+      "median": 0.141,
+      "p95": 0.241
+    },
+    "last_word_end_to_file_end_s": {
+      "p05": 0.0,
+      "median": 0.262,
+      "p95": 0.362
+    },
+    "aligned_word_fraction": {
+      "mean": 1.0,
+      "min": 0.9167
+    },
+    "seconds": 39.6
+  },
+  "training_manifests": {
+    "dir": "~/vaani_pocket_tts_work/data/manifests",
+    "train_mix_rows": 16045,
+    "valid_mix_rows": 871,
+    "note": "one row per (utterance, script); English rows identical in Roman and code-switched form are kept once"
+  }
+}

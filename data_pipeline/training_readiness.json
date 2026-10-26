@@ -1,0 +1,76 @@
+{
+  "config": "~/vaani_pocket_tts_work/repo/configs/finetune_hinglish_24l.yaml",
+  "tokenizer": {
+    "path": "~/vaani_pocket_tts_work/repo/tokenizer/hinglish_bilingual_4k.model",
+    "n_bins": 4000,
+    "ok": true,
+    "example_ids": [
+      266,
+      1448,
+      1083,
+      373,
+      380,
+      2853,
+      330,
+      269,
+      5,
+      320,
+      2470,
+      484,
+      724,
+      662,
+      353,
+      1009
+    ]
+  },
+  "latent_cache": {
+    "manifest": "~/vaani_pocket_tts_work/data/manifests/train_mix_aligned_latents.jsonl",
+    "fresh": true,
+    "mimi_hash": "29335a05",
+    "stitch_frames": 35
+  },
+  "manifest_sizes": "ok",
+  "batch": {
+    "latents": [
+      4,
+      83,
+      32
+    ],
+    "mask_frames": [
+      13,
+      22,
+      56,
+      83
+    ],
+    "voice_prompt_latents": [
+      4,
+      44,
+      32
+    ],
+    "voice_prompt_frames": [
+      12,
+      22,
+      44,
+      25
+    ],
+    "text_tokens": [
+      5,
+      8,
+      23,
+      27
+    ],
+    "decoded_text_0": "दोहराने के लिए."
+  },
+  "forward": {
+    "loss": 0.4285489618778229,
+    "finite": true,
+    "metrics": {
+      "flow_diag": 17.8674,
+      "flow_loss": 0.4188,
+      "eos_loss": 0.0978,
+      "loss": 0.4285
+    },
+    "trainable_params_M": 316.0,
+    "peak_gpu_GiB": 2.5
+  }
+}

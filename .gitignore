@@ -1,0 +1,20 @@
+# Secrets / credentials -- never commit
+.env
+.ssh/
+
+# Remote GPU workstation state tracking (local only, used for Session 3 restore)
+gpu_state_log.md
+gpu_state_snapshots/
+
+# Session handoff notes
+HANDOFF*.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Artifacts
+outputs/
+*.wav
+*.safetensors

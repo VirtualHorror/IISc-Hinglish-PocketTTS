@@ -1,0 +1,791 @@
+[
+  {
+    "repo_id": "SPRINGLab/IndicTTS-Hindi",
+    "url": "https://huggingface.co/datasets/SPRINGLab/IndicTTS-Hindi",
+    "exists": true,
+    "gated": false,
+    "license": null,
+    "languages": [
+      "hi"
+    ],
+    "task_categories": [
+      "text-to-speech"
+    ],
+    "downloads": 1072,
+    "last_modified": "2024-11-05 10:14:34+00:00",
+    "n_files": 12,
+    "n_parquet": 10,
+    "has_loading_script": false,
+    "total_gb": 8.211,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "audio": "Audio",
+          "text": "Value",
+          "gender": "ClassLabel"
+        },
+        "splits": {
+          "train": 11825
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>",
+            "text": "प्रसिद्द कबीर अध्येता, पुरुषोत्तम अग्रवाल का यह शोध आलेख, उस रामानंद की खोज करता है",
+            "gender": 0
+          },
+          {
+            "audio": "<audio>",
+            "text": "किन्तु आधुनिक पांडित्य, न सिर्फ़ एक ब्राह्मण रामानंद के, एक जुलाहे कबीर का गुरु होने से, बल्कि दोनों के समकालीन होने से भी, इनकार करता है",
+            "gender": 0
+          },
+          {
+            "audio": "<audio>",
+            "text": "उस पर, इन चार कवियों का गहरा असर है",
+            "gender": 0
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "SPRINGLab/IndicTTS-English",
+    "url": "https://huggingface.co/datasets/SPRINGLab/IndicTTS-English",
+    "exists": true,
+    "gated": false,
+    "license": null,
+    "languages": null,
+    "task_categories": null,
+    "downloads": 1058,
+    "last_modified": "2024-11-14 13:27:33+00:00",
+    "n_files": 30,
+    "n_parquet": 28,
+    "has_loading_script": false,
+    "total_gb": 78.226,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "audio": "Audio",
+          "text": "Value"
+        },
+        "splits": {
+          "train": 151640
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>",
+            "text": "the house of the strong wind."
+          },
+          {
+            "audio": "<audio>",
+            "text": "scattered bits of soot hanging loosely all."
+          },
+          {
+            "audio": "<audio>",
+            "text": "that could not be shut properly."
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "ai4bharat/Rasa",
+    "url": "https://huggingface.co/datasets/ai4bharat/Rasa",
+    "exists": true,
+    "gated": "auto",
+    "license": "cc-by-4.0",
+    "languages": [
+      "as",
+      "bn",
+      "kn",
+      "ml",
+      "mr",
+      "ne",
+      "ta",
+      "pa",
+      "te",
+      "sa",
+      "ur",
+      "ks",
+      "sd"
+    ],
+    "task_categories": [
+      "text-to-speech"
+    ],
+    "downloads": 5731,
+    "last_modified": "2026-06-06 14:50:25+00:00",
+    "n_files": 1319,
+    "n_parquet": 1317,
+    "has_loading_script": false,
+    "total_gb": 387.654,
+    "access_ok": true,
+    "viewer_error": "HTTP 404: {\"error\":\"The dataset does not exist, or is not accessible with the current credentials (private or gated). Please check the spelling of the dataset name or retry with other authentication credentials",
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "SYSPIN/LIMMITS24_target_speaker_fewshot_samples",
+    "url": "https://huggingface.co/datasets/SYSPIN/LIMMITS24_target_speaker_fewshot_samples",
+    "exists": true,
+    "gated": false,
+    "license": "cc-by-4.0",
+    "languages": null,
+    "task_categories": null,
+    "downloads": 68,
+    "last_modified": "2024-02-09 06:05:08+00:00",
+    "n_files": 3,
+    "n_parquet": 0,
+    "has_loading_script": false,
+    "total_gb": 0.173,
+    "access_ok": true,
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "SayantanJoker/SYSPIN_Hindi_Female_TTS",
+    "url": "https://huggingface.co/datasets/SayantanJoker/SYSPIN_Hindi_Female_TTS",
+    "exists": true,
+    "gated": false,
+    "license": null,
+    "languages": null,
+    "task_categories": null,
+    "downloads": 113,
+    "last_modified": "2025-03-21 20:34:40+00:00",
+    "n_files": 37,
+    "n_parquet": 35,
+    "has_loading_script": false,
+    "total_gb": 14.099,
+    "access_ok": true,
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "SayantanJoker/SYSPIN_Hindi_Male_TTS",
+    "url": "https://huggingface.co/datasets/SayantanJoker/SYSPIN_Hindi_Male_TTS",
+    "exists": true,
+    "gated": false,
+    "license": null,
+    "languages": null,
+    "task_categories": null,
+    "downloads": 101,
+    "last_modified": "2025-03-22 15:03:07+00:00",
+    "n_files": 37,
+    "n_parquet": 35,
+    "has_loading_script": false,
+    "total_gb": 15.837,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "audio": "Audio",
+          "transcription": "Value",
+          "file_name": "Value"
+        },
+        "splits": {
+          "train": 24495
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>",
+            "transcription": "दीर्घकालिक स्मृति में हिप्पोकेम्पस की और संवेगात्मक व्यवहारों में गलतुंडिका की महत्वपूर्ण भूमिका होती है|"
+          },
+          {
+            "audio": "<audio>",
+            "transcription": "अंतरिक्ष प्रौद्योगिकी के विकास के साथ, सूक्ष्म आकार के अंतरिक्ष मलबे और अंतरिक्ष धूल के संचयी अति वेग क्षति प्रभावों पर अधिक ध्यान दिया जा रहा है"
+          },
+          {
+            "audio": "<audio>",
+            "transcription": "भौतिकी के शब्द ‘ध्रुव’ का यह एक तरह से भ्रामक प्रयोग है|"
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "google/fleurs",
+    "url": "https://huggingface.co/datasets/google/fleurs",
+    "exists": true,
+    "gated": false,
+    "license": [
+      "cc-by-4.0"
+    ],
+    "languages": [
+      "afr",
+      "amh",
+      "ara",
+      "asm",
+      "ast",
+      "azj",
+      "bel",
+      "ben",
+      "bos",
+      "cat",
+      "ceb",
+      "cmn",
+      "ces",
+      "cym",
+      "dan",
+      "deu",
+      "ell",
+      "eng",
+      "spa",
+      "est",
+      "fas",
+      "ful",
+      "fin",
+      "tgl",
+      "fra",
+      "gle",
+      "glg",
+      "guj",
+      "hau",
+      "heb",
+      "hin",
+      "hrv",
+      "hun",
+      "hye",
+      "ind",
+      "ibo",
+      "isl",
+      "ita",
+      "jpn",
+      "jav",
+      "kat",
+      "kam",
+      "kea",
+      "kaz",
+      "khm",
+      "kan",
+      "kor",
+      "ckb",
+      "kir",
+      "ltz",
+      "lug",
+      "lin",
+      "lao",
+      "lit",
+      "luo",
+      "lav",
+      "mri",
+      "mkd",
+      "mal",
+      "mon",
+      "mar",
+      "msa",
+      "mlt",
+      "mya",
+      "nob",
+      "npi",
+      "nld",
+      "nso",
+      "nya",
+      "oci",
+      "orm",
+      "ory",
+      "pan",
+      "pol",
+      "pus",
+      "por",
+      "ron",
+      "rus",
+      "bul",
+      "snd",
+      "slk",
+      "slv",
+      "sna",
+      "som",
+      "srp",
+      "swe",
+      "swh",
+      "tam",
+      "tel",
+      "tgk",
+      "tha",
+      "tur",
+      "ukr",
+      "umb",
+      "urd",
+      "uzb",
+      "vie",
+      "wol",
+      "xho",
+      "yor",
+      "yue",
+      "zul"
+    ],
+    "task_categories": [
+      "automatic-speech-recognition"
+    ],
+    "downloads": 170831,
+    "last_modified": "2026-05-15 09:35:34+00:00",
+    "n_files": 1004,
+    "n_parquet": 389,
+    "has_loading_script": false,
+    "total_gb": 878.378,
+    "access_ok": true,
+    "configs": {
+      "en_us": {
+        "features": {
+          "id": "Value",
+          "num_samples": "Value",
+          "path": "Value",
+          "audio": "Audio",
+          "transcription": "Value",
+          "raw_transcription": "Value",
+          "gender": "ClassLabel",
+          "lang_id": "ClassLabel",
+          "language": "Value",
+          "lang_group_id": "ClassLabel"
+        },
+        "splits": {
+          "train": 2602,
+          "validation": 394,
+          "test": 647
+        },
+        "sample_rows": {
+          "error": "HTTP 501: {\"error\":\"Parquet error: Scan size limit exceeded: attempted to read 651197756 bytes, limit is 300000000 bytes\\n\\nMake sure that\\n\\n1. the Parquet files contain a page index to enable random access wi"
+        }
+      },
+      "hi_in": {
+        "features": {
+          "id": "Value",
+          "num_samples": "Value",
+          "path": "Value",
+          "audio": "Audio",
+          "transcription": "Value",
+          "raw_transcription": "Value",
+          "gender": "ClassLabel",
+          "lang_id": "ClassLabel",
+          "language": "Value",
+          "lang_group_id": "ClassLabel"
+        },
+        "splits": {
+          "train": 2120,
+          "validation": 239,
+          "test": 418
+        },
+        "sample_rows": {
+          "error": "HTTP 501: {\"error\":\"Parquet error: Scan size limit exceeded: attempted to read 723098545 bytes, limit is 300000000 bytes\\n\\nMake sure that\\n\\n1. the Parquet files contain a page index to enable random access wi"
+        }
+      },
+      "_all_config_names": [
+        "af_za",
+        "all",
+        "am_et",
+        "ar_eg",
+        "as_in",
+        "ast_es",
+        "az_az",
+        "be_by",
+        "bg_bg",
+        "bn_in",
+        "bs_ba",
+        "ca_es",
+        "ceb_ph",
+        "ckb_iq",
+        "cmn_hans_cn",
+        "cs_cz",
+        "cy_gb",
+        "da_dk",
+        "de_de",
+        "el_gr",
+        "en_us",
+        "es_419",
+        "et_ee",
+        "fa_ir",
+        "ff_sn",
+        "fi_fi",
+        "fil_ph",
+        "fr_fr",
+        "ga_ie",
+        "gl_es",
+        "gu_in",
+        "ha_ng",
+        "he_il",
+        "hi_in",
+        "hr_hr",
+        "hu_hu",
+        "hy_am",
+        "id_id",
+        "ig_ng",
+        "is_is",
+        "it_it",
+        "ja_jp",
+        "jv_id",
+        "ka_ge",
+        "kam_ke",
+        "kea_cv",
+        "kk_kz",
+        "km_kh",
+        "kn_in",
+        "ko_kr",
+        "ky_kg",
+        "lb_lu",
+        "lg_ug",
+        "ln_cd",
+        "lo_la",
+        "lt_lt",
+        "luo_ke",
+        "lv_lv",
+        "mi_nz",
+        "mk_mk"
+      ]
+    }
+  },
+  {
+    "repo_id": "ai4bharat/indicvoices_r",
+    "url": "https://huggingface.co/datasets/ai4bharat/indicvoices_r",
+    "exists": true,
+    "gated": "auto",
+    "license": "cc-by-4.0",
+    "languages": [
+      "as",
+      "bn",
+      "gu",
+      "hi",
+      "kn",
+      "ks",
+      "ml",
+      "mr",
+      "ne",
+      "or",
+      "pa",
+      "sa",
+      "ta",
+      "te",
+      "ur"
+    ],
+    "task_categories": [
+      "text-to-speech"
+    ],
+    "downloads": 7315,
+    "last_modified": "2025-03-06 05:52:13+00:00",
+    "n_files": 2345,
+    "n_parquet": 2343,
+    "has_loading_script": false,
+    "total_gb": 1047.785,
+    "access_ok": true,
+    "viewer_error": "HTTP 404: {\"error\":\"The dataset does not exist, or is not accessible with the current credentials (private or gated). Please check the spelling of the dataset name or retry with other authentication credentials",
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "ai4bharat/Svarah",
+    "url": "https://huggingface.co/datasets/ai4bharat/Svarah",
+    "exists": true,
+    "gated": "auto",
+    "license": null,
+    "languages": null,
+    "task_categories": null,
+    "downloads": 1517,
+    "last_modified": "2025-03-10 04:29:23+00:00",
+    "n_files": 5,
+    "n_parquet": 3,
+    "has_loading_script": false,
+    "total_gb": 1.095,
+    "access_ok": true,
+    "viewer_error": "HTTP 404: {\"error\":\"The dataset does not exist, or is not accessible with the current credentials (private or gated). Please check the spelling of the dataset name or retry with other authentication credentials",
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "ai4bharat/MANGO",
+    "url": "https://huggingface.co/datasets/ai4bharat/MANGO",
+    "exists": true,
+    "gated": false,
+    "license": "cc-by-4.0",
+    "languages": [
+      "hi",
+      "ta",
+      "en"
+    ],
+    "task_categories": [
+      "text-to-speech"
+    ],
+    "downloads": 307,
+    "last_modified": "2025-05-13 17:21:18+00:00",
+    "n_files": 1616,
+    "n_parquet": 0,
+    "has_loading_script": false,
+    "total_gb": 0.987,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "Rater_ID": "Value",
+          "FS2_Score": "Value",
+          "VITS_Score": "Value",
+          "ST2_Score": "Value",
+          "ANC_Score": "Value",
+          "REF_Score": "Value",
+          "FS2_Audio": "Value",
+          "VITS_Audio": "Value",
+          "ST2_Audio": "Value",
+          "ANC_Audio": "Value",
+          "REF_Audio": "Value"
+        },
+        "splits": {
+          "Tamil__MUSHRA_DG_NMR": 2000,
+          "Hindi__MUSHRA_DG": 2000,
+          "Hindi__MUSHRA_NMR": 10200,
+          "Hindi__MUSHRA_DG_NMR": 2000,
+          "Tamil__MUSHRA_NMR": 9700,
+          "Tamil__MUSHRA_DG": 2000,
+          "Tamil__MUSHRA": 10000,
+          "Hindi__MUSHRA": 11300,
+          "English__MUSHRA": 900,
+          "English__MUSHRA_DG_NMR": 930
+        },
+        "sample_rows": [
+          {
+            "Rater_ID": 94
+          },
+          {
+            "Rater_ID": 94
+          },
+          {
+            "Rater_ID": 94
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "ai4bharat/IndicCMix",
+    "url": "https://huggingface.co/datasets/ai4bharat/IndicCMix",
+    "exists": true,
+    "gated": "auto",
+    "license": "mit",
+    "languages": [
+      "as",
+      "bn",
+      "gu",
+      "hi",
+      "kn",
+      "ml",
+      "mr",
+      "or",
+      "pa",
+      "ta",
+      "te",
+      "en"
+    ],
+    "task_categories": [
+      "translation",
+      "text-generation",
+      "automatic-speech-recognition"
+    ],
+    "downloads": 457,
+    "last_modified": "2026-04-15 12:27:42+00:00",
+    "n_files": 100000,
+    "n_parquet": 1,
+    "has_loading_script": false,
+    "total_gb": 35.587,
+    "access_ok": true,
+    "viewer_error": "HTTP 404: {\"error\":\"The dataset does not exist, or is not accessible with the current credentials (private or gated). Please check the spelling of the dataset name or retry with other authentication credentials",
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "ARTPARK-IISc/Vaani-transcription-part",
+    "url": "https://huggingface.co/datasets/ARTPARK-IISc/Vaani-transcription-part",
+    "exists": true,
+    "gated": "auto",
+    "license": "cc-by-4.0",
+    "languages": [
+      "hi",
+      "kn",
+      "te",
+      "bn",
+      "ta",
+      "gu"
+    ],
+    "task_categories": [
+      "automatic-speech-recognition"
+    ],
+    "downloads": 4223,
+    "last_modified": "2026-10-10 06:24:05+00:00",
+    "n_files": 745,
+    "n_parquet": 743,
+    "has_loading_script": false,
+    "total_gb": 243.583,
+    "access_ok": true,
+    "viewer_error": "HTTP 404: {\"error\":\"The dataset does not exist, or is not accessible with the current credentials (private or gated). Please check the spelling of the dataset name or retry with other authentication credentials",
+    "configs": {
+      "_all_config_names": []
+    }
+  },
+  {
+    "repo_id": "ujs/hinglish",
+    "url": "https://huggingface.co/datasets/ujs/hinglish",
+    "exists": true,
+    "gated": false,
+    "license": null,
+    "languages": null,
+    "task_categories": null,
+    "downloads": 210,
+    "last_modified": "2023-06-29 12:07:14+00:00",
+    "n_files": 6,
+    "n_parquet": 0,
+    "has_loading_script": true,
+    "total_gb": 7.75,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "path": "Value",
+          "audio": "Audio",
+          "sentence": "Value"
+        },
+        "splits": {
+          "train": 25900,
+          "test": 3136
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>",
+            "sentence": "दोस्तों bash में nested और multilevel if statement के spoken tutorial में आपका स्वागत है"
+          },
+          {
+            "audio": "<audio>",
+            "sentence": "इस tutorial में हम निम्न के बारे में सीखेंगे"
+          },
+          {
+            "audio": "<audio>",
+            "sentence": "nested ifelse और"
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "HumynLabs/banking-customersupport-hinglish-audio",
+    "url": "https://huggingface.co/datasets/HumynLabs/banking-customersupport-hinglish-audio",
+    "exists": true,
+    "gated": false,
+    "license": "cc-by-4.0",
+    "languages": [
+      "en"
+    ],
+    "task_categories": [
+      "audio-classification"
+    ],
+    "downloads": 89,
+    "last_modified": "2025-07-29 11:09:43+00:00",
+    "n_files": 23,
+    "n_parquet": 0,
+    "has_loading_script": false,
+    "total_gb": 0.033,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "audio": "Audio"
+        },
+        "splits": {
+          "train": 20
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>"
+          },
+          {
+            "audio": "<audio>"
+          },
+          {
+            "audio": "<audio>"
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  },
+  {
+    "repo_id": "taresh18/indic-speech",
+    "url": "https://huggingface.co/datasets/taresh18/indic-speech",
+    "exists": true,
+    "gated": false,
+    "license": "cc-by-4.0",
+    "languages": [
+      "en",
+      "hi"
+    ],
+    "task_categories": [
+      "text-to-speech"
+    ],
+    "downloads": 36,
+    "last_modified": "2026-04-03 17:43:00+00:00",
+    "n_files": 33,
+    "n_parquet": 31,
+    "has_loading_script": false,
+    "total_gb": 29.832,
+    "access_ok": true,
+    "configs": {
+      "default": {
+        "features": {
+          "audio": "Audio",
+          "text": "Value",
+          "speaker_id": "Value",
+          "language": "Value",
+          "source": "Value",
+          "duration": "Value"
+        },
+        "splits": {
+          "train": 83670,
+          "test": 939,
+          "dev": 3175
+        },
+        "sample_rows": [
+          {
+            "audio": "<audio>",
+            "text": "If he is alive he is honorable.\"",
+            "speaker_id": "libritts_7511",
+            "language": "en",
+            "duration": 1.9199999570846558
+          },
+          {
+            "audio": "<audio>",
+            "text": "And Cosette, nestling close to Marius, caressed his ear with an angelic whisper: \"So it is true.",
+            "speaker_id": "libritts_5393",
+            "language": "en",
+            "duration": 6.559999942779541
+          },
+          {
+            "audio": "<audio>",
+            "text": "\"Wouldn't know them if I did.",
+            "speaker_id": "libritts_6064",
+            "language": "en",
+            "duration": 1.6799999475479126
+          }
+        ]
+      },
+      "_all_config_names": [
+        "default"
+      ]
+    }
+  }
+]

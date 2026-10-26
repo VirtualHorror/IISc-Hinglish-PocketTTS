@@ -1,0 +1,1249 @@
+{
+  "kyutai_english_2026-04_24l (fine-tuning teacher)": {
+    "config": {
+      "weights_path": "hf://kyutai/pocket-tts/languages/english_2026-04_24l/model.safetensors@492522650173a0653b7575cdc25ae09810e5d741",
+      "layers": 24,
+      "d_model": 1024,
+      "heads": 16,
+      "flow_head": {
+        "depth": 6,
+        "dim": 512
+      },
+      "lookup_table": {
+        "n_bins": 4000,
+        "tokenizer": "tokenizers"
+      },
+      "insert_bos_before_voice": true,
+      "append_terminal_punctuation": true,
+      "replace_characters": {
+        "’": "'",
+        "‘": "'"
+      },
+      "mimi": {
+        "sample_rate": 24000,
+        "frame_rate": 12.5,
+        "inner_dim": 32,
+        "outer_dim": 512
+      }
+    },
+    "tokenizer": {
+      "format": "tokenizers-json",
+      "vocab_size": 4000,
+      "composition": {
+        "special": 4,
+        "byte": 256,
+        "whitespace": 1,
+        "latin": 3488,
+        "punctuation": 29,
+        "digit": 10,
+        "other": 189,
+        "devanagari": 23
+      },
+      "standalone_punctuation": {
+        ".": true,
+        ",": true,
+        "?": true,
+        "!": true,
+        "।": false,
+        ";": true,
+        ":": true
+      },
+      "probes": {
+        "devanagari": {
+          "n_tokens": 86,
+          "n_byte_or_unk": 21,
+          "tokens": [
+            "▁",
+            "क",
+            "ल",
+            "▁",
+            "स",
+            "<0xE0>",
+            "<0xA5>",
+            "<0x81>",
+            "ब",
+            "ह",
+            "▁",
+            "स",
+            "ा",
+            "त",
+            "▁",
+            "ब",
+            "ज",
+            "े",
+            "▁",
+            "म",
+            "े",
+            "र",
+            "ी",
+            "▁",
+            "म",
+            "ी",
+            "<0xE0>",
+            "<0xA4>",
+            "<0x9F>",
+            "ि",
+            "ं",
+            "ग",
+            "▁",
+            "ह",
+            "ै",
+            ",",
+            "▁",
+            "प",
+            "्",
+            "ल"
+          ]
+        },
+        "roman": {
+          "n_tokens": 33,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁K",
+            "al",
+            "▁sub",
+            "ah",
+            "▁sa",
+            "at",
+            "▁ba",
+            "je",
+            "▁me",
+            "ri",
+            "▁meet",
+            "ing",
+            "▁ha",
+            "i",
+            ",",
+            "▁",
+            "please",
+            "▁",
+            "remind",
+            "er",
+            "▁set",
+            "▁k",
+            "ar",
+            "▁do",
+            ".",
+            "▁A",
+            "ap",
+            "▁",
+            "ka",
+            "ise",
+            "▁ha",
+            "in",
+            "?"
+          ]
+        },
+        "code_switched": {
+          "n_tokens": 62,
+          "n_byte_or_unk": 9,
+          "tokens": [
+            "▁",
+            "क",
+            "ल",
+            "▁",
+            "स",
+            "<0xE0>",
+            "<0xA5>",
+            "<0x81>",
+            "ब",
+            "ह",
+            "▁",
+            "स",
+            "ा",
+            "त",
+            "▁",
+            "ब",
+            "ज",
+            "े",
+            "▁",
+            "म",
+            "े",
+            "र",
+            "ी",
+            "▁meet",
+            "ing",
+            "▁",
+            "ह",
+            "ै",
+            ",",
+            "▁",
+            "please",
+            "▁",
+            "remind",
+            "er",
+            "▁",
+            "स",
+            "े",
+            "<0xE0>",
+            "<0xA4>",
+            "<0x9F>"
+          ]
+        },
+        "english": {
+          "n_tokens": 22,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁",
+            "Please",
+            "▁set",
+            "▁a",
+            "▁",
+            "remind",
+            "er",
+            "▁for",
+            "▁my",
+            "▁meet",
+            "ing",
+            "▁at",
+            "▁seven",
+            "▁to",
+            "morrow",
+            "▁morn",
+            "ing",
+            ".",
+            "▁How",
+            "▁are",
+            "▁you",
+            "?"
+          ]
+        }
+      }
+    },
+    "weights": {
+      "n_tensors": 358,
+      "total_params_M": 336.07,
+      "groups": {
+        "flow_lm.bos_before_voice": {
+          "tensors": 1,
+          "params_M": 0.001,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.bos_emb": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.conditioner": {
+          "tensors": 1,
+          "params_M": 4.097,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.emb_mean": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.emb_std": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.flow_net": {
+          "tensors": 68,
+          "params_M": 9.759,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.input_linear": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.out_eos": {
+          "tensors": 2,
+          "params_M": 0.001,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.out_norm": {
+          "tensors": 2,
+          "params_M": 0.002,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.speaker_proj_weight": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.transformer": {
+          "tensors": 192,
+          "params_M": 302.088,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.decoder": {
+          "tensors": 22,
+          "params_M": 3.975,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.decoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.downsample": {
+          "tensors": 1,
+          "params_M": 0.524,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.encoder": {
+          "tensors": 22,
+          "params_M": 2.927,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.encoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.quantizer": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.upsample": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "BF16"
+          ]
+        }
+      },
+      "key_shapes": {
+        "flow_lm.bos_before_voice": [
+          1,
+          1,
+          1024
+        ],
+        "flow_lm.conditioner.embed.weight": [
+          4001,
+          1024
+        ],
+        "flow_lm.emb_mean": [
+          32
+        ],
+        "flow_lm.emb_std": [
+          32
+        ],
+        "flow_lm.out_eos.bias": [
+          1
+        ],
+        "flow_lm.out_eos.weight": [
+          1,
+          1024
+        ],
+        "flow_lm.speaker_proj_weight": [
+          1024,
+          32
+        ]
+      },
+      "has_mimi_encoder": true,
+      "transformer_layers": 24
+    }
+  },
+  "saryps-labs/pocket-tts-hindi": {
+    "config": {
+      "weights_path": "hf://saryps-labs/pocket-tts-hindi/model.safetensors",
+      "layers": 6,
+      "d_model": 1024,
+      "heads": 16,
+      "flow_head": {
+        "depth": 6,
+        "dim": 512
+      },
+      "lookup_table": {
+        "n_bins": 4000,
+        "tokenizer": "sentencepiece"
+      },
+      "insert_bos_before_voice": true,
+      "append_terminal_punctuation": false,
+      "replace_characters": {},
+      "mimi": {
+        "sample_rate": 24000,
+        "frame_rate": 12.5,
+        "inner_dim": 32,
+        "outer_dim": 512
+      }
+    },
+    "tokenizer": {
+      "format": "sentencepiece",
+      "vocab_size": 4000,
+      "composition": {
+        "special": 4,
+        "devanagari": 3986,
+        "whitespace": 1,
+        "latin": 8,
+        "punctuation": 1
+      },
+      "standalone_punctuation": {
+        ".": false,
+        ",": false,
+        "?": false,
+        "!": false,
+        "।": false,
+        ";": false,
+        ":": false
+      },
+      "probes": {
+        "devanagari": {
+          "n_tokens": 25,
+          "n_byte_or_unk": 3,
+          "tokens": [
+            "▁कल",
+            "▁सुबह",
+            "▁सात",
+            "▁बजे",
+            "▁मेरी",
+            "▁मी",
+            "टिंग",
+            "▁है",
+            ",",
+            "▁प्",
+            "ली",
+            "ज़",
+            "▁र",
+            "िम",
+            "ाइ",
+            "ंड",
+            "र",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "roman": {
+          "n_tokens": 67,
+          "n_byte_or_unk": 24,
+          "tokens": [
+            "▁",
+            "Ka",
+            "l",
+            "▁",
+            "s",
+            "u",
+            "b",
+            "ah",
+            "▁",
+            "saa",
+            "t",
+            "▁",
+            "b",
+            "aj",
+            "e",
+            "▁",
+            "m",
+            "e",
+            "r",
+            "i",
+            "▁",
+            "m",
+            "e",
+            "e",
+            "t",
+            "i",
+            "n",
+            "g",
+            "▁",
+            "ha",
+            "i",
+            ",",
+            "▁",
+            "p",
+            "l",
+            "e",
+            "as",
+            "e",
+            "▁",
+            "r"
+          ]
+        },
+        "code_switched": {
+          "n_tokens": 38,
+          "n_byte_or_unk": 10,
+          "tokens": [
+            "▁कल",
+            "▁सुबह",
+            "▁सात",
+            "▁बजे",
+            "▁मेरी",
+            "▁",
+            "m",
+            "e",
+            "e",
+            "t",
+            "i",
+            "n",
+            "g",
+            "▁है",
+            ",",
+            "▁",
+            "p",
+            "l",
+            "e",
+            "as",
+            "e",
+            "▁",
+            "r",
+            "e",
+            "m",
+            "i",
+            "n",
+            "d",
+            "e",
+            "r",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "english": {
+          "n_tokens": 61,
+          "n_byte_or_unk": 21,
+          "tokens": [
+            "▁",
+            "P",
+            "l",
+            "e",
+            "as",
+            "e",
+            "▁",
+            "s",
+            "e",
+            "t",
+            "▁",
+            "a",
+            "▁",
+            "r",
+            "e",
+            "m",
+            "i",
+            "n",
+            "d",
+            "e",
+            "r",
+            "▁",
+            "for",
+            "▁",
+            "my",
+            "▁",
+            "m",
+            "e",
+            "e",
+            "t",
+            "i",
+            "n",
+            "g",
+            "▁",
+            "a",
+            "t",
+            "▁",
+            "s",
+            "e",
+            "v"
+          ]
+        }
+      }
+    },
+    "weights": {
+      "n_tensors": 214,
+      "total_params_M": 109.5,
+      "groups": {
+        "flow_lm.bos_before_voice": {
+          "tensors": 1,
+          "params_M": 0.001,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.bos_emb": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.conditioner": {
+          "tensors": 1,
+          "params_M": 4.097,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.emb_mean": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.emb_std": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.flow_net": {
+          "tensors": 68,
+          "params_M": 9.759,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.input_linear": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.out_eos": {
+          "tensors": 2,
+          "params_M": 0.001,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.out_norm": {
+          "tensors": 2,
+          "params_M": 0.002,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.speaker_proj_weight": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "flow_lm.transformer": {
+          "tensors": 48,
+          "params_M": 75.522,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.decoder": {
+          "tensors": 22,
+          "params_M": 3.975,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.decoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.downsample": {
+          "tensors": 1,
+          "params_M": 0.524,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.encoder": {
+          "tensors": 22,
+          "params_M": 2.927,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.encoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.quantizer": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "BF16"
+          ]
+        },
+        "mimi.upsample": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "BF16"
+          ]
+        }
+      },
+      "key_shapes": {
+        "flow_lm.bos_before_voice": [
+          1,
+          1,
+          1024
+        ],
+        "flow_lm.conditioner.embed.weight": [
+          4001,
+          1024
+        ],
+        "flow_lm.emb_mean": [
+          32
+        ],
+        "flow_lm.emb_std": [
+          32
+        ],
+        "flow_lm.out_eos.bias": [
+          1
+        ],
+        "flow_lm.out_eos.weight": [
+          1,
+          1024
+        ],
+        "flow_lm.speaker_proj_weight": [
+          1024,
+          32
+        ]
+      },
+      "has_mimi_encoder": true,
+      "transformer_layers": 6
+    }
+  },
+  "Indus-Labs/indus-pocket-tts": {
+    "config": {
+      "weights_path": "hf://__REPO__/model.safetensors",
+      "layers": 6,
+      "d_model": 1024,
+      "heads": 16,
+      "flow_head": {
+        "depth": 6,
+        "dim": 512
+      },
+      "lookup_table": {
+        "n_bins": 4000,
+        "tokenizer": "sentencepiece"
+      },
+      "insert_bos_before_voice": true,
+      "append_terminal_punctuation": true,
+      "replace_characters": {},
+      "mimi": {
+        "sample_rate": 24000,
+        "frame_rate": 12.5,
+        "inner_dim": 32,
+        "outer_dim": 512
+      }
+    },
+    "tokenizer": {
+      "format": "sentencepiece",
+      "vocab_size": 4000,
+      "composition": {
+        "special": 4,
+        "devanagari": 2217,
+        "latin": 1608,
+        "punctuation": 54,
+        "digit": 66,
+        "other": 50,
+        "whitespace": 1
+      },
+      "standalone_punctuation": {
+        ".": true,
+        ",": true,
+        "?": true,
+        "!": true,
+        "।": true,
+        ";": true,
+        ":": true
+      },
+      "probes": {
+        "devanagari": {
+          "n_tokens": 18,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁कल",
+            "▁सुबह",
+            "▁सात",
+            "▁बजे",
+            "▁मेरी",
+            "▁मीटिंग",
+            "▁है",
+            ",",
+            "▁प्लीज़",
+            "▁रिमाइंडर",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "roman": {
+          "n_tokens": 34,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁K",
+            "al",
+            "▁sub",
+            "ah",
+            "▁sa",
+            "at",
+            "▁b",
+            "aj",
+            "e",
+            "▁m",
+            "er",
+            "i",
+            "▁me",
+            "et",
+            "ing",
+            "▁ha",
+            "i",
+            ",",
+            "▁please",
+            "▁rem",
+            "inder",
+            "▁set",
+            "▁k",
+            "ar",
+            "▁do",
+            ".",
+            "▁A",
+            "ap",
+            "▁k",
+            "a",
+            "ise",
+            "▁h",
+            "ain",
+            "?"
+          ]
+        },
+        "code_switched": {
+          "n_tokens": 21,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁कल",
+            "▁सुबह",
+            "▁सात",
+            "▁बजे",
+            "▁मेरी",
+            "▁me",
+            "et",
+            "ing",
+            "▁है",
+            ",",
+            "▁please",
+            "▁rem",
+            "inder",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "english": {
+          "n_tokens": 22,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁P",
+            "le",
+            "ase",
+            "▁set",
+            "▁a",
+            "▁rem",
+            "inder",
+            "▁for",
+            "▁my",
+            "▁me",
+            "et",
+            "ing",
+            "▁at",
+            "▁se",
+            "ven",
+            "▁tomorrow",
+            "▁morning",
+            ".",
+            "▁How",
+            "▁are",
+            "▁you",
+            "?"
+          ]
+        }
+      }
+    },
+    "weights": {
+      "n_tensors": 214,
+      "total_params_M": 109.5,
+      "groups": {
+        "flow_lm.bos_before_voice": {
+          "tensors": 1,
+          "params_M": 0.001,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.bos_emb": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.conditioner": {
+          "tensors": 1,
+          "params_M": 4.097,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.emb_mean": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.emb_std": {
+          "tensors": 1,
+          "params_M": 0.0,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.flow_net": {
+          "tensors": 68,
+          "params_M": 9.759,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.input_linear": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.out_eos": {
+          "tensors": 2,
+          "params_M": 0.001,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.out_norm": {
+          "tensors": 2,
+          "params_M": 0.002,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.speaker_proj_weight": {
+          "tensors": 1,
+          "params_M": 0.033,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "flow_lm.transformer": {
+          "tensors": 48,
+          "params_M": 75.522,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.decoder": {
+          "tensors": 22,
+          "params_M": 3.975,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.decoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.downsample": {
+          "tensors": 1,
+          "params_M": 0.524,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.encoder": {
+          "tensors": 22,
+          "params_M": 2.927,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.encoder_transformer": {
+          "tensors": 20,
+          "params_M": 6.298,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.quantizer": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "F32"
+          ]
+        },
+        "mimi.upsample": {
+          "tensors": 1,
+          "params_M": 0.016,
+          "dtypes": [
+            "F32"
+          ]
+        }
+      },
+      "key_shapes": {
+        "flow_lm.bos_before_voice": [
+          1,
+          1,
+          1024
+        ],
+        "flow_lm.conditioner.embed.weight": [
+          4001,
+          1024
+        ],
+        "flow_lm.emb_mean": [
+          32
+        ],
+        "flow_lm.emb_std": [
+          32
+        ],
+        "flow_lm.out_eos.bias": [
+          1
+        ],
+        "flow_lm.out_eos.weight": [
+          1,
+          1024
+        ],
+        "flow_lm.speaker_proj_weight": [
+          1024,
+          32
+        ]
+      },
+      "has_mimi_encoder": true,
+      "transformer_layers": 6
+    }
+  },
+  "ours (data_pipeline/train_tokenizer.py)": {
+    "tokenizer": {
+      "format": "sentencepiece",
+      "vocab_size": 4000,
+      "composition": {
+        "special": 4,
+        "punctuation": 12,
+        "byte": 256,
+        "whitespace": 1,
+        "latin": 1855,
+        "devanagari": 1866,
+        "digit": 6
+      },
+      "standalone_punctuation": {
+        ".": true,
+        ",": true,
+        "?": true,
+        "!": true,
+        "।": false,
+        ";": true,
+        ":": true
+      },
+      "probes": {
+        "devanagari": {
+          "n_tokens": 30,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁",
+            "कल",
+            "▁सु",
+            "ब",
+            "ह",
+            "▁सा",
+            "त",
+            "▁ब",
+            "जे",
+            "▁मेरी",
+            "▁मी",
+            "ट",
+            "िंग",
+            "▁है",
+            ",",
+            "▁",
+            "प्लीज़",
+            "▁रि",
+            "म",
+            "ाइ",
+            "ंड",
+            "र",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "roman": {
+          "n_tokens": 27,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁Ka",
+            "l",
+            "▁sub",
+            "ah",
+            "▁sa",
+            "at",
+            "▁ba",
+            "je",
+            "▁meri",
+            "▁meet",
+            "ing",
+            "▁hai",
+            ",",
+            "▁p",
+            "lease",
+            "▁re",
+            "mi",
+            "nd",
+            "er",
+            "▁set",
+            "▁kar",
+            "▁do",
+            ".",
+            "▁Aap",
+            "▁kaise",
+            "▁hain",
+            "?"
+          ]
+        },
+        "code_switched": {
+          "n_tokens": 28,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁",
+            "कल",
+            "▁सु",
+            "ब",
+            "ह",
+            "▁सा",
+            "त",
+            "▁ब",
+            "जे",
+            "▁मेरी",
+            "▁meet",
+            "ing",
+            "▁है",
+            ",",
+            "▁p",
+            "lease",
+            "▁re",
+            "mi",
+            "nd",
+            "er",
+            "▁सेट",
+            "▁कर",
+            "▁दो",
+            ".",
+            "▁आप",
+            "▁कैसे",
+            "▁हैं",
+            "?"
+          ]
+        },
+        "english": {
+          "n_tokens": 32,
+          "n_byte_or_unk": 0,
+          "tokens": [
+            "▁",
+            "P",
+            "lease",
+            "▁set",
+            "▁a",
+            "▁re",
+            "mi",
+            "nd",
+            "er",
+            "▁for",
+            "▁my",
+            "▁meet",
+            "ing",
+            "▁",
+            "at",
+            "▁se",
+            "v",
+            "en",
+            "▁to",
+            "m",
+            "or",
+            "ro",
+            "w",
+            "▁m",
+            "or",
+            "n",
+            "ing",
+            ".",
+            "▁How",
+            "▁are",
+            "▁you",
+            "?"
+          ]
+        }
+      }
+    }
+  }
+}

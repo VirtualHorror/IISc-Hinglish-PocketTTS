@@ -1,0 +1,51 @@
+# Session 2 starting point: training/configs/finetune_language.yaml (pocket-tts 2dae420) adapted to this
+# dataset and one 24 GB RTX 4090. Run from the pocket-tts checkout on the GPU workstation:
+#   cd ~/vaani_pocket_tts_work/pocket-tts && source ../env.sh
+#   python -m training.train ~/vaani_pocket_tts_work/repo/configs/finetune_hinglish_24l.yaml
+# train_jsonl already has precomputed Mimi latents (data_pipeline/extract_mimi_latents.py), so
+# ensure_train_latents() finds a fresh cache and training starts immediately.
+model_config: ~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_24l.yaml
+model_overrides:
+  flow_lm.lookup_table.tokenizer_path: ~/vaani_pocket_tts_work/repo/tokenizer/hinglish_bilingual_4k.model
+start_from_pretrained: true
+reset_text_embedding: true   # new bilingual tokenizer -> the English text table cannot be reused as-is
+
+data:
+  # one row per (utterance, script): Devanagari, Roman and code-switched renderings share the audio
+  train_jsonl: ~/vaani_pocket_tts_work/data/manifests/train_mix_aligned.jsonl
+  # validation must stay a plain audio manifest (train.py refuses a *_latents manifest here)
+  valid_jsonl: ~/vaani_pocket_tts_work/data/manifests/valid_mix_aligned.jsonl
+  max_duration_sec: 15.0     # longest utterance is 14.0 s
+  max_voice_prompt_sec: 5.0
+
+flow:
+  type: lsd
+  kwargs: {}
+
+flow_batch_multiplier: 4
+eos_loss_weight: 0.1
+text_dropout: 0.2
+voice_dropout: 0.2
+
+optim:
+  lr: 2e-4                   # finetune_language.yaml: the fresh text table needs the backbone to move
+  schedule: constant
+  warmup_steps: 1000
+
+run_dir: ~/vaani_pocket_tts_work/runs/hinglish_24l
+batch_size: 16               # training/README.md: consumer GPU runs batch 16 x accum 4 in ~16 GB
+grad_accum_steps: 4          # effective batch 64 (the README's threshold for the quality transition)
+max_steps: 20000             # ~80 epochs of 10 h; tune in Session 2 against valid loss + listening
+stats_ema_steps: 1000
+ema_decay: 0.999
+log_freq: 50
+valid_freq: 1000
+ckpt_freq: 2500
+num_ckpt_keep: 3
+sample_freq: 2500
+sample_cfg_coef: 2.0
+sample_sentences:
+  - "कल सुबह सात बजे मेरी मीटिंग है, प्लीज़ रिमाइंडर सेट कर दो."
+  - "Kal subah saat baje meri meeting hai, please reminder set kar do."
+  - "कल सुबह सात बजे मेरी meeting है, please reminder सेट कर दो."
+  - "Aap kaise hain? Main theek hoon, thank you."

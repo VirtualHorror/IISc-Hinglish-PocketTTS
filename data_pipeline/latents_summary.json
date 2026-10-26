@@ -1,0 +1,172 @@
+{
+  "mimi_weights": "hf://kyutai/pocket-tts/languages/english_2026-04_24l/model.safetensors@492522650173a0653b7575cdc25ae09810e5d741",
+  "mimi_hash": "29335a056899c615a95664894c691222d4eb3b2c060009bacbaf0f676cb8ce2b",
+  "frame_rate": 12.5,
+  "sample_rate": 24000,
+  "manifests": {
+    "train_mix_aligned": {
+      "rows": 16045,
+      "latent_dims": [
+        32
+      ],
+      "stitch_frames": 35,
+      "median_frames": 53.0,
+      "length_mismatches_in_sample": 0,
+      "latents_dir": "~/vaani_pocket_tts_work/data/manifests/latents/29335a05",
+      "seconds": 7.5
+    },
+    "train_deva_aligned": {
+      "rows": 6980,
+      "latent_dims": [
+        32
+      ],
+      "stitch_frames": 35,
+      "median_frames": 51.0,
+      "length_mismatches_in_sample": 0,
+      "latents_dir": "~/vaani_pocket_tts_work/data/manifests/latents/29335a05",
+      "seconds": 3.6
+    },
+    "train_roman_aligned": {
+      "rows": 6980,
+      "latent_dims": [
+        32
+      ],
+      "stitch_frames": 35,
+      "median_frames": 51.0,
+      "length_mismatches_in_sample": 0,
+      "latents_dir": "~/vaani_pocket_tts_work/data/manifests/latents/29335a05",
+      "seconds": 3.5
+    },
+    "train_cs_aligned": {
+      "rows": 6980,
+      "latent_dims": [
+        32
+      ],
+      "stitch_frames": 35,
+      "median_frames": 51.0,
+      "length_mismatches_in_sample": 0,
+      "latents_dir": "~/vaani_pocket_tts_work/data/manifests/latents/29335a05",
+      "seconds": 3.5
+    },
+    "valid_mix_aligned": {
+      "rows": 871,
+      "latent_dims": [
+        32
+      ],
+      "stitch_frames": 35,
+      "median_frames": 53.0,
+      "length_mismatches_in_sample": 0,
+      "latents_dir": "~/vaani_pocket_tts_work/data/manifests/latents/29335a05",
+      "seconds": 3.2
+    }
+  },
+  "latent_stats_train_mix": {
+    "frames": 62653,
+    "mean_abs_mean": 0.2005,
+    "mean_std": 0.9536,
+    "per_dim_mean": [
+      -0.4205,
+      -0.2995,
+      0.1379,
+      -0.3643,
+      0.0745,
+      -0.8405,
+      -0.1017,
+      -0.2207,
+      -0.2458,
+      0.0821,
+      -0.1108,
+      -0.1979,
+      0.376,
+      0.0018,
+      0.2566,
+      0.0039,
+      0.2119,
+      0.0771,
+      -0.0235,
+      -0.0572,
+      0.084,
+      -0.1692,
+      0.2001,
+      0.1288,
+      -0.0552,
+      -0.0788,
+      0.1953,
+      -0.3493,
+      -0.1147,
+      -0.8287,
+      -0.1005,
+      -0.0055
+    ],
+    "per_dim_std": [
+      1.1823,
+      0.9311,
+      1.0303,
+      0.9231,
+      1.0955,
+      0.7125,
+      0.9849,
+      0.8467,
+      0.8888,
+      1.079,
+      0.8867,
+      0.9394,
+      0.9053,
+      1.0698,
+      0.7735,
+      0.862,
+      0.9856,
+      0.9331,
+      0.8918,
+      0.9888,
+      1.012,
+      1.3494,
+      0.8463,
+      0.9672,
+      0.8427,
+      0.9328,
+      0.9502,
+      0.7303,
+      0.9788,
+      1.0763,
+      1.0573,
+      0.8607
+    ]
+  },
+  "precompute_seconds": 22.2,
+  "voice_prompts": {
+    "dir": "~/vaani_pocket_tts_work/data/voice_prompts",
+    "count": 22,
+    "names": [
+      "indictts_gujarati_female__en",
+      "indictts_gujarati_male__en",
+      "indictts_hindi_female__hi",
+      "indictts_hindi_male__hi",
+      "indictts_hindifull_female__en",
+      "indictts_hindifull_female__hi",
+      "indictts_hindifull_male__en",
+      "indictts_hindifull_male__hi",
+      "indictts_marathi_female__en",
+      "indictts_marathi_male__en",
+      "indictts_rajasthani_female__en",
+      "indictts_rajasthani_male__en",
+      "syspin_hindi_female__hi",
+      "syspin_hindi_male__hi",
+      "openslr104_106319_Uhh9KzP8SyfWszeJ__hi-en",
+      "openslr104_106718_vE1rhq3ojNKZvQNv__hi-en",
+      "openslr104_106884_a6hhZwjYRtCP1fwP__hi-en",
+      "openslr104_109686_HILoR2Or4G6QybRM__hi-en",
+      "openslr104_111627_bYPRSx2sjXooUdv8__hi-en",
+      "openslr104_117174_psHCPTkdjFBXSwV1__hi-en",
+      "openslr104_121257_UwOn143Hkgq5El5O__hi-en",
+      "openslr104_126393_rSn8GnGA2xpKk7qD__hi-en"
+    ]
+  },
+  "roundtrip_check": {
+    "source": "~/vaani_pocket_tts_work/data/voice_prompts/indictts_gujarati_female__en.wav",
+    "decoded": "~/vaani_pocket_tts_work/outputs/mimi_roundtrip_check.wav",
+    "frames": 75,
+    "rms_ratio_db": -0.5,
+    "waveform_correlation": 0.935
+  }
+}

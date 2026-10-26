@@ -1,0 +1,96 @@
+# Session 1 data pipeline configuration (read by data_pipeline/*.py).
+# Every number here is a deliberate choice; see docs/session1_notes.md for the reasoning.
+
+seed: 1234
+target_sample_rate: 24000          # Mimi codec native rate (pocket_tts/config/*.yaml: mimi.sample_rate)
+
+audio:
+  min_duration_s: 1.5              # after trimming
+  max_duration_s: 14.0
+  lead_silence_s: 0.10             # leading pause kept before the first voiced frame
+  trail_silence_s: 0.18            # crisp end-on-pause tail; the trainer keeps last word + 0.20 s
+  silence_floor_db: 40.0           # 20 ms frames this far below the loudest frame are silence
+  fade_s: 0.01                     # fade-in/out at the cut points (avoids clicks)
+  loudness:
+    # rms: active-speech RMS -> target_dbfs, then lowered if needed so peaks <= peak_ceiling_dbfs.
+    # peak: max|x| -> target_dbfs (literal peak normalisation; ~15 dB quieter than typical speech
+    # corpora and Pocket TTS's own training audio, so it is not the default).
+    mode: rms
+    target_dbfs: -20.0
+    peak_ceiling_dbfs: -1.0
+  clip_threshold: 0.999            # |x| >= 0.999 FS in the SOURCE audio counts as clipped
+  max_clipped_samples: 0           # zero clipping
+  min_snr_db: 25.0                 # blind frame-energy SNR (90th vs 10th percentile, source audio)
+  max_internal_pause_s: 1.5        # longest silence inside the utterance
+
+text:
+  min_words: 2
+  min_chars_per_sec: 4.0           # spoken-form characters per second of audio (catches bad transcripts)
+  max_chars_per_sec: 24.0
+
+validation_fraction: 0.05          # stratified by source group / speaker
+min_validation_per_group: 8
+
+# Human-verified sources that download cleanly (no gating) with our token -- see
+# data_pipeline/source_probe.json for every candidate that was checked and why others were dropped.
+sources:
+  indictts_hindi:
+    repo: SPRINGLab/IndicTTS-Hindi
+    url: https://huggingface.co/datasets/SPRINGLab/IndicTTS-Hindi
+    origin: "Indic TTS Database, IIT Madras (Speech Technology Consortium); studio recordings by native voice artists"
+    license: "Indic TTS licence (IIT Madras): https://www.iitm.ac.in/donlab/indictts/downloads/license.pdf"
+    kind: parquet
+    files: all
+    language: hi
+    # speaker group (from the audio path, e.g. train_hindifullfemale_00001.wav) -> utterances to keep
+    quota: {hindifullfemale: 650, hindifullmale: 650, hindifemale: 650, hindimale: 650}
+  indictts_english:
+    repo: SPRINGLab/IndicTTS-English
+    url: https://huggingface.co/datasets/SPRINGLab/IndicTTS-English
+    origin: "Indic TTS Database, IIT Madras; English read by the same native voice artists of each language"
+    license: "Indic TTS licence (IIT Madras): https://www.iitm.ac.in/donlab/indictts/downloads/license.pdf"
+    kind: parquet
+    # Shards are sorted by speaker group; these hold the Hindi voice artists' English (07-10) plus one
+    # shard each of Gujarati (06), Marathi (18) and Rajasthani (22) speakers for accent/speaker variety.
+    files:
+      - data/train-00006-of-00028.parquet
+      - data/train-00007-of-00028.parquet
+      - data/train-00008-of-00028.parquet
+      - data/train-00009-of-00028.parquet
+      - data/train-00010-of-00028.parquet
+      - data/train-00018-of-00028.parquet
+      - data/train-00022-of-00028.parquet
+    language: en
+    quota: {hindifullfemale: 900, hindifullmale: 900, gujaratifemale: 100, gujaratimale: 100,
+            marathifemale: 100, marathimale: 100, rajasthanifemale: 100, rajasthanimale: 100}
+  syspin_hindi_female:
+    repo: SayantanJoker/SYSPIN_Hindi_Female_TTS
+    url: https://huggingface.co/datasets/SayantanJoker/SYSPIN_Hindi_Female_TTS
+    origin: "SYSPIN project TTS corpus (SPIRE Lab, IISc Bangalore), studio-quality Hindi recordings; third-party HF mirror"
+    license: "SYSPIN open-source TTS corpus (IISc SPIRE Lab); official terms at https://ee.iisc.ac.in/limmitsdataset/ (the SYSPIN org HF release is CC-BY-4.0); this mirror declares none"
+    kind: parquet
+    files: [data/train-00000-of-00035.parquet, data/train-00017-of-00035.parquet]
+    language: hi
+    speaker: syspin_hindi_female
+    quota: {all: 400}
+  syspin_hindi_male:
+    repo: SayantanJoker/SYSPIN_Hindi_Male_TTS
+    url: https://huggingface.co/datasets/SayantanJoker/SYSPIN_Hindi_Male_TTS
+    origin: "SYSPIN project TTS corpus (SPIRE Lab, IISc Bangalore), studio-quality Hindi recordings; third-party HF mirror"
+    license: "SYSPIN open-source TTS corpus (IISc SPIRE Lab); official terms at https://ee.iisc.ac.in/limmitsdataset/ (the SYSPIN org HF release is CC-BY-4.0); this mirror declares none"
+    kind: parquet
+    files: [data/train-00000-of-00035.parquet, data/train-00017-of-00035.parquet]
+    language: hi
+    speaker: syspin_hindi_male
+    quota: {all: 400}
+  openslr104_hinglish:
+    repo: ujs/hinglish
+    url: https://huggingface.co/datasets/ujs/hinglish
+    origin: "OpenSLR SLR104 (MUCS 2021 Hindi-English code-switched corpus, Spoken Tutorial narrations, human transcripts); HF mirror"
+    license: "CC-BY-SA-4.0 (OpenSLR SLR104: https://www.openslr.org/104/)"
+    kind: tar
+    files: [data/metadata.csv, data/train.tar.gz]
+    language: hi-en
+    quota: {all: 1800}
+    max_per_speaker: 25            # one speaker id per narration recording; spread over many narrators
+    require_both_scripts: true     # keep only genuinely code-switched transcripts (Devanagari + Latin)

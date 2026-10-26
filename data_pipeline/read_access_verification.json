@@ -1,0 +1,60 @@
+{
+  "repo": "MSRIT-NBM/iisc-hinglish-pocket-tts-dataset",
+  "token": {
+    "user": "MSRIT-NBM",
+    "role": "read"
+  },
+  "anonymous_access": "refused (RepositoryNotFoundError)",
+  "metadata": {
+    "private": true,
+    "n_files": 7,
+    "files": [
+      ".gitattributes",
+      "LICENSE_NOTES.md",
+      "README.md",
+      "data/train-00000-of-00002.parquet",
+      "data/train-00001-of-00002.parquet",
+      "data/validation-00000-of-00001.parquet",
+      "dataset_stats.json"
+    ]
+  },
+  "parquet_sample": {
+    "shard": "data/validation-00000-of-00001.parquet",
+    "rows_in_shard": 380,
+    "utt_id": "indictts_english_train_gujaratifemale_00402",
+    "sample_rate": 24000,
+    "decoded_seconds": 7.46,
+    "duration_s": 7.46,
+    "text_devanagari": "हिज़ नूबोर्न कनिंग, गेव हिम पॉइज़ एंड कंट्रोल.",
+    "text_roman": "His newborn cunning, gave him poise and control.",
+    "text_code_switched": "His newborn cunning, gave him poise and control.",
+    "speaker_id": "indictts_gujarati_female",
+    "source_dataset": "SPRINGLab/IndicTTS-English",
+    "human_verified": true
+  },
+  "load_dataset_streaming_sample": {
+    "utt_id": "indictts_english_train_gujaratifemale_00402",
+    "sample_rate": 24000,
+    "decoded_seconds": 7.46,
+    "columns": [
+      "audio",
+      "duration_s",
+      "gender",
+      "human_verified",
+      "language",
+      "snr_db",
+      "source_dataset",
+      "source_license",
+      "source_sample_rate",
+      "source_url",
+      "source_utt_id",
+      "speaker_id",
+      "text_code_switched",
+      "text_devanagari",
+      "text_original",
+      "text_roman",
+      "utt_id"
+    ]
+  },
+  "result": "PASS: read-only token can list and download the private dataset; anonymous access refused"
+}
