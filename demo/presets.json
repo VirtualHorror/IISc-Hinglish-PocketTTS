@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": "roman",
+      "label": "Roman Hinglish",
+      "hint": "Hindi and English typed in Latin letters, the way people text",
+      "presets": [
+        {"id": "roman_flight", "text": "Kal subah 7 baje meri flight hai, please time par alarm set kar dena.", "note": "time and number in Roman Hindi"},
+        {"id": "roman_weather", "text": "Aaj Bangalore ka weather kaisa hai, kya shaam ko meeting ke baad baarish hogi?", "note": "question intonation, a city name"},
+        {"id": "roman_order", "text": "Mera order abhi tak deliver nahi hua, please customer care ko call karke status check karo.", "note": "English nouns and verbs inside Hindi grammar"}
+      ]
+    },
+    {
+      "id": "devanagari",
+      "label": "Devanagari Hinglish",
+      "hint": "English loanwords written in Devanagari",
+      "presets": [
+        {"id": "deva_flight", "text": "कल सुबह सात बजे मेरी फ़्लाइट है, प्लीज़ टाइम पर अलार्म सेट कर देना।", "note": "danda ending, loanwords in Devanagari"},
+        {"id": "deva_traffic", "text": "आज ट्रैफ़िक बहुत ज़्यादा है, मैं दस मिनट लेट हो जाऊँगा।", "note": "nukta and chandrabindu"},
+        {"id": "deva_bill", "text": "मेरा बिजली का बिल ₹2,450 आया है, क्या आप इसे आज ही पे कर सकते हैं?", "note": "currency amount, read out in Hindi"}
+      ]
+    },
+    {
+      "id": "mixed",
+      "label": "Mixed script",
+      "hint": "Devanagari with English words left in Latin letters",
+      "presets": [
+        {"id": "mixed_meeting", "text": "मेरी next meeting दोपहर 3 बजे है, कृपया presentation और report रेडी रखना।", "note": "English words in Latin script, a time"},
+        {"id": "mixed_model", "text": "इस neural network मॉडल को हमने Indian Hinglish code-switching के लिए fine-tune किया है।", "note": "technical English terms"},
+        {"id": "mixed_weekend", "text": "Weekend पर हम Goa जा रहे हैं, तुम भी join करो ना!", "note": "sentence starts in English"}
+      ]
+    }
+  ]
+}

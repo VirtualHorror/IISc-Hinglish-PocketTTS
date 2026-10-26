@@ -42,7 +42,7 @@ TOKENIZER = REPO_ROOT / "tokenizer" / "hinglish_bilingual_4k.model"
 TOKENIZER_MD5 = "2dfe037602299f52e7da772bc004444c"  # data_pipeline/train_tokenizer.py output used in training
 PROMPTS = WORK / "data" / "voice_prompts"
 SEARCHED_PROMPTS = WORK / "data" / "voice_prompts_s2"  # release.select_voice_prompts
-# release name -> (Session 1 prompt, provenance)
+# release name -> (original prompt, provenance)
 VOICES = {
     "indian_female_ananya": ("indictts_hindifull_female__hi", "IndicTTS Hindi female voice artist (IIT Madras), 48 kHz studio source"),
     "indian_male_aarav": ("indictts_hindifull_male__hi", "IndicTTS Hindi male voice artist (IIT Madras), 48 kHz studio source"),
@@ -121,7 +121,7 @@ def main() -> None:
     index = []
     search_path = REPO_ROOT / "eval" / "results" / "voice_prompt_search.json"
     search = json.loads(search_path.read_text())["voices"] if search_path.exists() else {}
-    session1 = {r["name"]: r for r in json.loads((PROMPTS / "index.json").read_text())}
+    original = {r["name"]: r for r in json.loads((PROMPTS / "index.json").read_text())}
     for name in [v for v in cli.voices.split(",") if v]:
         prompt, provenance = VOICES[name]
         chosen = SEARCHED_PROMPTS / f"{name}.wav"
@@ -130,9 +130,9 @@ def main() -> None:
             meta = {"speaker_id": row["speaker_id"], "source_utt_id": row["chosen_source_utt_id"],
                     "prompt_text": row["chosen_text"], "prompt_kind": row["chosen"]}
         else:
-            src, row = PROMPTS / f"{prompt}.wav", session1[prompt]
+            src, row = PROMPTS / f"{prompt}.wav", original[prompt]
             meta = {"speaker_id": row["speaker_id"], "source_utt_id": row["source_utt_id"],
-                    "prompt_text": row["text"], "prompt_kind": "session1_sentence"}
+                    "prompt_text": row["text"], "prompt_kind": "original_sentence"}
         shutil.copy2(src, out / "voices" / f"{name}.wav")
         export_model_state(tts.get_state_for_audio_prompt(out / "voices" / f"{name}.wav"),
                            out / "voices" / f"{name}.safetensors")

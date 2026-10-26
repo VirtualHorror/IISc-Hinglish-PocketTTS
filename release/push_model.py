@@ -19,7 +19,7 @@ from data_pipeline.common import REPO_ROOT, WORK, hf_token, load_dotenv, setup_l
 logger = setup_logging("push_model")
 
 REPO_ID = "MSRIT-NBM/pocket-tts-indian-hinglish"
-IGNORE = ["export_check.wav", "**/__pycache__/**", "*.pyc"]
+IGNORE = ["export_check.wav", "*/export_check.wav", "**/__pycache__/**", "*.pyc"]
 
 
 def main() -> None:

@@ -2,11 +2,11 @@
 .env
 .ssh/
 
-# Remote GPU workstation state tracking (local only, used for Session 3 restore)
+# Remote GPU workstation state tracking (local only, used to restore the workstation)
 gpu_state_log.md
 gpu_state_snapshots/
 
-# Session handoff notes
+# Agent handoff notes
 HANDOFF*.md
 
 # Python
@@ -19,7 +19,10 @@ outputs/
 *.wav
 *.safetensors
 
-# Session 2 artifacts (weights, voices, generated audio; published on Hugging Face)
+# Release artifacts (weights, voices, generated audio; published on Hugging Face)
 artifacts/
+# Generated demo assets (published in the Hugging Face model repo)
+demo/cache/
+demo_hinglish_pocket_tts.mp4
 .pytest_cache/
 .test_deps/

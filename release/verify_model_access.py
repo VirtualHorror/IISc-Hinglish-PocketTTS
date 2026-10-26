@@ -7,8 +7,9 @@
    credential is the read token in HF_TOKEN and whose HF cache is empty, follow the model card's
    quick start: download only inference.py, import it, let it fetch the model, and synthesise a
    Hinglish sentence to a .wav with auto_normalize (the bundled normaliser must be found).
-3. The official pocket-tts CLI with the repo's hf:// config and the same token.
-4. Whisper transcribes both .wav files (round-trip sanity check of the downloaded weights), and the
+3. The official pocket-tts CLI with the repo's hf:// config and the same token; and, when the repo ships
+   a distilled CPU student (student_<n>l/), the quick start again with variant="<n>l".
+4. Whisper transcribes every .wav (round-trip sanity check of the downloaded weights), and the
    downloaded model.safetensors must match the exported file's sha256.
 
     python -m release.verify_model_access [--repo MSRIT-NBM/pocket-tts-indian-hinglish]
@@ -104,27 +105,38 @@ def main() -> None:
     env.update(HF_TOKEN=read, HF_HOME=str(args.workdir / "hf_home"), HF_HUB_DISABLE_TELEMETRY="1")
     wav, cli_wav = args.workdir / "read_token_test.wav", args.workdir / "read_token_cli_test.wav"
     quickstart = args.workdir / "quickstart"  # the model card's quick start: only inference.py, then run it
-    script = textwrap.dedent(f"""
-        import json, sys, time
-        from huggingface_hub import hf_hub_download
-        t0 = time.time()
-        hf_hub_download({args.repo!r}, "inference.py", local_dir={str(quickstart)!r})
-        sys.path.insert(0, {str(quickstart)!r})
-        from inference import HinglishTTS
-        tts = HinglishTTS.from_pretrained({args.repo!r})
-        assert tts.processor is not None, "bundled hinglish_text normaliser not found"
-        audio = tts.synthesize({TEXT!r}, voice="indian_female_ananya")
-        tts.save(audio, {str(wav)!r})
-        print(json.dumps({{"snapshot": str(tts.model_dir), "voices": tts.voices(), "model_input": tts.normalize({TEXT!r}),
-                          "seconds": round(len(audio) / tts.sample_rate, 2), "wall_s": round(time.time() - t0, 1),
-                          "auto_normalize": tts.processor is not None}}, ensure_ascii=False))
-    """)
-    run = subprocess.run([sys.executable, "-I", "-c", script], env=env, cwd=args.workdir, capture_output=True,
-                         text=True, timeout=1800)
-    if run.returncode != 0:
-        raise SystemExit(f"fresh-process synthesis failed:\n{run.stderr[-3000:]}")
-    report["fresh_process"] = json.loads(run.stdout.strip().splitlines()[-1])
+
+    def fresh_synthesis(out: Path, variant: str = "24l") -> dict:
+        script = textwrap.dedent(f"""
+            import json, sys, time
+            from huggingface_hub import hf_hub_download
+            t0 = time.time()
+            hf_hub_download({args.repo!r}, "inference.py", local_dir={str(quickstart)!r})
+            sys.path.insert(0, {str(quickstart)!r})
+            from inference import HinglishTTS
+            tts = HinglishTTS.from_pretrained({args.repo!r}, variant={variant!r})
+            assert tts.processor is not None, "bundled hinglish_text normaliser not found"
+            audio = tts.synthesize({TEXT!r}, voice="indian_female_ananya")
+            tts.save(audio, {str(out)!r})
+            print(json.dumps({{"variant": {variant!r}, "layers": len(tts.model.flow_lm.transformer.layers),
+                              "snapshot": str(tts.model_dir), "voices": tts.voices(), "model_input": tts.normalize({TEXT!r}),
+                              "seconds": round(len(audio) / tts.sample_rate, 2), "wall_s": round(time.time() - t0, 1),
+                              "auto_normalize": tts.processor is not None}}, ensure_ascii=False))
+        """)
+        run = subprocess.run([sys.executable, "-I", "-c", script], env=env, cwd=args.workdir, capture_output=True,
+                             text=True, timeout=1800)
+        if run.returncode != 0:
+            raise SystemExit(f"fresh-process synthesis ({variant}) failed:\n{run.stderr[-3000:]}")
+        return json.loads(run.stdout.strip().splitlines()[-1])
+
+    report["fresh_process"] = fresh_synthesis(wav)
     snapshot = Path(report["fresh_process"]["snapshot"])
+    students = sorted({f.split("/")[0] for f in report["metadata"]["files"] if f.startswith("student_")})
+    student_wavs = []
+    for folder in students:
+        variant = folder.removeprefix("student_")
+        student_wavs.append((f"fresh_process_{variant}", args.workdir / f"read_token_test_{variant}.wav"))
+        report[student_wavs[-1][0]] = fresh_synthesis(student_wavs[-1][1], variant)
     report["fresh_process"]["model_sha256_matches_export"] = (
         sha256(snapshot / "model.safetensors")
         == json.loads((args.release / "export_info.json").read_text())["files"]["model.safetensors"]["sha256"])
@@ -144,22 +156,24 @@ def main() -> None:
     # --- 4: round trip ---------------------------------------------------------------------------
     from eval.asr import HinglishScorer, WhisperASR
 
-    hyps = WhisperASR().transcribe([wav, cli_wav])
+    checks = [("fresh_process", TEXT, wav), ("official_cli", CLI_TEXT, cli_wav)] + [(k, TEXT, w) for k, w in student_wavs]
+    hyps = WhisperASR().transcribe([w for _, _, w in checks])
     scorer = HinglishScorer()
-    for key, text, hyp in (("fresh_process", TEXT, hyps[0]), ("official_cli", CLI_TEXT, hyps[1])):
+    for (key, text, _), hyp in zip(checks, hyps, strict=True):
         s = scorer.score([text], [hyp])
         report[key].update(asr_transcript=hyp, cer=round(s["cer"], 4), wer=round(s["wer"], 4))
     report["result"] = ("PASS: anonymous access refused; the read-only token downloads the private repo, its "
-                        "inference.py and the official pocket-tts CLI both load the model and speak Hinglish")
+                        "inference.py and the official pocket-tts CLI both load the model and speak Hinglish"
+                        + (f"; the distilled student ({', '.join(students)}) loads and speaks too" if students else ""))
     keep = WORK / "eval_audio" / "access_check"
     keep.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(wav, keep / wav.name)
-    shutil.copy2(cli_wav, keep / cli_wav.name)
+    for _, _, w in checks:
+        shutil.copy2(w, keep / w.name)
     if not args.keep_cache:
         shutil.rmtree(args.workdir)
     write_json(REPO_ROOT / "release" / "model_access_verification.json", report)
     logger.info(report["result"])
-    for k in ("token", "anonymous_api", "http_status", "fresh_process", "official_cli"):
+    for k in ("token", "anonymous_api", "http_status", "fresh_process", "official_cli", *(k for k, _ in student_wavs)):
         logger.info(f"{k}: {report[k]}")
 
 

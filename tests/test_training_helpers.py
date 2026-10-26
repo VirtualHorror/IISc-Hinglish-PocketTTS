@@ -1,4 +1,4 @@
-"""Session 2 training helpers: staged schedule, EOS accuracy, warm-start vocabulary transfer."""
+"""Training helpers: staged schedule, EOS accuracy, warm-start vocabulary transfer."""
 
 import math
 

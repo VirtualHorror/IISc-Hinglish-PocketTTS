@@ -17,6 +17,8 @@ warm-up, with the voice state cached: on the GPU, and on the CPU for each --cpu-
 fp32 and dynamic int8 (pocket-tts quantize=True).
 
     python -m eval.evaluate_hinglish_tts --model-dir $WORK/release [--cpu-threads 1,4]
+    python -m eval.evaluate_hinglish_tts --model-dir $WORK/release --variant 12l \
+        --out eval/evaluation_results_student_12l.json --audio-dir $WORK/eval_audio/benchmark_student_12l
 
 writes eval/evaluation_results.json, audio under $WORK/eval_audio/benchmark/.
 """
@@ -145,6 +147,7 @@ def main() -> None:
     ap.add_argument("--audio-dir", type=Path, default=WORK / "eval_audio" / "benchmark")
     ap.add_argument("--cpu-threads", default="1,4")
     ap.add_argument("--skip-cpu", action="store_true")
+    ap.add_argument("--variant", default="24l", help="model variant (inference.VARIANTS), e.g. a distilled student")
     cli = ap.parse_args()
 
     sentences = json.loads(cli.sentences.read_text(encoding="utf-8"))["sentences"]
@@ -152,6 +155,7 @@ def main() -> None:
         assert detect_script(s["text"]) == s["script"], s
     results: dict[str, Any] = {
         "model": "MSRIT-NBM/pocket-tts-indian-hinglish (exported folder: " + cli.model_dir.name + "/)",
+        "variant": cli.variant,
         "audio_dir": str(cli.audio_dir),
         "benchmark": {"file": display_path(cli.sentences), "n_sentences": len(sentences),
                       "by_script": {sc: sum(s["script"] == sc for s in sentences) for sc in SCRIPTS}},
@@ -161,7 +165,7 @@ def main() -> None:
     }
 
     # ---------------- quality + GPU speed ----------------
-    tts = HinglishTTS.from_pretrained(str(cli.model_dir), device="cuda")
+    tts = HinglishTTS.from_pretrained(str(cli.model_dir), device="cuda", variant=cli.variant)
     m = tts.model
     results["settings"] = {"temperature": m.temp, "eos_threshold": m.eos_threshold,
                            "sampler_decode_steps": m.sampler_decode_steps, "default_script": tts.script,
@@ -209,7 +213,8 @@ def main() -> None:
     # ---------------- CPU speed ----------------
     if not cli.skip_cpu:
         for quantize in (False, True):
-            cpu_tts = HinglishTTS.from_pretrained(str(cli.model_dir), device="cpu", quantize=quantize)
+            cpu_tts = HinglishTTS.from_pretrained(str(cli.model_dir), device="cpu", quantize=quantize,
+                                                  variant=cli.variant)
             for n in [int(x) for x in cli.cpu_threads.split(",") if x]:
                 torch.set_num_threads(n)
                 key = f"cpu_{'int8' if quantize else 'fp32'}_{n}thread{'s' if n > 1 else ''}"

@@ -134,6 +134,7 @@ def _validation_batches(manifest: str, tokenize: Callable[[str], list[int]], arg
 def _validate(model: TrainableTTS, mimi: MimiModel, args: TrainArgs, device: torch.device, rank: int,
               world_size: int, step: int) -> dict[str, float]:
     model.eval()
+    teacher = model.distill_teacher
     tokenize = model.flow_lm.conditioner.tokenizer.encode
     manifests = RUN.cfg.get("valid_manifests") or {"mix": args.data.valid_jsonl}
     autocast = torch.autocast(device_type=device.type, dtype=torch.bfloat16, enabled=device.type == "cuda")
@@ -152,6 +153,15 @@ def _validate(model: TrainableTTS, mimi: MimiModel, args: TrainArgs, device: tor
                 captured.clear()
                 with autocast:
                     _, metrics = model(latents, mask, batch.text_tokens, voice, num_voice_prompt_frames=n_voice)
+                    if teacher is not None:
+                        # Distillation returns only the distillation loss (out_eos never runs): also
+                        # score the student's own flow / EOS losses through its frozen heads.
+                        model.__dict__["distill_teacher"] = None
+                        try:
+                            _, own = model(latents, mask, batch.text_tokens, voice, num_voice_prompt_frames=n_voice)
+                        finally:
+                            model.__dict__["distill_teacher"] = teacher
+                        metrics = {**own, **metrics}  # "loss" stays the distillation loss
                 for k, v in metrics.items():
                     if v.numel() == 1:
                         totals[k] = totals.get(k, 0.0) + v.item()

@@ -1,8 +1,8 @@
-# SUPERSEDED by configs/finetune_hinglish.yaml (Session 2: warm-started text table, staged differential
-# learning rates; this plain recipe was still unintelligible after 5,000 steps on these 10 h, see
-# docs/session2_notes.md). Kept because
+# SUPERSEDED by configs/finetune_hinglish.yaml (warm-started text table, staged differential learning
+# rates; this plain recipe was still unintelligible after 5,000 steps on these 10 h, see
+# docs/training_evaluation_notes.md). Kept because
 # data_pipeline/verify_training_ready.py (an official-TrainArgs-only dry run) uses it.
-# Session 1 starting point: training/configs/finetune_language.yaml (pocket-tts 2dae420) adapted to this
+# Original starting point: training/configs/finetune_language.yaml (pocket-tts 2dae420) adapted to this
 # dataset and one 24 GB RTX 4090. Run from the pocket-tts checkout on the GPU workstation:
 #   cd ~/vaani_pocket_tts_work/pocket-tts && source ../env.sh
 #   python -m training.train ~/vaani_pocket_tts_work/repo/configs/finetune_hinglish_24l.yaml
@@ -39,7 +39,7 @@ optim:
 run_dir: ~/vaani_pocket_tts_work/runs/hinglish_24l
 batch_size: 16               # training/README.md: consumer GPU runs batch 16 x accum 4 in ~16 GB
 grad_accum_steps: 4          # effective batch 64 (the README's threshold for the quality transition)
-max_steps: 20000             # ~80 epochs of 10 h; tune in Session 2 against valid loss + listening
+max_steps: 20000             # ~80 epochs of 10 h; placeholder (the fine-tune selects its step by round-trip ASR)
 stats_ema_steps: 1000
 ema_decay: 0.999
 log_freq: 50

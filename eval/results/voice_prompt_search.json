@@ -4,12 +4,12 @@
   "voices": {
     "indian_female_ananya": {
       "speaker_id": "indictts_hindifull_female",
-      "chosen": "session1_sentence",
+      "chosen": "original_sentence",
       "chosen_source_utt_id": "indictts_hindi_train_hindifullfemale_00261",
       "chosen_text": "किन्तु यह सच है, कि शक की सुई को, इस पत्रकार के चारोँ ओर घुमाया जाना, बंद नहीँ हुआ.",
       "candidates": [
         {
-          "kind": "session1_sentence",
+          "kind": "original_sentence",
           "source_utt_id": "indictts_hindi_train_hindifullfemale_00261",
           "text": "किन्तु यह सच है, कि शक की सुई को, इस पत्रकार के चारोँ ओर घुमाया जाना, बंद नहीँ हुआ.",
           "cer": 0.0764,
@@ -57,7 +57,7 @@
       "chosen_text": "धणी धोरे ढाबरों, और सासरे वालों के चलते, सुगना यूं",
       "candidates": [
         {
-          "kind": "session1_sentence",
+          "kind": "original_sentence",
           "source_utt_id": "indictts_hindi_train_hindifullmale_00705",
           "text": "सामने वाली सीट पर, एक विदेशी युवति बैठी है, उसे देख, मुस्कुरा देती है.",
           "cer": 0.0713,
@@ -98,7 +98,7 @@
         }
       ],
       "disqualified": [
-        "session1_sentence"
+        "original_sentence"
       ],
       "disqualified_reason": "At the released checkpoint (step 3500) this prompt made 1 of its 70 selection-set generations open with the prompt's own last words (मुस्कुरा देती है; asr_progress_selection.jsonl, voice indian_male); a leak-free candidate is within 0.2 pp CER and has a lower WER."
     },
@@ -109,7 +109,7 @@
       "chosen_text": "भारतीय आहारों में गेहूं, बासमती चावल और चना के साथ",
       "candidates": [
         {
-          "kind": "session1_sentence",
+          "kind": "original_sentence",
           "source_utt_id": "syspin_hindi_female_sample_239",
           "text": "ऑटोमैटिक flushing और वॉशिंग से पानी और कागज की बचत होती है.",
           "cer": 0.1054,
@@ -157,7 +157,7 @@
       "chosen_text": "ये पर्व आपके घर में धन धान्य, सुख समृद्धि, प्रेंरणा",
       "candidates": [
         {
-          "kind": "session1_sentence",
+          "kind": "original_sentence",
           "source_utt_id": "syspin_hindi_male_sample_12435",
           "text": "भगवान शिव की पूजा में भस्म का त्रिपुण्ड लगाया जाता है.",
           "cer": 0.0939,

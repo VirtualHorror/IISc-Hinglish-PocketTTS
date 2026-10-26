@@ -1,5 +1,5 @@
-# Pocket TTS model config for the Hinglish fine-tune (Session 2 trains from this; Session 3 publishes a
-# copy with hf:// paths). Architecture = the official 24-layer English teacher
+# Pocket TTS model config for the Hinglish fine-tune (training reads it; the release publishes a copy
+# with hf:// paths). Architecture = the official 24-layer English teacher
 # (pocket_tts/config/english_2026-04_24l.yaml at pocket-tts 2dae420), which training/configs/
 # finetune_language.yaml warm-starts from; only the tokenizer and text normalisation differ.
 weights_path: hf://kyutai/pocket-tts/languages/english_2026-04_24l/model.safetensors@492522650173a0653b7575cdc25ae09810e5d741

@@ -1,0 +1,168 @@
+{
+ "video": "demo_hinglish_pocket_tts.mp4",
+ "size": "1920x1080",
+ "fps": 30,
+ "duration_s": 50.97,
+ "audio": {
+  "sample_rate": 24000,
+  "codec": "aac",
+  "bitrate": "192k"
+ },
+ "rendered": "2026-10-27 00:04",
+ "gpu": "RTX 4090",
+ "cpu": "i9-13900K",
+ "front_end": "phonetic (default)",
+ "protocol": "one take per sentence, fixed seed; TTFA = stream call (text normalisation included) to the first decoded chunk, voice state cached, after 2 warm-up sentences; CPU = separate generation timed with dynamic int8 weights",
+ "sentences": [
+  {
+   "id": "roman_flight",
+   "category": "roman",
+   "text": "Kal subah 7 baje meri flight hai, please time par alarm set kar dena.",
+   "voice": "indian_female_ananya",
+   "gpu": {
+    "ttfa_ms": 40.3,
+    "rtf": 0.1314,
+    "synth_s": 0.578
+   },
+   "audio_s": 4.4,
+   "model_input": "कल सुबह सात बजे मेरी फ़्लाइट है, प्लीज़ टाइम पर अलार्म सेट कर देना.",
+   "n_tokens": 26,
+   "asr": {
+    "hyp": "कल सुभह 7 बजे मेरी फ्लाइट है पीस टाइम पर अलार्म सेट कर देना",
+    "cer": 0.08,
+    "wer": 0.1429
+   },
+   "cpu": {
+    "ttfa_ms": 82.1,
+    "rtf": 0.2224,
+    "threads": 4,
+    "precision": "int8"
+   }
+  },
+  {
+   "id": "roman_weather",
+   "category": "roman",
+   "text": "Aaj Bangalore ka weather kaisa hai, kya shaam ko meeting ke baad baarish hogi?",
+   "voice": "indian_male_aarav",
+   "gpu": {
+    "ttfa_ms": 39.3,
+    "rtf": 0.1278,
+    "synth_s": 0.603
+   },
+   "audio_s": 4.72,
+   "model_input": "आज बैंगलोर का वेदर कैसा है, क्या शाम को मीटिंग के बाद बारिश होगी?",
+   "n_tokens": 24,
+   "asr": {
+    "hyp": "आज बैंगलोर का वेदर कैसा है क्या शाम को मीटिंग के बाद बारिश होगी",
+    "cer": 0.0,
+    "wer": 0.0
+   },
+   "cpu": {
+    "ttfa_ms": 74.9,
+    "rtf": 0.2163,
+    "threads": 4,
+    "precision": "int8"
+   }
+  },
+  {
+   "id": "deva_flight",
+   "category": "devanagari",
+   "text": "कल सुबह सात बजे मेरी फ़्लाइट है, प्लीज़ टाइम पर अलार्म सेट कर देना।",
+   "voice": "indian_female_ananya",
+   "gpu": {
+    "ttfa_ms": 28.8,
+    "rtf": 0.1261,
+    "synth_s": 0.615
+   },
+   "audio_s": 4.88,
+   "model_input": "कल सुबह सात बजे मेरी फ़्लाइट है, प्लीज़ टाइम पर अलार्म सेट कर देना.",
+   "n_tokens": 26,
+   "asr": {
+    "hyp": "कल सुभह 7 बजे मेरी फ्लाइट है प्रीस टाइम पर अलार्म सेथ कर देने",
+    "cer": 0.1,
+    "wer": 0.2857
+   },
+   "cpu": {
+    "ttfa_ms": 79.7,
+    "rtf": 0.2202,
+    "threads": 4,
+    "precision": "int8"
+   }
+  },
+  {
+   "id": "deva_traffic",
+   "category": "devanagari",
+   "text": "आज ट्रैफ़िक बहुत ज़्यादा है, मैं दस मिनट लेट हो जाऊँगा।",
+   "voice": "indian_male_aarav",
+   "gpu": {
+    "ttfa_ms": 27.9,
+    "rtf": 0.1277,
+    "synth_s": 0.46
+   },
+   "audio_s": 3.6,
+   "model_input": "आज ट्रैफ़िक बहुत ज़्यादा है, मैं दस मिनट लेट हो जाऊँगा.",
+   "n_tokens": 21,
+   "asr": {
+    "hyp": "आज ट्राफिक बहुत ज़्यादा हो, मैं दस मिनित लेथ हो जाऊंगा।",
+    "cer": 0.122,
+    "wer": 0.3636
+   },
+   "cpu": {
+    "ttfa_ms": 67.4,
+    "rtf": 0.2189,
+    "threads": 4,
+    "precision": "int8"
+   }
+  },
+  {
+   "id": "mixed_meeting",
+   "category": "mixed",
+   "text": "मेरी next meeting दोपहर 3 बजे है, कृपया presentation और report रेडी रखना।",
+   "voice": "indian_female_ananya",
+   "gpu": {
+    "ttfa_ms": 33.1,
+    "rtf": 0.1292,
+    "synth_s": 0.713
+   },
+   "audio_s": 5.52,
+   "model_input": "मेरी नेक्स्ट मीटिंग दोपहर तीन बजे है, कृपया प्रेज़ंटेशन और रिपोर्ट रेडी रखना.",
+   "n_tokens": 29,
+   "asr": {
+    "hyp": "मेरी नेक्स्ट मीटिंग दो पहर तीन बजे है क्रपा प्रेजेंटेशन और रिपोर्ट रेडी रखना",
+    "cer": 0.0645,
+    "wer": 0.3077
+   },
+   "cpu": {
+    "ttfa_ms": 80.8,
+    "rtf": 0.22,
+    "threads": 4,
+    "precision": "int8"
+   }
+  },
+  {
+   "id": "mixed_model",
+   "category": "mixed",
+   "text": "इस neural network मॉडल को हमने Indian Hinglish code-switching के लिए fine-tune किया है।",
+   "voice": "indian_male_aarav",
+   "gpu": {
+    "ttfa_ms": 30.3,
+    "rtf": 0.1257,
+    "synth_s": 0.674
+   },
+   "audio_s": 5.36,
+   "model_input": "इस नुरल नेट्वर्क मॉडल को हमने इंडियन हिंग्लिश कोड-स्विचिंग के लिए फ़ाइन-टून किया है.",
+   "n_tokens": 38,
+   "asr": {
+    "hyp": "इस Neural Network मल्व को हमने Indian English Code Switching के लिए Fine-Tune किया है।",
+    "cer": 0.0746,
+    "wer": 0.125
+   },
+   "cpu": {
+    "ttfa_ms": 78.7,
+    "rtf": 0.2158,
+    "threads": 4,
+    "precision": "int8"
+   }
+  }
+ ]
+}

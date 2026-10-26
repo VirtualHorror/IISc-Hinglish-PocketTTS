@@ -2,7 +2,7 @@
 not the benchmark), with the exported model.
 
 Per voice (studio speaker), candidates are scored on every distinct rendering of the 30
-eval/selection_set.json utterances (70 texts): the Session 1 prompt (a whole sentence), another
+eval/selection_set.json utterances (70 texts): the speaker's original prompt (a whole sentence), another
 whole sentence, and two training-style prefixes: the start of a longer utterance cut at a word
 boundary 3.5-5 s in, which is exactly how training prompts are built (training/dataloader). A
 candidate whose generations open with the prompt's own last words is flagged (prompt leakage).
@@ -10,7 +10,7 @@ Writes the winners to $WORK/data/voice_prompts_s2/<voice>.wav and eval/results/v
 release.export_release then ships them.
 
     python -m release.select_voice_prompts [--release $WORK/release]
-    python -m release.select_voice_prompts --redecide --disqualify indian_male_aarav=session1_sentence \
+    python -m release.select_voice_prompts --redecide --disqualify indian_male_aarav=original_sentence \
         --reason "..."   # re-pick from the saved candidates (no regeneration)
 """
 
@@ -36,7 +36,7 @@ VOICE_SPEAKERS = {
     "indian_female_meera": "syspin_hindi_female",
     "indian_male_vikram": "syspin_hindi_male",
 }
-SESSION1_PROMPT = {
+ORIGINAL_PROMPT = {
     "indian_female_ananya": "indictts_hindifull_female__hi",
     "indian_male_aarav": "indictts_hindifull_male__hi",
     "indian_female_meera": "syspin_hindi_female__hi",
@@ -46,13 +46,13 @@ OUT_DIR = DATA_ROOT / "voice_prompts_s2"
 
 
 def candidates(voice: str, final: list[dict], manifest: dict[str, dict], tmp: Path) -> list[dict]:
-    """Session 1 prompt + one more whole sentence + two word-boundary prefixes of longer utterances."""
+    """Original prompt + one more whole sentence + two word-boundary prefixes of longer utterances."""
     from pocket_tts.data.audio_utils import end_on_pause
 
     speaker = VOICE_SPEAKERS[voice]
     s1 = json.loads((DATA_ROOT / "voice_prompts" / "index.json").read_text())
-    s1_row = next(r for r in s1 if r["name"] == SESSION1_PROMPT[voice])
-    out = [{"kind": "session1_sentence", "wav": s1_row["wav"], "text": s1_row["text"], "source_utt_id": s1_row["source_utt_id"]}]
+    s1_row = next(r for r in s1 if r["name"] == ORIGINAL_PROMPT[voice])
+    out = [{"kind": "original_sentence", "wav": s1_row["wav"], "text": s1_row["text"], "source_utt_id": s1_row["source_utt_id"]}]
     rows = [r for r in final if r["speaker_id"] == speaker and r["split"] == "train" and r["language"] == "hi"
             and r["utt_id"] in manifest and r["utt_id"] != s1_row["source_utt_id"]]
     rows.sort(key=lambda r: (-round(r["snr_db"]), abs(r["duration_s"] - 5.5)))
@@ -108,7 +108,7 @@ def redecide(disqualify: list[str], reason: str) -> None:
     tmp = WORK / "tmp" / "voice_prompt_search"
     for voice, entry in report["voices"].items():
         best = pick(entry["candidates"], rules.get(voice, set()))
-        wav = (DATA_ROOT / "voice_prompts" / f"{SESSION1_PROMPT[voice]}.wav" if best["kind"] == "session1_sentence"
+        wav = (DATA_ROOT / "voice_prompts" / f"{ORIGINAL_PROMPT[voice]}.wav" if best["kind"] == "original_sentence"
                else tmp / f"{voice}__{best['kind']}__{best['source_utt_id']}.wav")
         audio, sr = sf.read(str(wav), dtype="float32")
         sf.write(str(OUT_DIR / f"{voice}.wav"), audio, sr, subtype="PCM_16")

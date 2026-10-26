@@ -6,6 +6,9 @@ number in it comes from a file in this repo:
   training/warm_start_report.json     text-embedding warm start (sources, Procrustes test, step-0 loss)
   data_pipeline/dataset_stats.json    dataset size, tokenizer/hinglish_bilingual_4k.stats.json
   <release>/export_info.json, voices/index.json, model.safetensors (parameter counts)
+  <release>/student_<n>l/export_info.json, eval/results/evaluation_results_student_<n>l.json,
+  eval/results/asr_monitor_hinglish_<n>l_distill_selection.json   the distilled CPU student, if exported
+  eval/results/cpu_speed_local.json, eval/results/demo_video.json  laptop CPU speed, demo video telemetry
 
     python -m release.model_card [--release $WORK/release]
 """
@@ -55,6 +58,125 @@ def param_counts(model_file: Path) -> dict[str, float]:
     return {k: v / 1e6 for k, v in counts.items()}
 
 
+def student_info(release: Path) -> list[dict[str, Any]]:
+    """Distilled CPU students exported next to the 24-layer model (release.export_student)."""
+    out = []
+    for d in sorted(release.glob("student_*l")):
+        if not (d / "export_info.json").exists():
+            continue
+        exp = load(d / "export_info.json")
+        n = exp["layers"]
+        results = REPO_ROOT / "eval" / "results"
+        bench = results / f"evaluation_results_student_{n}l.json"
+        selection = results / f"asr_monitor_hinglish_{n}l_distill_selection.json"
+        out.append({"dir": d.name, "layers": n, "export": exp, "params": param_counts(d / "model.safetensors"),
+                    "bench": load(bench) if bench.exists() else None,
+                    "selection": load(selection) if selection.exists() else None})
+    return out
+
+
+def student_section(students: list[dict[str, Any]], ev: dict[str, Any], ts: dict[str, Any]) -> str:
+    if not students:
+        return ""
+    st = students[0]
+    n, folder, exp = st["layers"], st["dir"], st["export"]
+    teacher_sel = next((r for r in ts["runs"][ts["selected"]["run"]].get("asr_selection", [])
+                        if r["step"] == ts["selected"]["step"]), None)
+    parts = [f"""## CPU student: {n}-layer distilled model (`{folder}/`)
+
+On machines where the 24-layer model is not real time (a 2-core laptop runs it at RTF 1.0-1.5 even with int8
+weights), load the {n}-layer student instead: same tokenizer, front-end and voices, {n}/24 of the backbone compute
+per frame.
+
+```bash
+python inference.py --variant {n}l --quantize --text "Kal subah 7 baje meri meeting hai, please reminder set kar do"
+```
+
+```python
+tts = HinglishTTS.from_pretrained(variant="{n}l", quantize=True)   # int8 on CPU
+```
+
+It was made with Pocket TTS's own depth-distillation recipe (pocket-tts `training/configs/depth_distill.yaml`;
+this repo's `training/distill_hinglish_{n}l.yaml`): the student starts from the 24-layer model itself (every
+non-backbone tensor, including the Hinglish text table, and the teacher's bottom and top {n // 2} layers), then its
+backbone regresses onto the teacher's backbone output on the training data (pure depth distillation, no CFG),
+while the flow and EOS heads stay frozen copies of the teacher's. Released weights: EMA of step {exp['step']}."""]
+    sel = st["selection"]
+    if sel:
+        rows = [[r["step"], pct(r["overall"]["cer"]), pct(r["overall"]["wer"]),
+                 " / ".join(pct(r.get(f"script={k}", {}).get("cer")) for k in ("deva", "roman", "cs")),
+                 r["overall"]["no_eos"]] for r in sel["steps"]]
+        parts.append("Round-trip ASR on the 140-generation selection set (the set that picked the 24-layer checkpoint; "
+                     f"24-layer release: CER {pct(teacher_sel['cer']) if teacher_sel else '–'} % / WER "
+                     f"{pct(teacher_sel['wer']) if teacher_sel else '–'} %):" + chr(10) + chr(10)
+                     + table(["step", "CER %", "WER %", "CER % Deva / Roman / mixed", "no EOS"], rows))
+    six = REPO_ROOT / "eval" / "results" / "asr_monitor_hinglish_6l_distill_selection.json"
+    if n != 6 and six.exists():
+        best6 = min(load(six)["steps"], key=lambda r: r["overall"]["cer"])
+        parts.append(f"A 6-layer student distilled the same way (8,000 steps) reached at best {pct(best6['overall']['cer'])} % CER / "
+                     f"{pct(best6['overall']['wer'])} % WER (step {best6['step']}) on the same set: with 10 h of data, 6 layers "
+                     "cannot follow the teacher closely enough, so it is not shipped "
+                     "(`eval/results/asr_monitor_hinglish_6l_distill_selection.json`).")
+    bench = st["bench"]
+    if bench:
+        tq, sq = ev["quality"]["default"], bench["quality"]["default"]
+        rows = []
+        for key, name in [*[(f"input_script={k}", v) for k, v in SCRIPT_NAMES.items()], ("overall", "**All**")]:
+            if key in tq and key in sq:
+                rows.append([name, f"{pct(tq[key]['cer'])} / {pct(tq[key]['wer'])}",
+                             f"{pct(sq[key]['cer'])} / {pct(sq[key]['wer'])}", sq[key]["no_eos"]])
+        parts.append("Benchmark (24 sentences × 4 voices, default front-end), CER / WER %:" + chr(10) + chr(10)
+                     + table(["input script", "24-layer", f"{n}-layer student", "student no EOS"], rows))
+        speed_rows = []
+        for key in bench.get("speed", {}):
+            if key in ev["speed"]:
+                a, b = ev["speed"][key], bench["speed"][key]
+                device, precision, *threads = key.split("_")
+                label = f"{'GPU' if device == 'gpu' else 'CPU'} {precision}" + (f", {threads[0].replace('thread', ' thread')}" if threads else "")
+                speed_rows.append([label, f"{a['rtf_total']:.3f} / {a['ttfa_ms_p50']:.0f} ms",
+                                   f"{b['rtf_total']:.3f} / {b['ttfa_ms_p50']:.0f} ms"])
+        parts.append(f"Speed on the benchmark machine ({ev['environment']['gpu']}, {ev['environment']['cpu']}), RTF / first audio:"
+                     + chr(10) + chr(10) + table(["setting", "24-layer", f"{n}-layer student"], speed_rows))
+    local = REPO_ROOT / "eval" / "results" / "cpu_speed_local.json"
+    if local.exists():
+        lc = load(local)
+        rows = [[f"{r['layers']}-layer", r["precision"], r["threads"], f"{r['rtf_total']:.2f}", f"{r['ttfa_ms_p50']:.0f}",
+                 f"{r['flow_step_ms']:.0f}", f"{r['mimi_ms_per_frame']:.0f}"] for r in lc["results"]]
+        parts.append(f"On a small laptop-class CPU ({lc['machine']['cpu']}, 2 cores / {lc['machine']['logical_cpus']} "
+                     "logical CPUs, measured while a remote desktop connection used 0.5-2 of them; `scripts/cpu_speed_probe.py`, "
+                     "6 benchmark sentences). pocket-tts generates frames on one thread and decodes Mimi on another, so "
+                     "real time needs both stages under 80 ms per frame; on 2 cores one torch thread per stage is fastest:"
+                     + chr(10) + chr(10)
+                     + table(["model", "weights", "torch threads", "RTF", "first audio (ms)", "FlowLM ms / frame",
+                              "Mimi ms / frame"], rows))
+    return chr(10) + chr(10).join(p + chr(10) for p in parts)
+
+
+def demo_section() -> str:
+    video = REPO_ROOT / "eval" / "results" / "demo_video.json"
+    meta = load(video) if video.exists() else None
+    lines = ["""### Interactive studio and demo video
+
+`demo_app.py` (with `demo/`) is a local web studio for trying the model: preset sentences in the three scripts,
+the studio voices or zero-shot cloning from an uploaded recording, the phonetic front-end or raw text, and live
+telemetry: time to first audio, real-time factor, the tokenizer pieces the model reads, and the waveform and
+mel-spectrogram drawn while the audio streams. Preset sentences are also pre-rendered (`demo/cache/`, each take
+with the latency it was measured at and Whisper's transcript), so they play instantly on any machine.
+
+```bash
+pip install fastapi uvicorn                # plus requirements.txt
+python demo_app.py                         # http://127.0.0.1:7860 (--device cuda on a GPU)
+```"""]
+    if meta:
+        lines.append(f"""
+`demo_hinglish_pocket_tts.mp4` ({meta['duration_s']:.0f} s, {meta['size']}): six sentences (two per script, female and
+male voices) synthesised by this model; the soundtrack is the model's own 24 kHz output and the on-screen
+latency was measured while rendering it.
+
+<video controls width="100%" src="https://huggingface.co/{REPO_ID}/resolve/main/demo_hinglish_pocket_tts.mp4"></video>""")
+    return chr(10).join(lines) + chr(10)
+
+
 def render(release: Path) -> str:
     ev = load(REPO_ROOT / "eval" / "evaluation_results.json")
     ts = load(REPO_ROOT / "training" / "training_summary.json")
@@ -75,6 +197,11 @@ def render(release: Path) -> str:
     cpu_keys = [k for k in sp if k.startswith("cpu_")]
     best_cpu = min(cpu_keys, key=lambda k: sp[k]["rtf_total"]) if cpu_keys else None
     n_voices = len(voices)
+    students = student_info(release)
+    student_md = student_section(students, ev, ts)
+    demo_md = demo_section()
+    student_row = (f"| CPU variant | `{students[0]['dir']}/`: {students[0]['layers']}-layer distilled student for laptops "
+                   f"(`variant=\"{students[0]['layers']}l\"`, see below) |" + chr(10)) if students else ""
 
     def by_script(block: dict) -> list[list[Any]]:
         rows = []
@@ -86,7 +213,7 @@ def render(release: Path) -> str:
         rows.append(["**All**", o["n"], f"**{pct(o['cer'])}**", f"**{pct(o['wer'])}**", o["no_eos"]])
         return rows
 
-    kinds = {"session1_sentence": "whole sentence", "whole_sentence": "whole sentence",
+    kinds = {"original_sentence": "whole sentence", "whole_sentence": "whole sentence",
              "prefix_at_word_boundary": "utterance start, cut at a word boundary"}
     voice_rows = [[f"`{v['name']}`", v["source"], f"{v['duration_s']:.1f} s, {kinds.get(v.get('prompt_kind'), '–')}",
                    pct(default.get(f"voice={v['name']}", {}).get("cer")),
@@ -186,7 +313,7 @@ three scripts, so the same sentence sounds the same whichever way it is typed.
 | Round-trip CER / WER (24-sentence benchmark) | **{pct(default['overall']['cer'])} % / {pct(default['overall']['wer'])} %** (Whisper large-v3-turbo; on real recordings of held-out Hindi / English / Hinglish utterances it scores {pct(floor.get('cer'))} % / {pct(floor.get('wer'))} %) |
 | Speed (RTF, lower is faster) | GPU {gpu['rtf_total']:.3f} ({gpu['x_real_time']:.1f}× real time){f", CPU {sp[best_cpu]['rtf_total']:.2f} ({best_cpu.split('_')[1]}, {best_cpu.split('_')[2].replace('thread', ' thread')})" if best_cpu else ""} |
 | Time to first audio | GPU {gpu['ttfa_ms_p50']:.0f} ms{f", CPU {sp[best_cpu]['ttfa_ms_p50']:.0f} ms" if best_cpu else ""} (median) |
-
+{student_row}
 > **Private repository** for evaluation. Authenticate with a token that can read it (`export HF_TOKEN=hf_...`).
 
 ## Quick start
@@ -227,14 +354,15 @@ romanised Hindi spellings). `script="auto"` keeps the input's script, `"roman"` 
 those; `auto_normalize=False` sends the text as typed (punctuation rules only). The model itself reads all
 three scripts (see *raw* and *script invariance* below).
 
+{demo_md}
 ### Voices
 
 {table(["voice", "source", "prompt", "CER %", "WER %"], voice_rows)}
 
 Each voice ships as a clean 24 kHz `.wav` prompt and as `voices/<name>.safetensors`, its model state
 precomputed by this model (instant loading). The prompt clip of each speaker was chosen by round-trip ASR on
-held-out validation sentences (not the benchmark) among the Session 1 clip, another whole sentence and two
-utterance starts cut at a word boundary, which is how prompts look in training
+held-out validation sentences (not the benchmark) among the speaker's original whole-sentence clip, another
+whole sentence and two utterance starts cut at a word boundary, which is how prompts look in training
 (`training/voice_prompt_search.json`). Any other `.wav` (5–10 s of clean speech) clones that voice zero-shot;
 output quality follows the prompt's quality, so prefer studio-clean prompts. CER/WER per voice are on the
 24-sentence benchmark (default front-end).
@@ -282,7 +410,7 @@ audio = time from calling `stream()` (text normalisation included) to the first 
 state cached, after warm-up. Pocket TTS generates on one thread and decodes Mimi on another; "torch threads"
 is the intra-op thread count. int8 = Pocket TTS's dynamic int8 quantisation (`--quantize`). Measured with
 batch size 1, as in streaming use.
-
+{student_md}
 ## Model details
 
 - **Architecture** (unchanged from the teacher): causal transformer FlowLM, 24 layers, d_model 1024, 16 heads,
@@ -425,6 +553,8 @@ arXiv:2509.06926).
 | `config.yaml` | model config (`hf://` paths), for `pocket-tts generate --config` |
 | `tokenizer.model` | bilingual SentencePiece tokenizer (4,000 pieces) |
 | `inference.py`, `requirements.txt` | one-command inference / Python API |
+{"".join(f"| `{st['dir']}/` | {st['layers']}-layer distilled CPU student: weights, config, voice states |" + chr(10) for st in students)}| `demo_app.py`, `demo/` | interactive studio (FastAPI + one page), preset sentences, pre-rendered takes |
+| `demo_hinglish_pocket_tts.mp4` | demo video: six sentences in three scripts, real model audio |
 | `hinglish_text/` | text normaliser used by `auto_normalize` |
 | `voices/` | studio voice prompts (`.wav`), precomputed voice states (`.safetensors`), `index.json` |
 | `samples/` | the benchmark sentences with every voice (`roman_*`, `deva_*`, `mixed_*` = input script); `samples/index.json`: text, model input, Whisper transcript, CER/WER |

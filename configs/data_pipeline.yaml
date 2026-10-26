@@ -1,5 +1,5 @@
-# Session 1 data pipeline configuration (read by data_pipeline/*.py).
-# Every number here is a deliberate choice; see docs/session1_notes.md for the reasoning.
+# Data pipeline configuration (read by data_pipeline/*.py).
+# Every number here is a deliberate choice; see docs/data_pipeline_notes.md for the reasoning.
 
 seed: 1234
 target_sample_rate: 24000          # Mimi codec native rate (pocket_tts/config/*.yaml: mimi.sample_rate)

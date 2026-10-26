@@ -1,0 +1,48 @@
+{
+  "time": "2026-10-27 00:15:09 +0530",
+  "token": {
+    "user": "MSRIT-NBM",
+    "role": "read"
+  },
+  "repos": {
+    "MSRIT-NBM/pocket-tts-indian-hinglish": {
+      "type": "model",
+      "private": true,
+      "sha": "e23fef3b5cec21d042dddbea5df9f9493e9dea16",
+      "n_files": 294,
+      "read_token": {
+        "api": 200,
+        "README.md": 200,
+        "model.safetensors": 302
+      },
+      "anonymous": {
+        "api_client": "refused (RepositoryNotFoundError)",
+        "api": 401,
+        "README.md": 401,
+        "model.safetensors": 401
+      },
+      "readme_session_mentions": 0,
+      "result": "PASS"
+    },
+    "MSRIT-NBM/iisc-hinglish-pocket-tts-dataset": {
+      "type": "dataset",
+      "private": true,
+      "sha": "e95a9b5e6934dc1f20d4a573ed3b6dc9edcea1cd",
+      "n_files": 7,
+      "read_token": {
+        "api": 200,
+        "README.md": 200,
+        "data/train-00000-of-00002.parquet": 302
+      },
+      "anonymous": {
+        "api_client": "refused (RepositoryNotFoundError)",
+        "api": 401,
+        "README.md": 401,
+        "data/train-00000-of-00002.parquet": 401
+      },
+      "readme_session_mentions": 0,
+      "result": "PASS"
+    }
+  },
+  "result": "PASS"
+}

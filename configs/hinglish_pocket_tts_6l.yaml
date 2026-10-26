@@ -1,0 +1,73 @@
+# Pocket TTS model config for the 6-layer CPU student of the Hinglish model: the 24-layer config
+# (configs/hinglish_pocket_tts_24l.yaml) with flow_lm.transformer.num_layers 6, the depth of kyutai's
+# released CPU models. configs/distill_hinglish_6l.yaml distils the fine-tuned 24-layer model into it;
+# the release publishes a copy with hf:// paths. weights_path only supplies the (frozen) Mimi codec
+# during distillation: every flow_lm tensor is seeded from the 24-layer Hinglish model.
+weights_path: hf://kyutai/pocket-tts/languages/english_2026-04_24l/model.safetensors@492522650173a0653b7575cdc25ae09810e5d741
+weights_path_without_voice_cloning: hf://kyutai/pocket-tts-without-voice-cloning/languages/english_2026-04_24l/model.safetensors@e81d79e8194ad4c7ce879c87a4258ef20cbf2487
+
+default_temperature: 0.3
+append_terminal_punctuation: true   # training text always ends in . ? or !
+capitalize_first_letter: true       # Roman/English text is sentence-cased; no-op for Devanagari
+# Characters normalised away by data_pipeline/hinglish_text_processor.py, so raw user text that
+# contains them still reaches the model the way the training text looked.
+replace_characters:
+  '।': '.'
+  '॥': '.'
+  '’': "'"
+  '‘': "'"
+  '“': '"'
+  '”': '"'
+
+flow_lm:
+  insert_bos_before_voice: true
+  dtype: float32
+  flow:
+    depth: 6
+    dim: 512
+  transformer:
+    d_model: 1024
+    hidden_scale: 4
+    max_period: 10000
+    num_heads: 16
+    num_layers: 6
+  lookup_table:
+    dim: 1024
+    n_bins: 4000                     # = vocab size of tokenizer/hinglish_bilingual_4k.model
+    tokenizer: sentencepiece
+    tokenizer_path: ~/vaani_pocket_tts_work/repo/tokenizer/hinglish_bilingual_4k.model
+mimi:
+  dtype: float32
+  sample_rate: 24000
+  inner_dim: 32
+  outer_dim: 512
+  channels: 1
+  frame_rate: 12.5
+  seanet:
+    dimension: 512
+    channels: 1
+    n_filters: 64
+    n_residual_layers: 1
+    ratios:
+    - 6
+    - 5
+    - 4
+    kernel_size: 7
+    residual_kernel_size: 3
+    last_kernel_size: 3
+    dilation_base: 2
+    pad_mode: constant
+    compress: 2
+  transformer:
+    d_model: 512
+    num_heads: 8
+    num_layers: 2
+    layer_scale: 0.01
+    context: 250
+    dim_feedforward: 2048
+    input_dimension: 512
+    output_dimensions:
+    - 512
+  quantizer:
+    dimension: 32
+    output_dimension: 512

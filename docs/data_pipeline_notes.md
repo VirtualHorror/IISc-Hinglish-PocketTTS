@@ -1,4 +1,4 @@
-# Session 1 notes: Pocket TTS inspection, data pipeline, and what Session 2 starts from
+# Data pipeline notes: Pocket TTS inspection, data pipeline, and the fine-tuning starting point
 
 All numbers below come from files in this repo: `data_pipeline/*.json` (generated on the GPU workstation)
 and the pocket-tts checkout at commit `2dae420` (2026-10-26, version 4.0.1+2).
@@ -12,7 +12,7 @@ and the pocket-tts checkout at commit `2dae420` (2026-10-26, version 4.0.1+2).
 - Local access: `.ssh/gpu_ssh.sh gpu '<cmd>'` (git-ignored; password from `.env` via `SSH_ASKPASS`).
   Code sync: `scripts/gpu_sync.sh push` (code/configs -> `$WORK/repo`) and `scripts/gpu_sync.sh pull`
   (generated `data_pipeline/*.json` + `tokenizer/` -> here).
-- Every change to the machine is logged in the local, git-ignored `gpu_state_log.md` (Session 3 restore).
+- Every change to the machine is logged in the local, git-ignored `gpu_state_log.md` (used to restore the workstation afterwards).
 
 ## 2. Pocket TTS, as found in the repo
 
@@ -102,7 +102,7 @@ runs batch 16 x grad-accum 4; the release recipe is fine-tune the 24L teacher, t
 | `data/voice_prompts/` | 22 reference prompts (`index.json`, WAV + latents) |
 | `repo/tokenizer/hinglish_bilingual_4k.{model,json}` | bilingual tokenizer (same files as `tokenizer/` here) |
 
-## 6. Starting Session 2
+## 6. Starting the fine-tune
 
 ```bash
 cd ~/vaani_pocket_tts_work/pocket-tts && source ../env.sh
@@ -111,7 +111,7 @@ python -m training.train ~/vaani_pocket_tts_work/repo/configs/finetune_hinglish_
 
 `data_pipeline/training_readiness.json` records the dry run: config parses, tokenizer = 4000 bins, latent
 cache fresh, official DataLoader batches, warm-started 24L model (316 M trainable params) gives a finite loss
-(~0.42) using ~2.5 GiB at batch 4. Points to decide in Session 2:
+(~0.42) using ~2.5 GiB at batch 4. Points to decide for the fine-tune:
 
 - **Data scale**: 10 h is far below the README's 100 h guidance for a new language. Watch validation loss and
   listen to `runs/.../samples/` early; expect to stop well before `max_steps: 20000`.

@@ -89,7 +89,7 @@ def main() -> None:
             splits[split] = Dataset.from_list(sub, features=raw).cast_column("audio", FEATURES["audio"])
             logger.info(f"{split}: {len(sub)} rows")
         DatasetDict(splits).push_to_hub(args.repo, private=True, token=token, max_shard_size="400MB",
-                                        commit_message="Session 1: curated human-verified Hinglish TTS dataset (24 kHz)")
+                                        commit_message="Curated human-verified Hinglish TTS dataset (24 kHz)")
 
     api.upload_file(path_or_fileobj=str(args.stats), path_in_repo="dataset_stats.json",
                     repo_id=args.repo, repo_type="dataset", commit_message="dataset_stats.json")

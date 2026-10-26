@@ -1,4 +1,4 @@
-# Session 2: Hinglish fine-tune of the 24-layer Pocket TTS English teacher (kyutai english_2026-04_24l)
+# Hinglish fine-tune of the 24-layer Pocket TTS English teacher (kyutai english_2026-04_24l)
 # on the 10.2 h dataset, every utterance in all three scripts. Official TrainArgs keys (pocket-tts
 # training/args.py, recipe training/configs/finetune_language.yaml) plus a `hinglish:` section that
 # training/train_hinglish.py reads and strips before the official parser runs:

@@ -1,4 +1,4 @@
-# Session 2 notes: fine-tuning, monitoring, evaluation and the private model repo
+# Training and evaluation notes: fine-tuning, monitoring, evaluation and the private model repo
 
 All numbers come from files in this repo, generated on the GPU workstation: `training/warm_start_report.json`,
 `training/training_summary.json`, `eval/results/asr_monitor_*.json`, `eval/evaluation_results.json`,
@@ -49,7 +49,7 @@ on 640 rows (identical batches and noise): official N(0, 1) loss 0.4536 (EOS 0.1
 
 ### Multi-script data
 
-`train_mix_aligned.jsonl` (Session 1) already holds every distinct rendering of every training utterance:
+`train_mix_aligned.jsonl` (built by the data pipeline) already holds every distinct rendering of every training utterance:
 16,045 rows from 6,980 utterances (Devanagari 9.67 h, Roman 9.67 h, code-switched 2.96 h of text-audio
 pairs). Renderings identical to another script's (code-switched = Devanagari for all-Hindi sentences,
 code-switched = Roman for all-English ones) are kept once.
@@ -133,9 +133,9 @@ WER 13.66 (English 0.9, Hindi 5.9, code-switched 7.3 CER).
   normaliser, import rewritten to be package-relative), `inference.py`, `requirements.txt`,
   `export_info.json` (sha256 of every file). It reloads the folder through `inference.py` and speaks once.
 - **Voice prompts** (`release.select_voice_prompts`, `eval/results/voice_prompt_search.json`): per speaker the
-  Session 1 clip, another whole sentence and two training-style prefixes (utterance start cut at a word
-  boundary 3.5-5 s in) scored on the selection set (70 texts). ananya keeps the Session 1 clip; meera
-  (10.5 -> 9.2 % CER) and vikram (9.4 -> 8.6 %) take prefixes; aarav's Session 1 clip (best CER, 7.1 %) was
+  original clip, another whole sentence and two training-style prefixes (utterance start cut at a word
+  boundary 3.5-5 s in) scored on the selection set (70 texts). ananya keeps the original clip; meera
+  (10.5 -> 9.2 % CER) and vikram (9.4 -> 8.6 %) take prefixes; aarav's original clip (best CER, 7.1 %) was
   disqualified because at step 3,500 it made 1 / 70 selection generations open with its own last words
   ("मुस्कुरा देती है"), so aarav takes its best leak-free prefix (7.3 %, lower WER).
 - **Front-end default** (`release/inference.py`): danda -> period and a period appended when `. ? !` are
@@ -158,7 +158,7 @@ EMA model through `release/inference.py`, Whisper large-v3-turbo (`hi`). No gene
 | invariance: each sentence rendered as ... (1 voice) | 10.5 | 8.4 | 8.3 | 9.1 / 19.5 |
 
 Per voice (default): ananya 6.0 / 15.2, aarav 6.3 / 16.0, vikram 7.4 / 16.7, meera 9.0 / 22.4. Whisper's own
-error on real held-out recordings: 5.3 / 13.7. The first benchmark run (Session 1 prompts, script kept by
+error on real held-out recordings: 5.3 / 13.7. The first benchmark run (original prompts, script kept by
 default) gave 11.3 / 22.1; the voice-prompt search and the Devanagari default were then decided on the
 selection set and the invariance comparison, and the benchmark was run once more.
 
@@ -194,6 +194,12 @@ every Latin word as English, so Roman Hinglish with a few Devanagari words becam
 majority; none of the 264 normalised benchmark inputs changed. Re-exporting gave tensor-identical weights
 (only the safetensors header's metadata order differs).
 
+Second upload (commit `e23fef3b`, 294 files / 2.22 GB): adds the 12-layer CPU student (`student_12l/`), the demo
+studio (`demo_app.py`, `demo/` with 144 pre-rendered takes), `demo_hinglish_pocket_tts.mp4`, the distillation configs
+and results, and the CPU speed probe; `inference.py` gained `variant=`. The read-token check was repeated against it
+(`release/model_access_verification.json`, now also loading the student in the fresh process), and
+`scripts/verify_read_token.py` checks both private repos with and without the token (`release/read_token_check.json`).
+
 ## 7. Local copies and tests
 
 - `scripts/gpu_sync.sh pull` brings every generated record; `scripts/gpu_sync.sh artifacts` mirrors
@@ -204,11 +210,52 @@ majority; none of the 264 normalised benchmark inputs changed. Re-exporting gave
   `PYTHONPATH=.test_deps:outputs/reference/pocket-tts python3 -m pytest -q -p no:cacheprovider tests/`
 - Local synthesis from the artifacts works:
   `PYTHONPATH=.test_deps:outputs/reference/pocket-tts python3 artifacts/release/inference.py --repo artifacts/release --text "..."`.
+- After the workstation was restored, the git-ignored `artifacts/` keeps the released folder (24-layer model,
+  `student_12l/`, demo files), all generated audio, the training checkpoints behind both releases
+  (`checkpoints/hinglish_24l_ws/checkpoint_00003500.pt`, `checkpoints/hinglish_12l_distill/checkpoint_00006000.pt`, with
+  their run metadata) and the job logs. The studio runs locally with
+  `PYTHONPATH=.test_deps:outputs/reference/pocket-tts python3 demo_app.py` (FastAPI and uvicorn are in `.test_deps`).
 
-## 8. For Session 3 (demo app, workstation restore)
+## 8. CPU speed, distilled students, demo studio, demo video, workstation restore
 
-- The demo can load `artifacts/release` (or the HF repo with the read token). On this laptop the 24-layer model
-  is just slower than real time even in int8 (RTF ~1.1 on 2 cores): stream from the GPU box, pre-generate, or
-  distil a 6-layer student (pocket-tts `training/configs/depth_distill.yaml`, teacher =
-  `runs/hinglish_24l_ws/checkpoint_00003500.pt`) before the workstation is wiped.
-- Restore: `gpu_state_log.md` section 4c / 5 (delete `~/vaani_pocket_tts_work`, verify hashes and counts).
+**Why the 24-layer model ran at RTF ~1.1 on the laptop.** The laptop is a 2-core / 4-thread Xeon 8259CL
+(AWS VM, viewed over Chrome Remote Desktop, whose encoder itself takes 0.5-2 cores while the screen changes).
+pocket-tts runs latent generation and Mimi decoding in two threads and calls `torch.set_num_threads(1)` when it
+is imported. With 2 cores both threads are already busy, so more torch threads only add contention
+(`scripts/cpu_speed_probe.py`, int8: 1 thread RTF 1.05, 2 threads 0.96, 4 threads 1.16 on a quiet screen; 1.24 /
+1.52 for 1 / 2 threads with the screen in use, `eval/results/cpu_speed_local.json`). The bottleneck is the
+24-layer FlowLM step: 75-93 ms (int8) or 155-182 ms (fp32) per 80 ms frame, against 26-40 ms for Mimi. Dynamic int8 halves the FlowLM step and is what `--quantize` / `quantize=True` does at load (~10 s
+on this CPU). A pre-quantised `model_int8` checkpoint would run at exactly the same speed and only skip those
+seconds, while torch's packed int8 weights are tied to the torch version, so none is shipped. `demo_app.py`
+sets one torch thread per two physical cores (1 on this laptop, at most 4) after importing pocket-tts.
+
+**Distilled students** (pocket-tts `depth_distill.yaml` recipe; `configs/distill_hinglish_{6l,12l}.yaml`;
+student seeded from the teacher's non-backbone tensors plus its bottom and top layers; pure depth distillation,
+no CFG; batch 32 x 2; validation in `train_hinglish.py` also scores the student's own flow / EOS losses through
+the frozen heads). Selection-set round-trip ASR (`eval/results/asr_monitor_hinglish_*_distill_selection.json`,
+same 140 generations as the teacher's selection, teacher = 7.99 / 18.76):
+
+| student | steps | best CER / WER | at step | note |
+|---|---|---|---|---|
+| 6 layers | 8,000 | 15.4 / 27.8 | 6,000 | unstable: 44 % at step 5,000 and 29 % at 8,000 (a few English / Roman sentences babble); not shipped |
+| 12 layers | 6,000 | 11.1 / 23.2 | 6,000 | released as `student_12l/` (`variant="12l"`) |
+
+Benchmark of the released 12-layer student (`eval/results/evaluation_results_student_12l.json`, protocol of section
+5): CER / WER 10.7 / 22.2 % with the default front-end (Roman 12.9, Devanagari 10.1, code-switched 8.8 % CER;
+24-layer 7.2 / 17.6), 15.4 / 28.2 % for raw text, no generation without EOS. Speed: RTX 4090 RTF 0.079 (25 ms to
+first audio); i9 CPU int8 4 threads 0.136 (48 ms); 2-core laptop int8 1 thread 0.71 (186 ms, vs 1.24 / 360 ms for
+the 24-layer model).
+
+**Demo studio** (`demo_app.py`, `demo/`): FastAPI + one page. Each model variant has a worker thread that
+owns it (TTSModel is not thread-safe); the newest request stops the one in flight through pocket-tts's stop
+event. An earlier version held a lock across the response generator's `yield`s and deadlocked when a client
+disconnected mid-stream: Starlette never closed the abandoned generator. Preset takes are pre-rendered on the
+GPU (`scripts/build_demo_cache.py`: 9 presets x 4 voices x 2 front-ends x 2 models, one fixed seed each, with
+Whisper transcripts) and served in milliseconds; live takes are replayed from memory.
+
+**Demo video** (`scripts/render_demo_video.py`): six showcase sentences synthesised on the RTX 4090 (the
+soundtrack) and timed again on the i9 CPU with int8 weights, rendered with Pillow + raqm (correct Devanagari
+shaping) and muxed by ffmpeg (H.264 1080p30, AAC 24 kHz); telemetry in `eval/results/demo_video.json`.
+
+**Workstation restore.** After everything was copied back and published, `~/vaani_pocket_tts_work` was deleted
+and the machine checked against the pre-project snapshot (`gpu_state_log.md`, git-ignored).

@@ -1,0 +1,76 @@
+# Depth distillation of the fine-tuned 24-layer Hinglish model into a 12-layer CPU student, with
+# pocket-tts's official recipe (training/configs/depth_distill.yaml): the student's backbone regresses
+# onto the teacher's backbone output on the training data, its flow / EOS heads stay frozen copies of
+# the teacher's. The student starts from the teacher itself (training/scripts/shrink_checkpoint.py:
+# every non-backbone tensor, including the Hinglish text table, plus teacher layers 0-5 and 18-23).
+# distill_cfg_coef 1.0 = pure depth distillation: the 24-layer release is sampled without CFG, so the
+# student learns the same single-pass behaviour.
+#   cd ~/vaani_pocket_tts_work/repo && source ../env.sh
+#   python -m training.train_hinglish configs/distill_hinglish_12l.yaml
+model_config: ~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_12l.yaml
+start_from_pretrained: false
+distill_cfg_coef: 1.0
+distill_teacher_config: ~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_24l.yaml
+distill_teacher_weights: ~/vaani_pocket_tts_work/runs/hinglish_24l_ws/checkpoint_00003500.pt
+distill_teacher_use_ema: true   # the released weights
+
+data:
+  train_jsonl: ~/vaani_pocket_tts_work/data/manifests/train_mix_aligned.jsonl
+  valid_jsonl: ~/vaani_pocket_tts_work/data/manifests/valid_mix_aligned.jsonl
+  max_duration_sec: 15.0
+  max_voice_prompt_sec: 5.0
+
+flow:
+  type: lsd
+  kwargs: {}
+
+# The teacher's targets are always fully conditioned and the student is never run with a null
+# branch, so no conditioning dropout (official recipe).
+text_dropout: 0.0
+voice_dropout: 0.0
+stats_ema_steps: 0           # keep the teacher's latent statistics: the frozen heads expect them
+compile: false               # a ~30 min run: compiling costs more than it saves
+flow_batch_multiplier: 1     # only the validation's flow-loss pass uses it
+
+optim:
+  lr: 4.0e-4                 # unused: hinglish.param_groups sets every group's lr
+  weight_decay: 0.1
+  warmup_steps: 0
+
+run_dir: ~/vaani_pocket_tts_work/runs/hinglish_12l_distill
+batch_size: 32
+grad_accum_steps: 2          # effective batch 64 (official recipe); batch 64 peaks at 17 GiB
+max_steps: 6000
+ema_decay: 0.999
+log_freq: 50
+valid_freq: 1000
+num_valid_batches: 11        # 11 x 32 = 352 of each script's 380 validation rows
+ckpt_freq: 1000
+num_ckpt_keep: 20            # keep every checkpoint: the best one is picked by round-trip ASR
+sample_freq: 2000
+sample_temp: 0.3
+sample_cfg_coef: 1.0
+sample_sentences:
+  - "कई डेटिंग सर्विस ऐप पर आपके लोकेशन की जानकारी भी ली जाती है."
+  - "Kayi dating sarvis aip par aapke location ki jaankaari bhi li jaati hai."
+  - "कई dating सर्विस ऐप पर आपके location की जानकारी भी ली जाती है."
+  - "ये भारत का इस कॉमनवेल्थ गेम्स के वेटलिफ्टिंग इवेंट में छठां मेडल है."
+  - "Ye bhaarat ka is commonwealth games ke weightlifting event mein chhathan medal hai."
+  - "ये भारत का इस commonwealth games के weightlifting event में छठां मेडल है."
+
+hinglish:
+  # Seeded from the teacher, so no stage-1 freeze: the backbone gets the official distillation peak
+  # (4e-4, screened by kyutai) after a short warmup; the already-trained text table moves gently.
+  # The heads are frozen by the distillation setup (no trainable parameters in that group).
+  param_groups:
+    text_embedding: {peak_lr: 1.0e-4, start_step: 0, warmup_steps: 300}
+    backbone: {peak_lr: 4.0e-4, start_step: 0, warmup_steps: 300}
+    heads: {peak_lr: 4.0e-4, start_step: 0, warmup_steps: 300}
+  lr_floor_ratio: 0.1
+  valid_manifests:
+    deva: ~/vaani_pocket_tts_work/data/manifests/valid_deva_aligned.jsonl
+    roman: ~/vaani_pocket_tts_work/data/manifests/valid_roman_aligned.jsonl
+    cs: ~/vaani_pocket_tts_work/data/manifests/valid_cs_aligned.jsonl
+  sample_voices:
+    indian_female: ~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_female__hi.safetensors
+    indian_male: ~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_male__hi.safetensors

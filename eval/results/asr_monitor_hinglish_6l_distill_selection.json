@@ -1,0 +1,848 @@
+{
+  "run": "hinglish_6l_distill",
+  "model_config": "~/vaani_pocket_tts_work/repo/configs/hinglish_pocket_tts_6l.yaml",
+  "monitor_set": "eval/selection_set.json",
+  "voices": {
+    "indian_female": "~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_female__hi.wav",
+    "indian_male": "~/vaani_pocket_tts_work/data/voice_prompts/indictts_hindifull_male__hi.wav"
+  },
+  "asr": {
+    "model": "openai/whisper-large-v3-turbo",
+    "language": "hi; en for English-matrix utterances"
+  },
+  "asr_floor": {
+    "cer": 0.0527,
+    "wer": 0.1366,
+    "n": 30,
+    "per_utt": [
+      {
+        "utt_id": "indictts_hindi_train_hindifemale_02476",
+        "ref": "लेकिन उनका जवाब था कि कैसे भूल जाएं इंसाफ होगा तो भूल जाएंगे",
+        "hyp": "लेकिन उनका जवाब था कि कैसे भूल जाएं इनसाफ होगा तो भूल जाएंगे",
+        "cer": 0.020833333333333332,
+        "wer": 0.07692307692307693
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifullfemale_01999",
+        "ref": "उंहोंने बीरबल की बेटी को देखा तथा उसका स्वागत किया",
+        "hyp": "उंहोंने बीरबल की बेटी को देखा तथा उसका स्वागत किया",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "syspin_hindi_male_sample_285",
+        "ref": "मनाली में बीते साल दिसंबर में भारी हिमपात दर्ज हुआ है",
+        "hyp": "मनाली में बीते साल दिसंबर में भारी हिमपात दर्ज हुआ है",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifemale_02642",
+        "ref": "इसकी सबसे अच्छी मिसाल हैं फिलिप नाम के शख्स",
+        "hyp": "इसकी सबसे अच्छी मिसाल है फिलिप नाम के शक्स",
+        "cer": 0.05714285714285714,
+        "wer": 0.2222222222222222
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindimale_00697",
+        "ref": "पर अब मां की अस्वस्थता की वजह से उसे जोधपुर पोस्टिंग करवानी पडी",
+        "hyp": "पर अब मा की अस्वस्तता की वजह से उसे जोधपूर पोस्टिंग करवानी पडी",
+        "cer": 0.058823529411764705,
+        "wer": 0.23076923076923078
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifullmale_03510",
+        "ref": "इंदिरा गांधी की नजरें फाइलों पर नीचे गडी हुई थीं",
+        "hyp": "इंदेरा गांधी की नजरें फाइलों पर मीचे गडी हुई थी",
+        "cer": 0.07692307692307693,
+        "wer": 0.3
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindimale_01009",
+        "ref": "मैंने शिथिल होकर खबर दी थी कि मुझे तीसरा महीना चढा है",
+        "hyp": "मैंने शित्हिल होकर खबर दी थी कि मुझे तीसरा महीना चडा है",
+        "cer": 0.09523809523809523,
+        "wer": 0.16666666666666666
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifemale_02218",
+        "ref": "वे तोते हर रोज सुबह हजारों मील की यात्रा पर जाते",
+        "hyp": "वे तोते हर रोज सुभा हजारों मील की यात्रा पर जाते",
+        "cer": 0.05263157894736842,
+        "wer": 0.09090909090909091
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifemale_01418",
+        "ref": "उस अलौकिक प्राणी ने कहा और एक दूसरे विडियो के साथ वह अदृश्य हो गई",
+        "hyp": "उस अलोक एक प्राणी ने कहा और एक दूसरे वीडियो के साथ वह अद्रिश्य हो गई",
+        "cer": 0.11764705882352941,
+        "wer": 0.26666666666666666
+      },
+      {
+        "utt_id": "syspin_hindi_female_sample_11222",
+        "ref": "ब्रौनकियल नलियां या ब्रौंकाई श्वास की नली को फेफडों के साथ जोडती हैं",
+        "hyp": "ब्रोंकियल नलियां या ब्रोंकाई श्वासकी नली को फेफडे के साथ जोडती है",
+        "cer": 0.10714285714285714,
+        "wer": 0.46153846153846156
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullmale_01728",
+        "ref": "ही सेज ही बोट हिम ओफ जाक ला बो",
+        "hyp": "ही सेज ही बोट हिम ओफ जाक लिबओ",
+        "cer": 0.09090909090909091,
+        "wer": 0.2222222222222222
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullmale_01480",
+        "ref": "द वाइज इंडीड से वन शुड नोट बिल्ड कैसल्ज इन द एर",
+        "hyp": "द वाइज इंडीड से वन शुड नोट बिल्ड कैसल्ज इन द एर",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullmale_01525",
+        "ref": "फोर द ट्वेंटिअथ टाइम दैट ईव्निंग द टू मेन शुक हैंड्ज",
+        "hyp": "फोर द ट्वेंटिअथ टाइम दैट ईव्निंग द टू मेन शुक हैंड्ज",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullfemale_03586",
+        "ref": "द मंकी सर्व्ड द किंग इन वटेवर वे ही कुड",
+        "hyp": "द मंकी सर्व्ड द किंग इन वटेवर वे ही कुड",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_rajasthanifemale_00057",
+        "ref": "आई हैव नो आइडीआ रिप्लाइड फिलप",
+        "hyp": "आई हैव नो आइडीआ रिप्लाइड फिलप",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_marathimale_00354",
+        "ref": "आई कैंट आर्ग्यू विद यू एंड यू नो दैट",
+        "hyp": "आई कैंट आर्ग्यू विद यू एंड यू नो दैट",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullfemale_06163",
+        "ref": "अलोंग विद देम ही स्टार्टिड सर्विंग ऐट द रोइअल हाउस्होल्ड",
+        "hyp": "अलोंग विद देम ही स्टार्टिड सर्विंग ऐट द रोइअल हाउस्होल्ड",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_hindifullmale_06510",
+        "ref": "द फर्स्ट पीस विल हेल्प अस मीट आवर डेली नीड्ज",
+        "hyp": "द फर्स्ट पीस विल हेल्प अस मीट आवर डेली नीड्ज",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_rajasthanimale_00021",
+        "ref": "इट फेर्ली क्लब्ड मी इंटू रेकगनाइजिंग इट",
+        "hyp": "इट फेर्ली क्लब्ड मी इंटू रेकगनाइजिंग इट",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "indictts_english_train_rajasthanifemale_03732",
+        "ref": "वी आर नाउ लिविंग इन द एज ओफ काली एंड एज इन व्हिच एव्रिवन इज अ बोर्न सिनर",
+        "hyp": "वी आर नाउ लिविंग इन द एज ओफ काली एंड एज इन व्हिच एव्रिवन इज अ बोर्न सिनर",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "openslr104_hinglish_503577_Ym6wFcvsJRHzm4yq_0037",
+        "ref": "जब आप पहले आइड लोंच करते हैं तो यह नेत्बेअंस स्टार्ट पेज खोलता है",
+        "hyp": "जब आप पहले आईडी लोंच करते हैं तो यह नेत्बेअन स्टार्ट पेज खोलता है",
+        "cer": 0.07692307692307693,
+        "wer": 0.14285714285714285
+      },
+      {
+        "utt_id": "indictts_hindi_train_hindifullfemale_03667",
+        "ref": "एस्टर ने मौत के कुछ घंटे पहले ही वोट दे दिया",
+        "hyp": "एस्टर ने मौत के कुछ घंटे पहले ही वोट दे दिया",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "openslr104_hinglish_283968_KIW3IG6NFcUd1PXR_0032",
+        "ref": "इसी तरह इंवोइस प्राइसज आर के लिए कोहा डिफोल्ट रूप से रुपी चुनता है",
+        "hyp": "इस तरह इंवोइस प्राइसज आर के लिए कोहा डिफोल्ट रुप से रुपी चुनता है",
+        "cer": 0.03773584905660377,
+        "wer": 0.14285714285714285
+      },
+      {
+        "utt_id": "syspin_hindi_male_sample_12503",
+        "ref": "रेडियो पर ये कमेंट्री एक ब्रिटिश स्टेटिशियन सांख्यिकीविद फ्र्यांक डकवर्थ भी सुन रहे थे",
+        "hyp": "रेडियो पर ये कमेंटरी एक बिटिस स्टैटीशियन सांखिकी विद फ्रैंक डखवर्थ भी सुन रहे थे",
+        "cer": 0.1643835616438356,
+        "wer": 0.5
+      },
+      {
+        "utt_id": "openslr104_hinglish_793133_HMFm7Xu9SeBxybV1_0025",
+        "ref": "अब अपनी शीट में डेज नेंड नाउ हेडिंग प्रविष्ट करें",
+        "hyp": "अब अपनी शीट में डेज नामक नई हेडिंग प्रविष्ट करें",
+        "cer": 0.125,
+        "wer": 0.2
+      },
+      {
+        "utt_id": "openslr104_hinglish_277289_Z9cD5IbaDytwMt6R_0000",
+        "ref": "जावा में नुमेरकल डेटाटाइप पर स्पोकन ट्यूटोरियल में आपका स्वागत है",
+        "hyp": "जावा में नुमेरकल डेटा टाइप पर स्पोकन ट्यूटोरियल में आपका स्वागत है",
+        "cer": 0.0,
+        "wer": 0.18181818181818182
+      },
+      {
+        "utt_id": "syspin_hindi_female_sample_11218",
+        "ref": "हमें अपना सुरक्षातंत्र मजबूत करने के लिए डिफेंस बजट बढाने की जरूरत है लेकिन इसके लिए राजस्व को बढाना होगा",
+        "hyp": "हामें अपना सुरक्षा तंत्र मजबूत करने के लिए डिफेंस बचट बढाने की जरूरत है लेकिन इसके लिए राजस्व को बढाना होगा",
+        "cer": 0.023255813953488372,
+        "wer": 0.2
+      },
+      {
+        "utt_id": "openslr104_hinglish_126437_RYJ2gSQyCu0PM2cq_0066",
+        "ref": "इंटजर एक क्लैस है और पर्सेंत इसका मेथड है",
+        "hyp": "इंटजर एक क्लैस है और पर्सेंत इसका मेथड है",
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      {
+        "utt_id": "openslr104_hinglish_518517_i7hdc0miWtsXu5vj_0030",
+        "ref": "अब सीखते हैं कि इमज का आकार और रूप कैसे बदलें",
+        "hyp": "अब सीखते हैं कि इमज का अकार और रूप कैसे बदलें",
+        "cer": 0.02857142857142857,
+        "wer": 0.09090909090909091
+      },
+      {
+        "utt_id": "openslr104_hinglish_262158_ApzjEg6YUzqQtEnL_0003",
+        "ref": "इस ट्यूटोरियल में हम देखेंगे कि रेग्यलर फाइल्स को कैसे संभालें",
+        "hyp": "में हम देखेंगे कि रेगिलर फाइल्स को कैसे संभालें",
+        "cer": 0.2692307692307692,
+        "wer": 0.2727272727272727
+      }
+    ]
+  },
+  "steps": [
+    {
+      "step": 1000,
+      "checkpoint": "checkpoint_00001000.pt",
+      "time": "2026-10-26 22:57:41",
+      "overall": {
+        "cer": 1.716,
+        "wer": 1.5437,
+        "n": 140,
+        "no_eos": 30,
+        "duration_ratio": 1.113,
+        "rtf_gpu": 0.3032
+      },
+      "script=cs": {
+        "cer": 1.6764,
+        "wer": 1.332,
+        "n": 20,
+        "no_eos": 2,
+        "duration_ratio": 0.891,
+        "rtf_gpu": 0.3008
+      },
+      "script=deva": {
+        "cer": 1.5921,
+        "wer": 1.0247,
+        "n": 60,
+        "no_eos": 12,
+        "duration_ratio": 1.104,
+        "rtf_gpu": 0.299
+      },
+      "script=roman": {
+        "cer": 1.8544,
+        "wer": 2.1395,
+        "n": 60,
+        "no_eos": 16,
+        "duration_ratio": 1.197,
+        "rtf_gpu": 0.3075
+      },
+      "language=en": {
+        "cer": 2.2997,
+        "wer": 1.7108,
+        "n": 40,
+        "no_eos": 10,
+        "duration_ratio": 1.171,
+        "rtf_gpu": 0.3154
+      },
+      "language=hi": {
+        "cer": 1.1386,
+        "wer": 1.0662,
+        "n": 40,
+        "no_eos": 7,
+        "duration_ratio": 1.103,
+        "rtf_gpu": 0.3152
+      },
+      "language=hi-en": {
+        "cer": 1.783,
+        "wer": 1.7507,
+        "n": 60,
+        "no_eos": 13,
+        "duration_ratio": 1.081,
+        "rtf_gpu": 0.289
+      },
+      "voice=indian_female": {
+        "cer": 1.6294,
+        "wer": 1.4293,
+        "n": 70,
+        "no_eos": 17,
+        "duration_ratio": 1.045,
+        "rtf_gpu": 0.3158
+      },
+      "voice=indian_male": {
+        "cer": 1.8026,
+        "wer": 1.6581,
+        "n": 70,
+        "no_eos": 13,
+        "duration_ratio": 1.181,
+        "rtf_gpu": 0.2916
+      }
+    },
+    {
+      "step": 2000,
+      "checkpoint": "checkpoint_00002000.pt",
+      "time": "2026-10-26 23:01:35",
+      "overall": {
+        "cer": 0.4785,
+        "wer": 0.6242,
+        "n": 140,
+        "no_eos": 1,
+        "duration_ratio": 0.796,
+        "rtf_gpu": 0.3054
+      },
+      "script=cs": {
+        "cer": 0.5331,
+        "wer": 0.712,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.784,
+        "rtf_gpu": 0.281
+      },
+      "script=deva": {
+        "cer": 0.4366,
+        "wer": 0.5654,
+        "n": 60,
+        "no_eos": 1,
+        "duration_ratio": 0.802,
+        "rtf_gpu": 0.3124
+      },
+      "script=roman": {
+        "cer": 0.4989,
+        "wer": 0.6512,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.794,
+        "rtf_gpu": 0.3073
+      },
+      "language=en": {
+        "cer": 0.4723,
+        "wer": 0.5245,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.776,
+        "rtf_gpu": 0.3202
+      },
+      "language=hi": {
+        "cer": 0.4147,
+        "wer": 0.5983,
+        "n": 40,
+        "no_eos": 1,
+        "duration_ratio": 0.855,
+        "rtf_gpu": 0.3149
+      },
+      "language=hi-en": {
+        "cer": 0.5181,
+        "wer": 0.6947,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.77,
+        "rtf_gpu": 0.2909
+      },
+      "voice=indian_female": {
+        "cer": 0.4753,
+        "wer": 0.6335,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.77,
+        "rtf_gpu": 0.3172
+      },
+      "voice=indian_male": {
+        "cer": 0.4817,
+        "wer": 0.615,
+        "n": 70,
+        "no_eos": 1,
+        "duration_ratio": 0.822,
+        "rtf_gpu": 0.2944
+      }
+    },
+    {
+      "step": 3000,
+      "checkpoint": "checkpoint_00003000.pt",
+      "time": "2026-10-26 23:05:50",
+      "overall": {
+        "cer": 0.3071,
+        "wer": 0.4096,
+        "n": 140,
+        "no_eos": 1,
+        "duration_ratio": 0.901,
+        "rtf_gpu": 0.3014
+      },
+      "script=cs": {
+        "cer": 0.3138,
+        "wer": 0.468,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.883,
+        "rtf_gpu": 0.2894
+      },
+      "script=deva": {
+        "cer": 0.2032,
+        "wer": 0.3052,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.894,
+        "rtf_gpu": 0.3042
+      },
+      "script=roman": {
+        "cer": 0.4075,
+        "wer": 0.4927,
+        "n": 60,
+        "no_eos": 1,
+        "duration_ratio": 0.913,
+        "rtf_gpu": 0.3028
+      },
+      "language=en": {
+        "cer": 0.2557,
+        "wer": 0.3039,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.838,
+        "rtf_gpu": 0.3186
+      },
+      "language=hi": {
+        "cer": 0.2093,
+        "wer": 0.3846,
+        "n": 40,
+        "no_eos": 1,
+        "duration_ratio": 0.99,
+        "rtf_gpu": 0.3168
+      },
+      "language=hi-en": {
+        "cer": 0.3868,
+        "wer": 0.4827,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.883,
+        "rtf_gpu": 0.2814
+      },
+      "voice=indian_female": {
+        "cer": 0.3578,
+        "wer": 0.4121,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.858,
+        "rtf_gpu": 0.3185
+      },
+      "voice=indian_male": {
+        "cer": 0.2563,
+        "wer": 0.4071,
+        "n": 70,
+        "no_eos": 1,
+        "duration_ratio": 0.944,
+        "rtf_gpu": 0.2857
+      }
+    },
+    {
+      "step": 4000,
+      "checkpoint": "checkpoint_00004000.pt",
+      "time": "2026-10-26 23:10:10",
+      "overall": {
+        "cer": 0.1918,
+        "wer": 0.3241,
+        "n": 140,
+        "no_eos": 0,
+        "duration_ratio": 0.939,
+        "rtf_gpu": 0.3032
+      },
+      "script=cs": {
+        "cer": 0.2437,
+        "wer": 0.42,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.918,
+        "rtf_gpu": 0.2995
+      },
+      "script=deva": {
+        "cer": 0.1578,
+        "wer": 0.2689,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.934,
+        "rtf_gpu": 0.3021
+      },
+      "script=roman": {
+        "cer": 0.2055,
+        "wer": 0.3445,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.951,
+        "rtf_gpu": 0.3056
+      },
+      "language=en": {
+        "cer": 0.1733,
+        "wer": 0.1814,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.895,
+        "rtf_gpu": 0.3123
+      },
+      "language=hi": {
+        "cer": 0.1285,
+        "wer": 0.3077,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 1.006,
+        "rtf_gpu": 0.3107
+      },
+      "language=hi-en": {
+        "cer": 0.2367,
+        "wer": 0.412,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.923,
+        "rtf_gpu": 0.2932
+      },
+      "voice=indian_female": {
+        "cer": 0.2044,
+        "wer": 0.3346,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.909,
+        "rtf_gpu": 0.3142
+      },
+      "voice=indian_male": {
+        "cer": 0.1792,
+        "wer": 0.3137,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.969,
+        "rtf_gpu": 0.2928
+      }
+    },
+    {
+      "step": 5000,
+      "checkpoint": "checkpoint_00005000.pt",
+      "time": "2026-10-26 23:14:34",
+      "overall": {
+        "cer": 0.4425,
+        "wer": 0.8253,
+        "n": 140,
+        "no_eos": 0,
+        "duration_ratio": 0.944,
+        "rtf_gpu": 0.2987
+      },
+      "script=cs": {
+        "cer": 0.2135,
+        "wer": 0.344,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.93,
+        "rtf_gpu": 0.2984
+      },
+      "script=deva": {
+        "cer": 0.4488,
+        "wer": 0.8532,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.944,
+        "rtf_gpu": 0.2999
+      },
+      "script=roman": {
+        "cer": 0.5254,
+        "wer": 0.9724,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.949,
+        "rtf_gpu": 0.2977
+      },
+      "language=en": {
+        "cer": 1.353,
+        "wer": 2.2917,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.909,
+        "rtf_gpu": 0.2856
+      },
+      "language=hi": {
+        "cer": 0.1246,
+        "wer": 0.2842,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.981,
+        "rtf_gpu": 0.3122
+      },
+      "language=hi-en": {
+        "cer": 0.2112,
+        "wer": 0.3653,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.944,
+        "rtf_gpu": 0.2969
+      },
+      "voice=indian_female": {
+        "cer": 0.7265,
+        "wer": 1.3788,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.908,
+        "rtf_gpu": 0.3127
+      },
+      "voice=indian_male": {
+        "cer": 0.1585,
+        "wer": 0.2718,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.981,
+        "rtf_gpu": 0.2857
+      }
+    },
+    {
+      "step": 6000,
+      "checkpoint": "checkpoint_00006000.pt",
+      "time": "2026-10-26 23:18:57",
+      "overall": {
+        "cer": 0.1544,
+        "wer": 0.278,
+        "n": 140,
+        "no_eos": 0,
+        "duration_ratio": 0.95,
+        "rtf_gpu": 0.3047
+      },
+      "script=cs": {
+        "cer": 0.2027,
+        "wer": 0.356,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.93,
+        "rtf_gpu": 0.3157
+      },
+      "script=deva": {
+        "cer": 0.1207,
+        "wer": 0.2137,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.947,
+        "rtf_gpu": 0.3036
+      },
+      "script=roman": {
+        "cer": 0.1691,
+        "wer": 0.314,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.96,
+        "rtf_gpu": 0.3018
+      },
+      "language=en": {
+        "cer": 0.1101,
+        "wer": 0.1348,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.91,
+        "rtf_gpu": 0.2853
+      },
+      "language=hi": {
+        "cer": 0.0982,
+        "wer": 0.2692,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 1.012,
+        "rtf_gpu": 0.305
+      },
+      "language=hi-en": {
+        "cer": 0.207,
+        "wer": 0.3613,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.935,
+        "rtf_gpu": 0.3149
+      },
+      "voice=indian_female": {
+        "cer": 0.17,
+        "wer": 0.2964,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.916,
+        "rtf_gpu": 0.3141
+      },
+      "voice=indian_male": {
+        "cer": 0.1388,
+        "wer": 0.2595,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.984,
+        "rtf_gpu": 0.2958
+      }
+    },
+    {
+      "step": 7000,
+      "checkpoint": "checkpoint_00007000.pt",
+      "time": "2026-10-26 23:22:13",
+      "overall": {
+        "cer": 0.1566,
+        "wer": 0.278,
+        "n": 140,
+        "no_eos": 0,
+        "duration_ratio": 0.954,
+        "rtf_gpu": 0.2034
+      },
+      "script=cs": {
+        "cer": 0.2154,
+        "wer": 0.352,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.927,
+        "rtf_gpu": 0.1792
+      },
+      "script=deva": {
+        "cer": 0.1203,
+        "wer": 0.2166,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.946,
+        "rtf_gpu": 0.2093
+      },
+      "script=roman": {
+        "cer": 0.1698,
+        "wer": 0.3125,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.971,
+        "rtf_gpu": 0.2059
+      },
+      "language=en": {
+        "cer": 0.0909,
+        "wer": 0.1078,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.935,
+        "rtf_gpu": 0.1787
+      },
+      "language=hi": {
+        "cer": 0.1055,
+        "wer": 0.2714,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 1.001,
+        "rtf_gpu": 0.2565
+      },
+      "language=hi-en": {
+        "cer": 0.216,
+        "wer": 0.3747,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.936,
+        "rtf_gpu": 0.1811
+      },
+      "voice=indian_female": {
+        "cer": 0.1732,
+        "wer": 0.2927,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.919,
+        "rtf_gpu": 0.3148
+      },
+      "voice=indian_male": {
+        "cer": 0.1401,
+        "wer": 0.2632,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.989,
+        "rtf_gpu": 0.0998
+      }
+    },
+    {
+      "step": 8000,
+      "checkpoint": "checkpoint_00008000.pt",
+      "time": "2026-10-26 23:27:02",
+      "overall": {
+        "cer": 0.2943,
+        "wer": 0.5498,
+        "n": 140,
+        "no_eos": 0,
+        "duration_ratio": 0.954,
+        "rtf_gpu": 0.3434
+      },
+      "script=cs": {
+        "cer": 0.193,
+        "wer": 0.352,
+        "n": 20,
+        "no_eos": 0,
+        "duration_ratio": 0.927,
+        "rtf_gpu": 0.338
+      },
+      "script=deva": {
+        "cer": 0.1138,
+        "wer": 0.2151,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.956,
+        "rtf_gpu": 0.3438
+      },
+      "script=roman": {
+        "cer": 0.5129,
+        "wer": 0.9564,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.962,
+        "rtf_gpu": 0.3448
+      },
+      "language=en": {
+        "cer": 0.7216,
+        "wer": 1.2059,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 0.925,
+        "rtf_gpu": 0.3455
+      },
+      "language=hi": {
+        "cer": 0.1016,
+        "wer": 0.2692,
+        "n": 40,
+        "no_eos": 0,
+        "duration_ratio": 1.009,
+        "rtf_gpu": 0.3441
+      },
+      "language=hi-en": {
+        "cer": 0.2109,
+        "wer": 0.368,
+        "n": 60,
+        "no_eos": 0,
+        "duration_ratio": 0.938,
+        "rtf_gpu": 0.3417
+      },
+      "voice=indian_female": {
+        "cer": 0.4406,
+        "wer": 0.8376,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.922,
+        "rtf_gpu": 0.3432
+      },
+      "voice=indian_male": {
+        "cer": 0.148,
+        "wer": 0.262,
+        "n": 70,
+        "no_eos": 0,
+        "duration_ratio": 0.987,
+        "rtf_gpu": 0.3435
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""Check that Session 2 can start training immediately, using pocket-tts's own code paths.
+"""Check that fine-tuning can start immediately, using pocket-tts's own code paths.
 
 1. the training config parses (training.args.load_args) and the model config validates;
 2. the tokenizer has exactly lookup_table.n_bins pieces;

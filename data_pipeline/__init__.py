@@ -1,1 +1,1 @@
-"""Data pipeline for the IISc Hinglish Pocket TTS fine-tune (Session 1)."""
+"""Data pipeline for the IISc Hinglish Pocket TTS fine-tune: sources, curation, alignment, tokenizer, latents."""
